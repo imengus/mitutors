@@ -7,7 +7,7 @@
 <title>Mete &middot; Ilkin | Medical school interview tutoring</title>
 <meta name="description" content="One-to-one UK medical school interview preparation from two third-year medical students at UCL and the University of Bristol. MMI and panel practice, detailed feedback, from £25/hr.">
 <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
-<link rel="stylesheet" href="dist/assets/index-BLf2CF05.css">
+<link rel="stylesheet" href="dist/assets/index-DRcfi-Qz.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -121,6 +121,50 @@
 <!-- Mobile overrides: plain CSS, so they work with any Tailwind version, config or build -->
 <style>
   .hdr-short { display: none; }
+
+  /* ---------- Nav links: gold underline that sweeps in, plus an active-section state ---------- */
+  .hdr-link { position: relative; }
+  .hdr-link::after {
+    content: ""; position: absolute; left: 1rem; right: 1rem; bottom: 0.22rem; height: 2px; border-radius: 9999px;
+    background: #E2C98F; transform: scaleX(0); transform-origin: center; transition: transform 300ms ease;
+  }
+  .hdr-link:hover::after, .hdr-link[aria-current="true"]::after { transform: scaleX(1); }
+  .hdr-link[aria-current="true"] { color: #F4F2EE; }
+  .hdr-cta[aria-current="true"] { background: rgba(205,176,122,0.16); }
+  .hdr-link:focus-visible, .hdr-cta:focus-visible, .logo:focus-visible { outline: 2px solid #E2C98F; outline-offset: 3px; }
+
+  /* ---------- Logo: small hover response ---------- */
+  .logo-mi, .logo-tutors { display: inline-block; transition: transform 300ms ease, letter-spacing 300ms ease, color 300ms ease; }
+  .logo:hover .logo-tutors, .logo:focus-visible .logo-tutors { letter-spacing: 0.06em; color: #E2C98F; }
+  @media (prefers-reduced-motion: no-preference) {
+    .logo:hover .logo-mi { transform: translateY(-2px) skewX(-4deg); }
+    .hdr-link:hover, .hdr-cta:hover { transform: translateY(-1px); }
+    .hdr-link, .hdr-cta { transition-property: background-color, color, box-shadow, transform; }
+    html { scroll-behavior: smooth; }
+  }
+
+  /* ---------- Desktop only: header tightens on scroll, with a thin reading-progress line ---------- */
+  @media (min-width: 52.01rem) {
+    .site-header { transition: box-shadow 300ms ease; }
+    .hdr-inner { transition: min-height 300ms ease; }
+    .logo { transform-origin: left center; transition: transform 300ms ease; }
+    .site-header.is-scrolled .hdr-inner { min-height: 3.25rem; }
+    .site-header.is-scrolled .logo { transform: scale(0.9); }
+    .site-header.is-scrolled { box-shadow: 0 14px 30px -14px rgba(0,0,0,0.75); }
+  }
+  @supports (animation-timeline: scroll()) {
+    @media (min-width: 52.01rem) and (prefers-reduced-motion: no-preference) {
+      .site-header::after {
+        content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px;
+        background: linear-gradient(90deg, rgba(226,201,143,0.25), #E2C98F);
+        transform: scaleX(0); transform-origin: left;
+        animation: hdrProgress linear both; animation-timeline: scroll(root);
+      }
+    }
+  }
+  @keyframes hdrProgress { to { transform: scaleX(1); } }
+
+  /* ---------- Mobile ---------- */
   @media (max-width: 52rem) {
     .site-header { position: static !important; box-shadow: none !important; }
     .hdr-inner {
@@ -132,10 +176,15 @@
       gap: 0.25rem !important;
       padding-block: 0.75rem !important;
     }
-    .hdr-nav { display: flex !important; width: 100%; justify-content: space-between; gap: 0.25rem !important; font-size: 0.88rem !important; }
-    .hdr-nav a { flex: 1; text-align: center; white-space: nowrap; padding-inline: 0.5rem !important; }
+    .hdr-nav { display: flex !important; width: 100%; justify-content: space-between; gap: 0.2rem !important; font-size: 0.86rem !important; }
+    .hdr-nav a { flex: 1 1 0; min-width: 0; text-align: center; white-space: nowrap; padding-inline: 0.35rem !important; }
+    .hdr-link::after { left: 0.35rem; right: 0.35rem; bottom: 0.1rem; }
     .hdr-long { display: none; }
     .hdr-short { display: inline; }
+  }
+  @media (max-width: 24rem) {
+    .hdr-nav { font-size: 0.8rem !important; gap: 0.1rem !important; }
+    .hdr-nav a { padding-inline: 0.2rem !important; }
   }
 </style>
 
@@ -143,18 +192,51 @@
   <div class="hdr-inner w-[min(70rem,100%_-_3rem)] mx-auto flex items-center justify-between gap-4 min-h-[4rem]">
     <a class="logo flex flex-col no-underline shrink-0 py-1.5" href="#top" aria-label="Mete &amp; Ilkin Tutors">
       <span class="flex items-baseline gap-[0.3em] font-serif font-semibold leading-none text-[2rem]" aria-hidden="true">
-        <span class="italic tracking-[-0.03em]"><span class="text-onchar">m</span><span class="text-goldonchar">i</span></span>
-        <span class="text-onchar tracking-[0.02em]">tutors</span>
+        <span class="logo-mi italic tracking-[-0.03em]"><span class="text-onchar">m</span><span class="text-goldonchar">i</span></span>
+        <span class="logo-tutors text-onchar tracking-[0.02em]">tutors</span>
       </span>
       <span class="hidden sm:block mt-1.5 text-[0.58rem] font-medium uppercase tracking-[0.34em] text-oncharmuted" aria-hidden="true">Mete <span class="text-goldonchar">&middot;</span> Ilkin</span>
     </a>
     <nav class="hdr-nav flex gap-1 text-[0.92rem] font-medium" aria-label="Main">
-      <a class="no-underline text-oncharmuted rounded-full px-4 py-1.5 transition duration-300 hover:bg-[rgba(244,242,238,0.08)] hover:text-onchar" href="#statement"><span class="hdr-long">Our statement</span><span class="hdr-short">Statement</span></a>
-      <a class="no-underline text-oncharmuted rounded-full px-4 py-1.5 transition duration-300 hover:bg-[rgba(244,242,238,0.08)] hover:text-onchar" href="#tutors">Meet us</a>
-      <a class="no-underline text-goldonchar rounded-full px-4 py-1.5 ring-1 ring-[rgba(205,176,122,0.4)] transition duration-300 hover:bg-[rgba(205,176,122,0.12)] hover:shadow-gold" href="#pricing"><span class="hdr-long">Pricing &amp; contact</span><span class="hdr-short">Pricing</span></a>
+      <a class="hdr-link no-underline text-oncharmuted rounded-full px-4 py-1.5 transition duration-300 hover:bg-[rgba(244,242,238,0.08)] hover:text-onchar" href="#statement"><span class="hdr-long">Our statement</span><span class="hdr-short">Statement</span></a>
+      <a class="hdr-link no-underline text-oncharmuted rounded-full px-4 py-1.5 transition duration-300 hover:bg-[rgba(244,242,238,0.08)] hover:text-onchar" href="#tutors">Meet us</a>
+      <a class="hdr-link no-underline text-oncharmuted rounded-full px-4 py-1.5 transition duration-300 hover:bg-[rgba(244,242,238,0.08)] hover:text-onchar" href="#stories"><span class="hdr-long">How we got in</span><span class="hdr-short">Our story</span></a>
+      <a class="hdr-cta no-underline text-goldonchar rounded-full px-4 py-1.5 ring-1 ring-[rgba(205,176,122,0.4)] transition duration-300 hover:bg-[rgba(205,176,122,0.12)] hover:shadow-gold" href="#pricing"><span class="hdr-long">Pricing &amp; contact</span><span class="hdr-short">Pricing</span></a>
     </nav>
   </div>
 </header>
+
+<script>
+  (function () {
+    var header = document.querySelector('.site-header');
+    if (!header) return;
+
+    // Tighten the header once the page is scrolled
+    function onScroll() { header.classList.toggle('is-scrolled', window.scrollY > 24); }
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // Highlight the nav link for the section currently in view
+    var links = Array.prototype.slice.call(header.querySelectorAll('.hdr-link, .hdr-cta'));
+    var map = {};
+    links.forEach(function (a) { map[a.getAttribute('href')] = a; });
+    if (!('IntersectionObserver' in window)) return;
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        links.forEach(function (a) { a.removeAttribute('aria-current'); });
+        var active = map['#' + e.target.id];
+        if (active) active.setAttribute('aria-current', 'true');
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+
+    ['statement', 'tutors', 'stories', 'pricing'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) io.observe(el);
+    });
+  })();
+</script>
 
 <style>
   .hero-photos { display: none; }
@@ -282,7 +364,7 @@
     </div>
   </section>
  
-<section class="py-12 md:py-[clamp(4rem,9vw,6.5rem)] bg-char bg-[radial-gradient(ellipse_at_50%_0%,rgba(205,176,122,0.12),transparent_55%),radial-gradient(ellipse_at_100%_100%,rgba(205,176,122,0.08),transparent_50%)] text-onchar border-y border-[rgba(205,176,122,0.2)]" id="tutors">
+<!-- <section class="py-12 md:py-[clamp(4rem,9vw,6.5rem)] bg-char bg-[radial-gradient(ellipse_at_50%_0%,rgba(205,176,122,0.12),transparent_55%),radial-gradient(ellipse_at_100%_100%,rgba(205,176,122,0.08),transparent_50%)] text-onchar border-y border-[rgba(205,176,122,0.2)]" id="tutors">
     <div class="w-[calc(100%_-_2.5rem)] md:w-[min(70rem,100%_-_3rem)] mx-auto">
       <h2 class="font-serif font-medium text-[clamp(2.2rem,4.4vw,3rem)] leading-[1.1] mb-6 md:mb-10 text-onchar after:block after:mt-4 after:h-0.5 after:w-12 after:rounded-full after:bg-gradient-to-r after:from-goldonchar after:to-transparent">Meet us</h2>
  
@@ -309,7 +391,6 @@
       <article class="group mt-6 md:mt-10 relative rounded-3xl bg-[rgba(255,255,255,0.05)] ring-1 ring-[rgba(205,176,122,0.3)] shadow-dark transition duration-300 hover:ring-[rgba(205,176,122,0.6)] hover:shadow-gold md:grid md:grid-cols-[1fr_minmax(12rem,16rem)] lg:grid-cols-[1fr_minmax(14rem,22rem)] md:gap-x-8 lg:gap-x-12 md:gap-y-8 md:items-start md:p-8 lg:p-10 p-5 md:overflow-visible">
         <figure class="relative overflow-hidden rounded-2xl ring-1 ring-[rgba(205,176,122,0.6)] shadow-gold md:shadow-dark mx-auto w-[74%] max-w-[18rem] md:w-auto md:max-w-none md:mx-0 min-w-0 md:order-2">
           <img class="block w-full aspect-[4/5] object-cover object-center motion-safe:transition motion-safe:duration-700 motion-safe:group-hover:scale-105" src="img/kin1.png" alt="Ilkin" width="440" height="550">
-          <!-- <img class="block w-full aspect-[4/5] object-cover object-center motion-safe:transition motion-safe:duration-700 motion-safe:group-hover:scale-105" src="https://imengus.github.io/kin-and-mete.github.io/img/kin1.png" alt="Ilkin" width="440" height="550"> -->
           <div class="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/20 bg-gradient-to-t from-black/25 via-transparent to-transparent"></div>
         </figure>
         <div class="min-w-0 mt-6 md:mt-0">
@@ -327,15 +408,297 @@
         </div>
       </article>
     </div>
-  </section>
+  </section> -->
  
-<section class="py-[clamp(4rem,9vw,6.5rem)] max-[52rem]:py-12 bg-char bg-[radial-gradient(ellipse_at_15%_0%,rgba(205,176,122,0.14),transparent_55%)] text-onchar" id="pricing">
+
+<style>
+  #tutors, #stories { scroll-margin-top: 4rem; }
+  .hl { background: linear-gradient(transparent 62%, rgba(205,176,122,0.3) 0); color: #F4F2EE; font-weight: 700; }
+
+  /* Gentle cascade: items fade up as they scroll in (CSS only; skipped for reduced motion / older browsers) */
+  @keyframes rise { from { opacity: 0; transform: translateY(1rem); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      .reveal { animation: rise linear both; animation-timeline: view(); animation-range: entry 0% entry 45%; }
+    }
+  }
+
+  /* ---------- Meet us ---------- */
+  .mu-card {
+    position: relative; display: grid; gap: 1.75rem; padding: 1.25rem; border-radius: 1.5rem;
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(205,176,122,0.3);
+    box-shadow: 0 12px 28px -12px rgba(0,0,0,0.55);
+    transition: border-color 300ms;
+  }
+  .mu-card::before, .st-card::before {
+    content: ""; position: absolute; top: -1px; left: 2rem; width: 5rem; height: 3px;
+    border-radius: 0 0 9999px 9999px; background: linear-gradient(90deg, #E2C98F, rgba(226,201,143,0));
+  }
+  .mu-card:hover { border-color: rgba(205,176,122,0.6); }
+  .mu-card + .mu-card { margin-top: 1.5rem; }
+  .mu-photo { margin: 0 auto; width: 74%; max-width: 18rem; overflow: hidden; border-radius: 1rem; border: 1px solid rgba(205,176,122,0.6); }
+  .mu-photo img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center top; }
+
+  /* Quiet nudge at the top of each card */
+  .mu-jump-wrap { margin: 0 0 0.6rem; text-align: center; }
+  .mu-jump {
+    display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.85rem; font-weight: 600;
+    color: rgba(244,242,238,0.55); text-decoration: none;
+    border-bottom: 1px dotted rgba(205,176,122,0.45); padding-bottom: 1px;
+    transition: color 250ms, border-color 250ms;
+  }
+  .mu-jump span { transition: transform 250ms; }
+  .mu-jump:hover, .mu-jump:focus-visible { color: #E2C98F; border-bottom-color: #E2C98F; }
+  @media (prefers-reduced-motion: no-preference) { .mu-jump:hover span { transform: translateY(2px); } }
+
+  .mu-name { font-size: clamp(2.1rem, 3.8vw, 2.7rem); font-weight: 800; line-height: 1.1; margin: 0 0 1rem; text-align: center; }
+  .mu-lead { border-left: 3px solid #CDB07A; padding-left: 1rem; margin: 0 0 1.5rem; font-size: 1.2rem; line-height: 1.5; font-weight: 600; max-width: 40rem; }
+  .mu-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr)); gap: 0.75rem; margin: 0 0 1.75rem; }
+  .mu-stat {
+    display: flex; flex-direction: column-reverse; justify-content: flex-end; border-radius: 1rem; padding: 0.8rem 0.9rem;
+    background: rgba(205,176,122,0.08); border: 1px solid rgba(205,176,122,0.25);
+    transition: background-color 250ms, border-color 250ms, transform 250ms, box-shadow 250ms;
+  }
+  .mu-stat:hover { background: rgba(205,176,122,0.16); border-color: rgba(226,201,143,0.75); box-shadow: 0 10px 20px -12px rgba(0,0,0,0.7); }
+  .mu-stat dd { margin: 0; font-size: 1.45rem; font-weight: 800; line-height: 1.1; color: #E2C98F; transition: transform 250ms; transform-origin: left center; }
+  .mu-stat dt { margin-top: 0.3rem; font-size: 0.82rem; line-height: 1.35; color: rgba(244,242,238,0.8); }
+  @media (prefers-reduced-motion: no-preference) {
+    .mu-stat:hover { transform: translateY(-3px); }
+    .mu-stat:hover dd { transform: scale(1.06); }
+  }
+  .mu-text p { margin: 0 0 1rem; max-width: 40rem; color: rgba(244,242,238,0.82); }
+  .mu-close { margin: 1.5rem 0 0; padding-top: 1.1rem; max-width: 40rem; border-top: 1px solid rgba(205,176,122,0.25); font-size: 1.3rem; font-weight: 700; line-height: 1.3; color: #E2C98F; }
+  @media (min-width: 52rem) {
+    .mu-card { grid-template-columns: minmax(13rem, 19rem) 1fr; gap: 2.5rem; padding: 2.25rem; align-items: start; }
+    .mu-card.flip { grid-template-columns: 1fr minmax(13rem, 19rem); }
+    .mu-card.flip .mu-photo { order: 2; }
+    .mu-photo { margin: 0; width: auto; max-width: none; position: sticky; top: 6rem; }
+    .mu-name, .mu-jump-wrap { text-align: left; }
+  }
+
+  /* ---------- How We Got Into Medical School ---------- */
+  .st-intro { max-width: 46rem; margin: 0 0 1.75rem; color: rgba(244,242,238,0.84); }
+  .st-intro p { margin: 0 0 1rem; }
+
+  .st-three { list-style: none; padding: 0; margin: 0 0 3rem; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); counter-reset: t; }
+  .st-three li {
+    counter-increment: t; position: relative; overflow: hidden; border-radius: 1.25rem; padding: 1.4rem 1.4rem 1.3rem;
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(205,176,122,0.3);
+    transition: background-color 250ms, border-color 250ms, transform 250ms;
+  }
+  .st-three li::after {
+    content: counter(t); position: absolute; right: 0.9rem; top: -0.35rem; font-size: 4.5rem; font-weight: 800; line-height: 1;
+    color: rgba(205,176,122,0.12); pointer-events: none;
+  }
+  .st-three li:hover { background: rgba(205,176,122,0.12); border-color: rgba(226,201,143,0.75); }
+  @media (prefers-reduced-motion: no-preference) { .st-three li:hover { transform: translateY(-3px); } }
+  .st-three h4 { position: relative; margin: 0 0 0.6rem; padding-bottom: 0.6rem; font-size: 1.2rem; font-weight: 800; line-height: 1.2; color: #E2C98F; border-bottom: 1px solid rgba(205,176,122,0.3); }
+  .st-three p { position: relative; margin: 0; font-size: 0.97rem; color: rgba(244,242,238,0.84); }
+  .st-three ul { position: relative; list-style: none; margin: 0.7rem 0 0; padding: 0; display: grid; gap: 0.45rem; font-size: 0.95rem; color: rgba(244,242,238,0.84); }
+  .st-three ul li { all: unset; display: block; position: relative; padding-left: 1.2rem; }
+  .st-three ul li::before { content: ""; position: absolute; left: 0; top: 0.7em; width: 0.6rem; height: 2px; background: #CDB07A; }
+  .st-three ul li::after { content: none; }
+
+  .st-grid { display: grid; gap: 1.5rem; }
+  .st-card { position: relative; border-radius: 1.5rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(205,176,122,0.3); box-shadow: 0 12px 28px -12px rgba(0,0,0,0.55); transition: border-color 300ms; }
+  .st-card:hover { border-color: rgba(205,176,122,0.6); }
+  .st-head { display: flex; align-items: center; gap: 0.9rem; margin: 0 0 1.5rem; }
+  .st-head img { width: 3.5rem; height: 3.5rem; border-radius: 50%; object-fit: cover; object-position: center top; border: 1px solid rgba(205,176,122,0.6); }
+  .st-head h3 { margin: 0; font-size: 1.8rem; font-weight: 800; line-height: 1.1; }
+  .st-flow { position: relative; margin: 0; padding-left: 1.5rem; border-left: 2px solid rgba(205,176,122,0.35); max-width: 46rem; }
+  .st-flow > p, .st-flow > aside { position: relative; margin: 0 0 1.15rem; color: rgba(244,242,238,0.84); }
+  .st-flow > p::before { content: ""; position: absolute; left: calc(-1.5rem - 5.5px); top: 0.7em; width: 9px; height: 9px; border-radius: 50%; background: #E2C98F; transition: transform 250ms, box-shadow 250ms; }
+  .st-flow > p:hover::before { transform: scale(1.5); box-shadow: 0 0 0 4px rgba(226,201,143,0.2); }
+  .st-flow > p:last-child { margin-bottom: 0; }
+  .st-flow > p.st-close { padding: 0.9rem 1.1rem; border-radius: 1rem; background: rgba(205,176,122,0.08); border: 1px solid rgba(205,176,122,0.3); color: #F4F2EE; font-weight: 600; }
+  .st-flow > p.st-close::before { top: 1.5em; }
+  .st-aside { padding: 1rem 1.1rem; border-radius: 1rem; border: 1px dashed rgba(205,176,122,0.55); background: rgba(205,176,122,0.06); transition: background-color 250ms, border-color 250ms; }
+  .st-aside:hover { background: rgba(205,176,122,0.12); border-color: rgba(226,201,143,0.85); }
+  .st-aside strong { display: block; margin-bottom: 0.35rem; font-size: 0.85rem; letter-spacing: 0.04em; text-transform: uppercase; color: #E2C98F; }
+  .st-aside p { margin: 0 0 0.6rem; color: rgba(244,242,238,0.88); }
+  .st-aside p:last-child { margin-bottom: 0; }
+  @media (min-width: 52rem) { .st-card { padding: 2.25rem; } }
+</style>
+
+<!-- ===================== MEET US ===================== -->
+<section class="py-12 md:py-[clamp(4rem,9vw,6.5rem)] bg-char bg-[radial-gradient(ellipse_at_50%_0%,rgba(205,176,122,0.12),transparent_55%),radial-gradient(ellipse_at_100%_100%,rgba(205,176,122,0.08),transparent_50%)] text-onchar border-y border-[rgba(205,176,122,0.2)]" id="tutors" aria-labelledby="tutors-h">
+  <div class="w-[calc(100%_-_2.5rem)] md:w-[min(70rem,100%_-_3rem)] mx-auto">
+    <h2 id="tutors-h" class="font-serif font-medium text-[clamp(2.2rem,4.4vw,3rem)] leading-[1.1] mb-6 md:mb-10 text-onchar after:block after:mt-4 after:h-0.5 after:w-12 after:rounded-full after:bg-gradient-to-r after:from-goldonchar after:to-transparent">Meet us</h2>
+
+    <!-- Mete -->
+    <article class="mu-card reveal" aria-labelledby="mete-name">
+      <figure class="mu-photo">
+        <img src="img/mete1.png" alt="Mete" width="440" height="550">
+      </figure>
+      <div>
+        <p class="mu-jump-wrap"><a class="mu-jump" href="#mete-story">Curious how I got in? Read my story <span aria-hidden="true">&darr;</span></a></p>
+        <h3 class="mu-name" id="mete-name">Mete</h3>
+
+        <p class="mu-lead">I&#8217;m Mete, a <span class="hl">third-year medical student at the University of Bristol</span>, with an interest in <span class="hl">Anaesthetics and Critical Care</span>.</p>
+
+        <dl class="mu-stats">
+          <div class="mu-stat"><dt>UCAT, Band 1 (top 6%)</dt><dd>2960</dd></div>
+          <div class="mu-stat"><dt>A-Level</dt><dd>A*AAA</dd></div>
+          <div class="mu-stat"><dt>GCSE</dt><dd>10 &times; grade 9</dd></div>
+          <div class="mu-stat"><dt>Offers from Bristol, Sheffield and Liverpool</dt><dd>3 offers</dd></div>
+          <div class="mu-stat"><dt>Bristol end-of-year exams, among the top performers in my cohort, with a commendation of achievement</dt><dd>89/100</dd></div>
+          <div class="mu-stat"><dt>In my year group, for my Student Choice Essay</dt><dd>Top prize</dd></div>
+          <div class="mu-stat"><dt>Tutoring delivered</dt><dd>300+ hrs</dd></div>
+        </dl>
+
+        <div class="mu-text">
+          <p>Having tutored <span class="hl">GCSE and A-Level Maths</span>, I bring that teaching experience to medical interview tutoring, together with my own interview experience and first-hand insight into medical school and clinical placements, offering students the <span class="hl">committed, personal support</span> every applicant deserves.</p>
+
+          <p>My sessions focus on <span class="hl">understanding over memorisation</span>, encouraging students to <span class="hl">think out loud</span> and build clear, structured reasoning. Above all, I make sure every student feels <span class="hl">confident and well prepared</span>, so they can perform at their very best on interview day.</p>
+        </div>
+
+        <p class="mu-close">If you are looking for a tutor invested in your success, I would love to hear from you.</p>
+      </div>
+    </article>
+
+    <!-- Ilkin -->
+    <article class="mu-card flip reveal" aria-labelledby="ilkin-name">
+      <figure class="mu-photo">
+        <img src="img/kin1.png" alt="Ilkin" width="440" height="550">
+      </figure>
+      <div>
+        <p class="mu-jump-wrap"><a class="mu-jump" href="#ilkin-story">Curious how I got in? Read my story <span aria-hidden="true">&darr;</span></a></p>
+        <h3 class="mu-name" id="ilkin-name">Ilkin</h3>
+
+        <p class="mu-lead">I&#8217;m Ilkin, a <span class="hl">3rd year medical student at UCL</span>, currently completing an intercalated BSc in Medical Anthropology. As a <span class="hl">future psychiatrist</span>, I plan to pioneer culturally specific therapies and international knowledge exchange.</p>
+
+        <dl class="mu-stats">
+          <div class="mu-stat"><dt>UCAT (top 5%)</dt><dd>3000</dd></div>
+          <div class="mu-stat"><dt>A-Level</dt><dd>A*A*A*A*A*</dd></div>
+          <div class="mu-stat"><dt>GCSE</dt><dd>11 &times; grade 9</dd></div>
+          <div class="mu-stat"><dt>Offers from UCL and Southampton</dt><dd>2 offers</dd></div>
+          <div class="mu-stat"><dt>National Biology Olympiad</dt><dd>Top 16</dd></div>
+          <div class="mu-stat"><dt>Teaching hours</dt><dd>150+ hrs</dd></div>
+        </dl>
+
+        <div class="mu-text">
+          <p>I have taught in small groups, at a tuition centre and in <span class="hl">A-Level Maths and Chemistry</span>, and spent many hours mentoring presenters at the Medical Discussion Group I founded at my college. Realising how alive I felt while teaching, I expanded into mentoring students through medical school interviews.</p>
+
+          <p>Over 15 months travelling/ fieldwork in the Middle East and South Asia, I <span class="hl">communicated with thousands of people</span> from all walks of life. The experience and intuition I gained allow me to give <span class="hl">honest, specific feedback</span> on areas teachers and friends may have missed. Together, we will build <span class="hl">custom resources and plans</span> for every area of your preparation.</p>
+        </div>
+
+        <p class="mu-close">Let&#8217;s collaborate in your success!</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ===================== HOW WE GOT INTO MEDICAL SCHOOL ===================== -->
+<section class="py-12 md:py-[clamp(4rem,9vw,6.5rem)] bg-char bg-[radial-gradient(ellipse_at_85%_0%,rgba(205,176,122,0.12),transparent_55%)] text-onchar" id="stories" aria-labelledby="stories-h">
+  <div class="w-[calc(100%_-_2.5rem)] md:w-[min(70rem,100%_-_3rem)] mx-auto">
+    <h2 id="stories-h" class="font-serif font-medium text-[clamp(2.2rem,4.4vw,3rem)] leading-[1.1] mb-8 md:mb-10 text-onchar after:block after:mt-4 after:h-0.5 after:w-12 after:rounded-full after:bg-gradient-to-r after:from-goldonchar after:to-transparent">How We Got Into Medical School</h2>
+
+    <!-- Shared introduction -->
+    <div class="st-intro">
+      <p>Medical school interviews can seem daunting, but <span class="hl">congratulations, you are at the last step</span>. Like your predicted grades, the UCAT and your personal statement, medical interviews take time to prepare for. You may muddle your words at first, feel unsure about what to say, or not know how to structure your answers to pick up marks on the mark scheme. Rest assured, <span class="hl">with time and intentional practice, your marks will improve</span>.</p>
+      <p>There are three main things to work on:</p>
+    </div>
+
+    <ol class="st-three" role="list">
+      <li class="reveal">
+        <h4>Build your knowledge base</h4>
+        <p>A general knowledge base worth learning: <span class="hl">key topics</span> that may come up in the interview and are worth being clued up on, plus <span class="hl">standard questions</span> you need examples ready for, drawn from your own experiences.</p>
+      </li>
+      <li class="reveal">
+        <h4>Learn to think and structure</h4>
+        <p>Learning how to think through questions and structure your answers for the different question types, with an understanding of <span class="hl">what the examiners are looking for</span>.</p>
+      </li>
+      <li class="reveal">
+        <h4>Be ready on the day</h4>
+        <p>Practical advice on how to feel ready:</p>
+        <ul>
+          <li>What to do the night before and the morning of</li>
+          <li>What to say if you want to take a second before answering</li>
+          <li>Techniques to stay relaxed under pressure</li>
+          <li>Having a tidy room</li>
+          <li>Looking after your health (sleep, exercise etc.) so you feel 100% on the day</li>
+        </ul>
+      </li>
+    </ol>
+
+    <div class="st-grid">
+
+      <!-- Mete -->
+      <article class="st-card reveal" id="mete-story" aria-labelledby="mete-story-h">
+        <div class="st-head">
+          <img src="img/mete1.png" alt="" width="56" height="56">
+          <h3 id="mete-story-h">Mete</h3>
+        </div>
+        <div class="st-flow">
+          <p>So what was it like for me? I knew very little to begin with. I started watching YouTube videos and reading online articles to familiarise myself with the medical interview process.</p>
+
+          <p>I set up a Word document and wrote <span class="hl">short summaries of what I thought was valuable to know</span>, as well as examples from my personal experiences geared towards the more behavioural questions I might be asked. I also wrote down key phrases and a few relaxation and delay techniques I could use to gather my thoughts and smooth out my speech.</p>
+
+          <p>Once the basic knowledge was there, I began practising interview questions with family and friends to get better at structuring my answers out loud.</p>
+
+          <p>This was the hardest part: turning notes into coherent, structured speech whilst ticking off the examiners&#8217; mark scheme. Alchemists spent centuries trying to turn lead into gold. I spent weeks trying to turn written bullet points into spoken sentences, with similar early results. Fortunately, unlike the Alchemists, I <span class="hl">eventually struck gold and received my offers</span>. You may not feel the most confident at this stage, but over time your answers will improve.</p>
+
+          <p>Once my answers were respectable, I began <span class="hl">practising with medical students from the universities I was applying to</span>, since they could provide insight that students from other schools may not be able to. This is where <span class="hl">repetitions and tailored feedback</span> matter for confidence, fluidity of speech and the quality of your answers.</p>
+
+          <p>It is also the stage where we&#8217;d recommend coming to us, so you get the most out of your money and our time together. Before then, we can provide guidance and study materials, and recommend resources to help you get there. <span class="hl">Examiners can tell very quickly which students have put in the time</span>. With good practice, it will be obvious to them that you have.</p>
+
+          <p>It also helps to simulate the interview format of the schools you are interviewing at and the types of questions they may ask by doing <span class="hl">mock MMIs and panel interviews</span>. This is like <span class="hl">sitting a past paper under exam conditions</span>, and is the highest-quality form of revision you can get.</p>
+
+          <p>When it came to the interviews themselves, mine at Bristol, Liverpool and Leicester were online, and Sheffield was in person. The in-person one was a lot scarier. You can see the competition and everyone is on edge, a bit like the staredown before a boxing fight.</p>
+
+          <aside class="st-aside">
+            <strong>An anecdote</strong>
+            <p>Not every answer will go well, and that&#8217;s fine. At Sheffield I was asked what I was looking forward to about living in Sheffield as a student. I blanked and said visiting the steel factories. As student pastimes go, it is not a common one. In an MMI, each station is usually marked separately, so <span class="hl">one weak answer doesn&#8217;t decide the whole interview</span>. Leave it behind and move on to the next station.</p>
+          </aside>
+
+          <p class="st-close">Get as much experience as possible, and study for it in the same way you study for your exams. Don&#8217;t be demoralised if you&#8217;re shaky to begin with. It takes time, and we are here to support you every step of the way.</p>
+        </div>
+      </article>
+
+      <!-- Ilkin -->
+      <article class="st-card reveal" id="ilkin-story" aria-labelledby="ilkin-story-h">
+        <div class="st-head">
+          <img src="img/kin1.png" alt="" width="56" height="56">
+          <h3 id="ilkin-story-h">Ilkin</h3>
+        </div>
+        <div class="st-flow">
+          <p>During my application, I found the medical interviews to be what needed the most out-of-the-box preparation. Back then, there was the BMAT exam (UCAT but harder) at the end of October, so I only found time to prepare much later. And yet, this was not an issue! With the proper guidance and organisation, <span class="hl">one can grow in confidence day by day</span> as they absorb the information and get fluent in their articulation.</p>
+
+          <p>I learned English later in life, so when I first started recording myself for interview practice, I could see I was a bit robotic and unnatural. It gets better, by the end I was totally relaxed and natural. To this I owe many hours of thinking out loud, practising with friends, and <span class="hl">receiving detailed feedback from a special teacher</span> who mentored me in my interview process.</p>
+
+          <p>However, what consumed more of my time was the knowledge. Given I was applying for Oxford, I wanted my knowledge to be <span class="hl">impressively deep and comprehensive</span>. I found some ethics textbooks online (e.g. <em>Medical Ethics: a Very Short Introduction</em>), visited my local university to read the British Medical Journal etc, searched up medical law and tribunal procedures, and read up further on key cases such as Gillick or Bolam.</p>
+
+          <p>I also read lots of BBC/ Guardian health, watched loads of YouTube of doctors describing their daily work and how their team functions, and reflected thoroughly on my own work experience to find talking points.</p>
+
+          <p>There can&#8217;t be any cutting of corners, so during this period I had to be honest with myself that I was not slacking off. Yet, to be honest the main thing was <span class="hl">consistency rather than intensity</span>. A few hours every day spread out over months meant that with time I felt I had gone beyond expectations and was working at a level that would impress interviewers.</p>
+
+          <p>My hope is that you too can find the right strategies to move past mediocrity because, unfortunately, no matter how virtuous or compassionate you are, only those that can stand out are given a place. Thankfully, I know that <span class="hl">whichever student receives the right guidance and sticks to the right regimen</span> will be able to get to the same confidence.</p>
+
+          <p>I really thank my early Dec Oxford interview for this, because preparing at that level meant that my next interviews March onwards for UCL/ Southampton/ King&#8217;s <span class="hl">went like a breeze</span>.</p>
+
+          <aside class="st-aside">
+            <strong>An anecdote</strong>
+            <p>For my MMI UCL interview I had to stay in my friend&#8217;s student accommodation in London on the bare floor! I had less than 3 hours sleep, was immensely underdressed compared to the other candidates, and yet the sole reason why it went well was the undeniable comprehensiveness of my preparation. Rather than me putting on a special performance, <span class="hl">my preparation shone through naturally</span>.</p>
+            <p>The same with my group-interview at Southampton. I decided I would reapply rather than go to Southampton, so I preferred to just joke around unseriously, and yet when the interviewers asked me the serious questions, when I opened my mouth <span class="hl">the level of my preparation spoke for me</span>. That was an accidental offer!</p>
+          </aside>
+
+          <p>All this to say you need not worry about how you will perform in an interview, as it all happens automatically to the level of your preparation and confidence.</p>
+
+          <p class="st-close">I know that this is probably the most unpredictable time of your application. It may feel like you are left to your own devices, trying to meet a standard and yet retain your originality. No need to be crushed by the burden, as long as you enjoy the process of exploration and deepening. I&#8217;m here to make that process easier and give the essential feedback that assures you that you&#8217;re on the right track.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+  
+<!-- <section class="py-[clamp(4rem,9vw,6.5rem)] max-[52rem]:py-12 bg-char bg-[radial-gradient(ellipse_at_15%_0%,rgba(205,176,122,0.14),transparent_55%)] text-onchar" id="pricing">
   <div class="w-[min(70rem,100%_-_3rem)] max-[52rem]:w-[calc(100%_-_2.5rem)] mx-auto">
     <h2 class="font-serif font-semibold text-[clamp(2.2rem,4.4vw,3rem)] leading-[1.1] mb-6 text-onchar after:block after:mt-4 after:h-0.5 after:w-12 after:rounded-full after:bg-gradient-to-r after:from-goldonchar after:to-transparent">Pricing &amp; contact</h2>
 
     <p class="text-oncharmuted max-w-[40rem] mb-8 max-[52rem]:mb-6">We offer two tiers, and we keep our rates flexible so that every family can find something that works.</p>
 
-    <!-- Free consultation -->
+    
     <div class="pr-free">
       <span class="pr-free-badge">Free</span>
       <div>
@@ -346,7 +709,7 @@
 
     <div class="grid lg:grid-cols-2 gap-8 max-[52rem]:gap-5 items-stretch">
 
-      <!-- Tier 1 -->
+      
       <div class="flex flex-col rounded-3xl bg-[rgba(255,255,255,0.05)] ring-1 ring-[rgba(205,176,122,0.3)] shadow-dark hover:ring-[rgba(205,176,122,0.6)] p-8 max-[52rem]:p-6 transition duration-300 motion-safe:hover:-translate-y-1">
         <span class="self-start rounded-full ring-1 ring-[rgba(205,176,122,0.5)] text-goldonchar text-[0.85rem] font-bold px-3.5 py-0.5">Tier 1</span>
         <p class="pr-italic mt-4 font-serif font-bold text-[1.45rem] leading-[1.25] text-onchar">General consultation</p>
@@ -361,7 +724,6 @@
             <div class="pr-step pr-s2"><span class="pr-amt">£20</span><span class="pr-lbl">Base</span><span class="pr-sub">our standard</span></div>
             <div class="pr-step pr-s3"><span class="pr-amt">£25</span><span class="pr-lbl">Expected</span><span class="pr-sub">what we hope for</span></div>
           </div>
-          <!-- <p class="pr-note">Concession rates are there for anyone who needs them. Just let us know when you get in touch.</p> -->
         </div>
 
         <div class="mt-8 max-[52rem]:mt-6 grow rounded-2xl bg-[rgba(255,255,255,0.05)] ring-1 ring-[rgba(205,176,122,0.25)] shadow-dark p-6 max-[52rem]:p-5">
@@ -375,7 +737,6 @@
         </div>
       </div>
 
-      <!-- Tier 2 -->
       <div class="flex flex-col rounded-3xl bg-[rgba(255,255,255,0.05)] ring-2 ring-[rgba(205,176,122,0.75)] shadow-gold hover:ring-goldonchar p-8 max-[52rem]:p-6 transition duration-300 motion-safe:hover:-translate-y-1">
         <span class="self-start rounded-full bg-goldonchar text-[#232529] text-[0.85rem] font-bold px-3.5 py-0.5">Tier 2</span>
         <p class="pr-italic mt-4 font-serif font-bold text-[1.45rem] leading-[1.25] text-onchar">Full interview practice</p>
@@ -389,9 +750,8 @@
             <div class="pr-step pr-s1"><span class="pr-amt">£30</span><span class="pr-lbl">Concession</span><span class="pr-sub">if you need it</span></div>
             <div class="pr-step pr-s2"><span class="pr-amt">£40</span><span class="pr-lbl">Base</span><span class="pr-sub">our standard</span></div>
             <div class="pr-step pr-s3"><span class="pr-amt">£45</span><span class="pr-lbl">Expected</span><span class="pr-sub">what we hope for</span></div> 
-            <!-- <span class="pr-suggest">Suggested</span> -->
+            
           </div>
-          <!-- <p class="pr-note">Concession rates are there for anyone who needs them. Just let us know when you get in touch.</p> -->
         </div>
 
         <div class="mt-8 max-[52rem]:mt-6 grow rounded-2xl bg-[rgba(255,255,255,0.05)] ring-1 ring-[rgba(205,176,122,0.25)] shadow-dark p-6 max-[52rem]:p-5">
@@ -427,8 +787,156 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
+<style>
+  /* Pricing section */
+  #pricing .pr-italic { font-style: normal; }
+
+  /* Free 15 minutes banner (flat inside, soft shadow, faint glow) */
+  .pr-free {
+    display: flex; align-items: center; gap: 1.25rem;
+    border-radius: 1.5rem; padding: 1.5rem 1.75rem; margin-bottom: 2rem;
+    background: rgba(205,176,122,0.08);
+    border: 1px solid rgba(205,176,122,0.7);
+    box-shadow: 0 12px 28px -10px rgba(0,0,0,0.55), 0 0 14px rgba(205,176,122,0.08);
+  }
+  .pr-free-badge {
+    flex-shrink: 0; border-radius: 9999px; padding: 0.45rem 1.15rem;
+    background: #E2C98F; color: #232529; font-weight: 800; font-size: 1.1rem;
+  }
+  .pr-free h3 { font-size: 1.6rem; line-height: 1.2; margin: 0 0 0.25rem; }
+  .pr-free p { margin: 0; }
+
+  /* Small "free first 15 min" pill inside Tier 1 */
+  .pr-pill {
+    display: inline-block; margin-top: 0.9rem; border-radius: 9999px; padding: 0.2rem 0.8rem;
+    font-size: 0.85rem; font-weight: 700; color: #E2C98F;
+    background: rgba(205,176,122,0.12); border: 1px solid rgba(226,201,143,0.6);
+  }
+
+  /* Price ladder: lower rate, base rate, higher rate */
+  .pr-ladder { margin-top: 1.25rem; display: grid; gap: 0.3rem; }
+  .pr-lo, .pr-hi { margin: 0; font-size: 0.92rem; line-height: 1.45; color: rgba(244,242,238,0.62); }
+  .pr-lo b, .pr-hi b { font-weight: 700; color: rgba(244,242,238,0.85); }
+  .pr-base { display: flex; align-items: baseline; gap: 0.5rem; margin: 0.15rem 0; }
+  .pr-base-amt { font-size: 2.4rem; font-weight: 800; line-height: 1; color: #E2C98F; }
+  .pr-base-unit { font-size: 1rem; font-weight: 600; color: rgba(244,242,238,0.7); }
+
+  /* A-Level subjects (aside) */
+  .pr-alevel {
+    margin-top: 2.5rem; padding-top: 1.1rem;
+    border-top: 1px solid rgba(205,176,122,0.25);
+    display: flex; align-items: center; flex-wrap: wrap; gap: 0.6rem 1.1rem;
+    font-size: 0.95rem; color: rgba(244,242,238,0.7);
+  }
+  .pr-alevel-title { font-weight: 700; color: rgba(244,242,238,0.85); }
+  .pr-alevel-person { display: inline-flex; align-items: center; gap: 0.45rem; }
+  .pr-alevel-name { font-weight: 700; color: #E2C98F; }
+  .pr-chip {
+    border-radius: 9999px; padding: 0.1rem 0.65rem;
+    font-weight: 600; font-size: 0.82rem; color: rgba(244,242,238,0.8);
+    border: 1px solid rgba(205,176,122,0.35);
+  }
+  .pr-alevel-dot { color: rgba(205,176,122,0.5); }
+
+  @media (max-width: 52rem) {
+    .pr-free { flex-direction: column; align-items: flex-start; gap: 0.75rem; padding: 1.25rem; }
+    .pr-base-amt { font-size: 2.2rem; }
+    .pr-alevel { margin-top: 2rem; }
+    .pr-alevel-dot { display: none; }
+  }
+</style>
+
+<section class="py-[clamp(4rem,9vw,6.5rem)] max-[52rem]:py-12 bg-char bg-[radial-gradient(ellipse_at_15%_0%,rgba(205,176,122,0.14),transparent_55%)] text-onchar" id="pricing">
+  <div class="w-[min(70rem,100%_-_3rem)] max-[52rem]:w-[calc(100%_-_2.5rem)] mx-auto">
+    <h2 class="font-serif font-semibold text-[clamp(2.2rem,4.4vw,3rem)] leading-[1.1] mb-6 text-onchar after:block after:mt-4 after:h-0.5 after:w-12 after:rounded-full after:bg-gradient-to-r after:from-goldonchar after:to-transparent">Pricing &amp; contact</h2>
+
+    <p class="text-oncharmuted max-w-[40rem] mb-8 max-[52rem]:mb-6">We offer two tiers, and we keep our rates flexible so that every family can find something that works.</p>
+
+    <!-- Free consultation -->
+    <div class="pr-free">
+      <span class="pr-free-badge">Free</span>
+      <div>
+        <h3 class="font-serif font-bold">Your first 15 minutes are on us!</h3>
+        <p class="text-oncharmuted">Start with a free Tier 1 chat. Tell us where you&#8217;re at, ask us anything, and see if we&#8217;re a good fit.</p>
+      </div>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-8 max-[52rem]:gap-5 items-stretch">
+
+      <!-- Tier 1 -->
+      <div class="flex flex-col rounded-3xl bg-[rgba(255,255,255,0.05)] ring-1 ring-[rgba(205,176,122,0.4)] shadow-dark hover:ring-[rgba(205,176,122,0.7)] p-8 max-[52rem]:p-6 transition duration-300 motion-safe:hover:-translate-y-1">
+        <span class="self-start rounded-full ring-1 ring-[rgba(205,176,122,0.5)] text-goldonchar text-[0.85rem] font-bold px-3.5 py-0.5">Tier 1</span>
+        <p class="pr-italic mt-4 font-serif font-bold text-[1.45rem] leading-[1.25] text-onchar">General consultation</p>
+        <p class="mt-2 text-oncharmuted">Come once, or come back as often as you like.</p>
+
+        <div class="pr-ladder">
+          <p class="pr-lo"><b>£15</b> for concession. Just let us know.</p>
+          <div class="pr-base"><span class="pr-base-amt">£20</span><span class="pr-base-unit">/ hr &middot; our standard.</span></div>
+          <p class="pr-hi"><b>£25</b> if you&#8217;d like to say thank you.</p>
+        </div>
+
+        <div class="mt-8 max-[52rem]:mt-6 grow rounded-2xl bg-[rgba(255,255,255,0.05)] ring-1 ring-[rgba(205,176,122,0.25)] shadow-dark p-6 max-[52rem]:p-5">
+          <div class="text-base font-bold text-goldonchar mb-4">What&#8217;s included</div>
+          <ul class="space-y-3 leading-snug max-[52rem]:text-[0.98rem]">
+            <li class="flex items-start gap-3"><span class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[rgba(205,176,122,0.15)] text-goldonchar ring-1 ring-[rgba(205,176,122,0.5)]"><svg class="h-3 w-3" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg></span><span class="text-oncharmuted"><strong class="font-bold text-onchar">A relaxed chat</strong></span></li>
+            <li class="flex items-start gap-3"><span class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[rgba(205,176,122,0.15)] text-goldonchar ring-1 ring-[rgba(205,176,122,0.5)]"><svg class="h-3 w-3" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg></span><span class="text-oncharmuted">General consultation and advice</span></li>
+            <li class="flex items-start gap-3"><span class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[rgba(205,176,122,0.15)] text-goldonchar ring-1 ring-[rgba(205,176,122,0.5)]"><svg class="h-3 w-3" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg></span><span class="text-oncharmuted">Slow interview practice</span></li>
+            <li class="flex items-start gap-3"><span class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[rgba(205,176,122,0.15)] text-goldonchar ring-1 ring-[rgba(205,176,122,0.5)]"><svg class="h-3 w-3" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg></span><span class="text-oncharmuted">Mentoring for general skills and confidence</span></li>
+            <li class="flex items-start gap-3"><span class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[rgba(205,176,122,0.15)] text-goldonchar ring-1 ring-[rgba(205,176,122,0.5)]"><svg class="h-3 w-3" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg></span><span class="text-oncharmuted">Insider knowledge and resources</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Tier 2 -->
+      <div class="flex flex-col rounded-3xl bg-[rgba(255,255,255,0.05)] ring-1 ring-[rgba(205,176,122,0.4)] shadow-dark hover:ring-[rgba(205,176,122,0.7)] p-8 max-[52rem]:p-6 transition duration-300 motion-safe:hover:-translate-y-1">
+        <span class="self-start rounded-full ring-1 ring-[rgba(205,176,122,0.5)] text-goldonchar text-[0.85rem] font-bold px-3.5 py-0.5">Tier 2</span>
+        <p class="pr-italic mt-4 font-serif font-bold text-[1.45rem] leading-[1.25] text-onchar">Full interview practice</p>
+        <p class="mt-2 text-oncharmuted">When you&#8217;re ready to practise the real thing.</p>
+
+        <div class="pr-ladder">
+          <p class="pr-lo"><b>£35</b> for concession. Just let us know.</p>
+          <div class="pr-base"><span class="pr-base-amt">£40</span><span class="pr-base-unit">/ hr &middot; our standard.</span></div>
+          <p class="pr-hi"><b>£45</b> if you&#8217;d like to say thank you.</p>
+        </div>
+
+        <div class="mt-8 max-[52rem]:mt-6 grow rounded-2xl bg-[rgba(255,255,255,0.05)] ring-1 ring-[rgba(205,176,122,0.25)] shadow-dark p-6 max-[52rem]:p-5">
+          <div class="text-base font-bold text-goldonchar mb-4">What&#8217;s included</div>
+          <ul class="space-y-3 leading-snug max-[52rem]:text-[0.98rem]">
+            <li class="flex items-start gap-3"><span class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[rgba(205,176,122,0.15)] text-goldonchar ring-1 ring-[rgba(205,176,122,0.5)]"><svg class="h-3 w-3" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg></span><span class="text-oncharmuted"><strong class="font-bold text-onchar">High-yield and focused</strong></span></li>
+            <li class="flex items-start gap-3"><span class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[rgba(205,176,122,0.15)] text-goldonchar ring-1 ring-[rgba(205,176,122,0.5)]"><svg class="h-3 w-3" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg></span><span class="text-oncharmuted"><strong class="font-bold text-onchar">Full</strong> MMI / Panel timed mock interview</span></li>
+            <li class="flex items-start gap-3"><span class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[rgba(205,176,122,0.15)] text-goldonchar ring-1 ring-[rgba(205,176,122,0.5)]"><svg class="h-3 w-3" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg></span><span class="text-oncharmuted"><strong class="font-bold text-onchar">Full</strong> breakdown and feedback of answers</span></li>
+            <li class="flex items-start gap-3"><span class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[rgba(205,176,122,0.15)] text-goldonchar ring-1 ring-[rgba(205,176,122,0.5)]"><svg class="h-3 w-3" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg></span><span class="text-oncharmuted"><strong class="font-bold text-onchar">Full</strong> strategy + unique answer prep</span></li>
+            <li class="flex items-start gap-3"><span class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[rgba(205,176,122,0.15)] text-goldonchar ring-1 ring-[rgba(205,176,122,0.5)]"><svg class="h-3 w-3" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg></span><span class="text-oncharmuted"><strong class="font-bold text-onchar">Full</strong> text / call support until A-Levels finish</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="pr-alevel">
+      <span class="pr-alevel-title font-serif">We also teach A-Level:</span>
+      <span class="pr-alevel-person"><span class="pr-alevel-name">Mete</span><span class="pr-chip">Maths</span></span>
+      <span class="pr-alevel-dot" aria-hidden="true">&middot;</span>
+      <span class="pr-alevel-person"><span class="pr-alevel-name">Ilkin</span><span class="pr-chip">Maths</span><span class="pr-chip">Chemistry</span></span>
+    </div>
+
+    <div class="mt-[clamp(3.5rem,7vw,5rem)] max-[52rem]:mt-12" id="contact">
+      <h3 class="font-serif font-bold text-[clamp(1.9rem,3.2vw,2.4rem)] mb-2">Get in touch</h3>
+      <p class="text-oncharmuted max-w-[36rem] mb-8 max-[52rem]:mb-6">Drop either of us an email to book your free 15-minute chat.</p>
+      <div class="grid gap-5 max-[52rem]:gap-3 grid-cols-[repeat(auto-fit,minmax(16rem,1fr))]">
+        <a class="block no-underline rounded-2xl bg-[rgba(255,255,255,0.05)] ring-1 ring-[rgba(205,176,122,0.4)] shadow-dark py-5 px-6 max-[52rem]:py-4 transition duration-300 motion-safe:hover:-translate-y-1 hover:ring-goldonchar hover:bg-[rgba(205,176,122,0.1)] hover:shadow-gold" href="mailto:metewatson8@gmail.com">
+          <span class="block font-serif font-bold text-[1.4rem]">Mete</span>
+          <span class="block text-goldonchar text-[0.95rem] [overflow-wrap:anywhere]">metewatson8@gmail.com</span>
+        </a>
+        <a class="block no-underline rounded-2xl bg-[rgba(255,255,255,0.05)] ring-1 ring-[rgba(205,176,122,0.4)] shadow-dark py-5 px-6 max-[52rem]:py-4 transition duration-300 motion-safe:hover:-translate-y-1 hover:ring-goldonchar hover:bg-[rgba(205,176,122,0.1)] hover:shadow-gold" href="mailto:ilkin.mengusoglu.23@ucl.ac.uk">
+          <span class="block font-serif font-bold text-[1.4rem]">Ilkin</span>
+          <span class="block text-goldonchar text-[0.95rem] [overflow-wrap:anywhere]">ilkin.mengusoglu.23@ucl.ac.uk</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 
 </main>
  
