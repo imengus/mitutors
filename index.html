@@ -7,7 +7,7 @@
 <title>Mete &middot; Ilkin | Medical school interview tutoring</title>
 <meta name="description" content="One-to-one UK medical school interview preparation from two third-year medical students at UCL and the University of Bristol. MMI and panel practice, detailed feedback, from £25/hr.">
 <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
-<link rel="stylesheet" href="dist/assets/index-DRcfi-Qz.css">
+<link rel="stylesheet" href="dist/assets/index-B-MuDAvc.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -412,10 +412,9 @@
  
 
 <style>
-  #tutors, #stories { scroll-margin-top: 4rem; }
+  #tutors { scroll-margin-top: 4rem; }
   .hl { background: linear-gradient(transparent 62%, rgba(205,176,122,0.3) 0); color: #F4F2EE; font-weight: 700; }
 
-  /* Gentle cascade: items fade up as they scroll in (CSS only; skipped for reduced motion / older browsers) */
   @keyframes rise { from { opacity: 0; transform: translateY(1rem); } to { opacity: 1; transform: none; } }
   @media (prefers-reduced-motion: no-preference) {
     @supports (animation-timeline: view()) {
@@ -423,14 +422,13 @@
     }
   }
 
-  /* ---------- Meet us ---------- */
   .mu-card {
     position: relative; display: grid; gap: 1.75rem; padding: 1.25rem; border-radius: 1.5rem;
     background: rgba(255,255,255,0.05); border: 1px solid rgba(205,176,122,0.3);
     box-shadow: 0 12px 28px -12px rgba(0,0,0,0.55);
     transition: border-color 300ms;
   }
-  .mu-card::before, .st-card::before {
+  .mu-card::before {
     content: ""; position: absolute; top: -1px; left: 2rem; width: 5rem; height: 3px;
     border-radius: 0 0 9999px 9999px; background: linear-gradient(90deg, #E2C98F, rgba(226,201,143,0));
   }
@@ -439,7 +437,6 @@
   .mu-photo { margin: 0 auto; width: 74%; max-width: 18rem; overflow: hidden; border-radius: 1rem; border: 1px solid rgba(205,176,122,0.6); }
   .mu-photo img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center top; }
 
-  /* Quiet nudge at the top of each card */
   .mu-jump-wrap { margin: 0 0 0.6rem; text-align: center; }
   .mu-jump {
     display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.85rem; font-weight: 600;
@@ -475,49 +472,6 @@
     .mu-photo { margin: 0; width: auto; max-width: none; position: sticky; top: 6rem; }
     .mu-name, .mu-jump-wrap { text-align: left; }
   }
-
-  /* ---------- How We Got Into Medical School ---------- */
-  .st-intro { max-width: 46rem; margin: 0 0 1.75rem; color: rgba(244,242,238,0.84); }
-  .st-intro p { margin: 0 0 1rem; }
-
-  .st-three { list-style: none; padding: 0; margin: 0 0 3rem; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); counter-reset: t; }
-  .st-three li {
-    counter-increment: t; position: relative; overflow: hidden; border-radius: 1.25rem; padding: 1.4rem 1.4rem 1.3rem;
-    background: rgba(255,255,255,0.05); border: 1px solid rgba(205,176,122,0.3);
-    transition: background-color 250ms, border-color 250ms, transform 250ms;
-  }
-  .st-three li::after {
-    content: counter(t); position: absolute; right: 0.9rem; top: -0.35rem; font-size: 4.5rem; font-weight: 800; line-height: 1;
-    color: rgba(205,176,122,0.12); pointer-events: none;
-  }
-  .st-three li:hover { background: rgba(205,176,122,0.12); border-color: rgba(226,201,143,0.75); }
-  @media (prefers-reduced-motion: no-preference) { .st-three li:hover { transform: translateY(-3px); } }
-  .st-three h4 { position: relative; margin: 0 0 0.6rem; padding-bottom: 0.6rem; font-size: 1.2rem; font-weight: 800; line-height: 1.2; color: #E2C98F; border-bottom: 1px solid rgba(205,176,122,0.3); }
-  .st-three p { position: relative; margin: 0; font-size: 0.97rem; color: rgba(244,242,238,0.84); }
-  .st-three ul { position: relative; list-style: none; margin: 0.7rem 0 0; padding: 0; display: grid; gap: 0.45rem; font-size: 0.95rem; color: rgba(244,242,238,0.84); }
-  .st-three ul li { all: unset; display: block; position: relative; padding-left: 1.2rem; }
-  .st-three ul li::before { content: ""; position: absolute; left: 0; top: 0.7em; width: 0.6rem; height: 2px; background: #CDB07A; }
-  .st-three ul li::after { content: none; }
-
-  .st-grid { display: grid; gap: 1.5rem; }
-  .st-card { position: relative; border-radius: 1.5rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(205,176,122,0.3); box-shadow: 0 12px 28px -12px rgba(0,0,0,0.55); transition: border-color 300ms; }
-  .st-card:hover { border-color: rgba(205,176,122,0.6); }
-  .st-head { display: flex; align-items: center; gap: 0.9rem; margin: 0 0 1.5rem; }
-  .st-head img { width: 3.5rem; height: 3.5rem; border-radius: 50%; object-fit: cover; object-position: center top; border: 1px solid rgba(205,176,122,0.6); }
-  .st-head h3 { margin: 0; font-size: 1.8rem; font-weight: 800; line-height: 1.1; }
-  .st-flow { position: relative; margin: 0; padding-left: 1.5rem; border-left: 2px solid rgba(205,176,122,0.35); max-width: 46rem; }
-  .st-flow > p, .st-flow > aside { position: relative; margin: 0 0 1.15rem; color: rgba(244,242,238,0.84); }
-  .st-flow > p::before { content: ""; position: absolute; left: calc(-1.5rem - 5.5px); top: 0.7em; width: 9px; height: 9px; border-radius: 50%; background: #E2C98F; transition: transform 250ms, box-shadow 250ms; }
-  .st-flow > p:hover::before { transform: scale(1.5); box-shadow: 0 0 0 4px rgba(226,201,143,0.2); }
-  .st-flow > p:last-child { margin-bottom: 0; }
-  .st-flow > p.st-close { padding: 0.9rem 1.1rem; border-radius: 1rem; background: rgba(205,176,122,0.08); border: 1px solid rgba(205,176,122,0.3); color: #F4F2EE; font-weight: 600; }
-  .st-flow > p.st-close::before { top: 1.5em; }
-  .st-aside { padding: 1rem 1.1rem; border-radius: 1rem; border: 1px dashed rgba(205,176,122,0.55); background: rgba(205,176,122,0.06); transition: background-color 250ms, border-color 250ms; }
-  .st-aside:hover { background: rgba(205,176,122,0.12); border-color: rgba(226,201,143,0.85); }
-  .st-aside strong { display: block; margin-bottom: 0.35rem; font-size: 0.85rem; letter-spacing: 0.04em; text-transform: uppercase; color: #E2C98F; }
-  .st-aside p { margin: 0 0 0.6rem; color: rgba(244,242,238,0.88); }
-  .st-aside p:last-child { margin-bottom: 0; }
-  @media (min-width: 52rem) { .st-card { padding: 2.25rem; } }
 </style>
 
 <!-- ===================== MEET US ===================== -->
@@ -579,7 +533,7 @@
         <div class="mu-text">
           <p>I have taught in small groups, at a tuition centre and in <span class="hl">A-Level Maths and Chemistry</span>, and spent many hours mentoring presenters at the Medical Discussion Group I founded at my college. Realising how alive I felt while teaching, I expanded into mentoring students through medical school interviews.</p>
 
-          <p>Over 15 months travelling/ fieldwork in the Middle East and South Asia, I <span class="hl">communicated with thousands of people</span> from all walks of life. The experience and intuition I gained allow me to give <span class="hl">honest, specific feedback</span> on areas teachers and friends may have missed. Together, we will build <span class="hl">custom resources and plans</span> for every area of your preparation.</p>
+          <p>Over 15 months travelling/ fieldwork in the Middle East and South Asia, I <span class="hl">communicated with thousands of people</span>, from tribesman to politician. The experience and intuition I gained allow me to give <span class="hl">honest, specific feedback</span> on areas teachers and friends may have missed. Together, we will build <span class="hl">custom resources and plans</span> for every area of your preparation.</p>
         </div>
 
         <p class="mu-close">Let&#8217;s collaborate in your success!</p>
@@ -588,109 +542,368 @@
   </div>
 </section>
 
+<style>
+  #stories { scroll-margin-top: 4rem; }
+  .hl { background: linear-gradient(transparent 62%, rgba(205,176,122,0.3) 0); color: #F4F2EE; font-weight: 700; }
+
+  @keyframes rise { from { opacity: 0; transform: translateY(1rem); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      .reveal { animation: rise linear both; animation-timeline: view(); animation-range: entry 0% entry 45%; }
+    }
+  }
+
+  .st-intro { max-width: 46rem; margin: 0 0 1.75rem; color: rgba(244,242,238,0.84); }
+  .st-intro p { margin: 0 0 1rem; }
+
+/* ---------- The three areas ---------- */
+.areas { list-style: none; counter-reset: a; margin: 0 0 3rem; padding: 0; display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr)); }
+.area {
+  counter-increment: a; position: relative; display: flex; flex-direction: column; overflow: hidden;
+  padding: 1.5rem; border-radius: 1.5rem;
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(205,176,122,0.3);
+  transition: border-color 250ms, background-color 250ms;
+}
+.area:hover { border-color: rgba(226,201,143,0.7); background: rgba(205,176,122,0.08); }
+.area::before {
+  content: counter(a); display: grid; place-items: center; width: 2.2rem; height: 2.2rem; margin-bottom: 0.9rem;
+  border-radius: 50%; font-weight: 800; font-size: 1rem; color: #232529; background: #E2C98F;
+}
+.area h4 { margin: 0 0 0.5rem; font-size: 1.3rem; font-weight: 800; line-height: 1.2; color: #E2C98F; }
+.area-intro { margin: 0 0 1.1rem; padding-bottom: 1.1rem; font-size: 0.95rem; line-height: 1.5; color: rgba(244,242,238,0.8); border-bottom: 1px solid rgba(205,176,122,0.25); }
+.area h5 { margin: 0 0 0.5rem; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.07em; text-transform: uppercase; color: rgba(244,242,238,0.55); }
+.area h5:not(:first-of-type) { margin-top: 1.1rem; }
+.area-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; }
+.area-list li { position: relative; padding-left: 1.25rem; font-size: 0.95rem; line-height: 1.45; color: rgba(244,242,238,0.84); }
+.area-list li::before { content: ""; position: absolute; left: 0; top: 0.65em; width: 0.6rem; height: 2px; background: #CDB07A; }
+.area-list b { color: #F4F2EE; font-weight: 700; }
+.area-tip { margin: auto 0 0; padding-top: 1.1rem; font-size: 0.9rem; line-height: 1.45; color: rgba(244,242,238,0.8); }
+.area-tip b { color: #E2C98F; }
+
+/* Three areas: lead, support and takeaway */
+/* ---------- The three areas ---------- */
+.areas { list-style: none; counter-reset: a; margin: 0 0 3rem; padding: 0; display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr)); }
+.area {
+  counter-increment: a; position: relative; overflow: hidden; display: flex; flex-direction: column;
+  padding: 1.75rem 1.6rem 1.6rem; border-radius: 1.5rem;
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(205,176,122,0.3);
+  box-shadow: 0 12px 28px -12px rgba(0,0,0,0.55);
+  transition: border-color 250ms, background-color 250ms, transform 250ms;
+}
+.area::before {
+  content: ""; position: absolute; top: -1px; left: 1.6rem; width: 4rem; height: 3px;
+  border-radius: 0 0 9999px 9999px; background: linear-gradient(90deg, #E2C98F, rgba(226,201,143,0));
+  transition: width 300ms ease;
+}
+.area::after {
+  content: counter(a); position: absolute; right: 1.1rem; top: 0.2rem; font-size: 6rem; font-weight: 800; line-height: 1;
+  color: rgba(205,176,122,0.1); pointer-events: none;
+}
+.area:hover { border-color: rgba(226,201,143,0.7); background: rgba(205,176,122,0.08); }
+.area:hover::before { width: 7rem; }
+@media (prefers-reduced-motion: no-preference) { .area:hover { transform: translateY(-3px); } }
+
+.area-tag { position: relative; margin: 0 0 0.5rem; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,242,238,0.55); }
+.area h4 { position: relative; margin: 0 0 1.4rem; max-width: 15rem; font-size: 1.45rem; font-weight: 800; line-height: 1.2; color: #E2C98F; }
+
+/* Equal points on a thin gold line */
+.area-beats { position: relative; list-style: none; margin: 0; padding: 0 0 0 1.35rem; border-left: 2px solid rgba(205,176,122,0.35); display: grid; gap: 1.1rem; }
+.area-beats li { position: relative; font-size: 1rem; line-height: 1.55; color: rgba(244,242,238,0.86); }
+.area-beats li::before {
+  content: ""; position: absolute; left: calc(-1.35rem - 5.5px); top: 0.55em; width: 9px; height: 9px; border-radius: 50%;
+  background: #E2C98F; transition: transform 250ms, box-shadow 250ms;
+}
+.area-beats li:hover::before { transform: scale(1.5); box-shadow: 0 0 0 4px rgba(226,201,143,0.2); }
+
+.area-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.7rem 0 0; padding: 0; list-style: none; }
+.area-chips li {
+  padding: 0.2rem 0.85rem; border-radius: 9999px; font-size: 0.88rem; font-weight: 700; color: #E2C98F;
+  background: rgba(205,176,122,0.12); border: 1px solid rgba(205,176,122,0.5);
+}
+.area-chips li::before { content: none; }
+
+  /* ---------- Stories ---------- */
+  .st-grid { display: grid; gap: 1.5rem; }
+  .st-card {
+    position: relative; display: grid; gap: 1.25rem; padding: 1.5rem; border-radius: 1.5rem; scroll-margin-top: 5rem;
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(205,176,122,0.3);
+    box-shadow: 0 12px 28px -12px rgba(0,0,0,0.55); transition: border-color 300ms;
+  }
+  .st-card::before {
+    content: ""; position: absolute; top: -1px; left: 2rem; width: 5rem; height: 3px;
+    border-radius: 0 0 9999px 9999px; background: linear-gradient(90deg, #E2C98F, rgba(226,201,143,0));
+  }
+  .st-card:hover { border-color: rgba(205,176,122,0.6); }
+
+  .st-side-head { display: flex; align-items: center; gap: 0.9rem; }
+  .st-photo { width: 3.75rem; height: 3.75rem; border-radius: 50%; object-fit: cover; object-position: center top; border: 1px solid rgba(205,176,122,0.6); }
+  .st-side h3 { margin: 0; font-size: 1.9rem; font-weight: 800; line-height: 1.1; }
+
+  .st-pull { margin: 0 0 1.5rem; font-size: clamp(1.15rem, 2vw, 1.4rem); font-weight: 700; line-height: 1.4; color: #F4F2EE; max-width: 40rem; }
+  .st-pull::before { content: "\201C"; display: block; margin-bottom: 0.3rem; font-size: 3.2rem; line-height: 0.6; color: #E2C98F; }
+
+  /* Expandable body */
+  .st-body { --st-collapsed: 15rem; margin-left: -0.5rem; padding-left: 0.5rem; }
+  .st-body.is-enhanced { overflow: hidden; transition: max-height 500ms ease; }
+  .st-body.is-collapsed {
+    max-height: var(--st-collapsed);
+    -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 6rem), transparent);
+            mask-image: linear-gradient(to bottom, #000 calc(100% - 6rem), transparent);
+  }
+  @media (prefers-reduced-motion: reduce) { .st-body.is-enhanced { transition: none; } }
+
+  .st-toggle-wrap { text-align: center; }
+  .st-toggle {
+    display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1rem; padding: 0.6rem 1.3rem; border-radius: 9999px;
+    font: inherit; font-weight: 700; font-size: 0.95rem; color: #E2C98F; cursor: pointer;
+    background: rgba(205,176,122,0.08); border: 1px solid rgba(226,201,143,0.6);
+    transition: background-color 250ms, color 250ms;
+  }
+  .st-toggle[hidden] { display: none; }
+  .st-toggle:hover { background: #E2C98F; color: #232529; }
+  .st-toggle:focus-visible { outline: 2px solid #E2C98F; outline-offset: 3px; }
+  .st-toggle svg { transition: transform 250ms; }
+  .st-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
+
+  /* The flowing story */
+  .st-flow { position: relative; margin: 0; padding-left: 1.5rem; border-left: 2px solid rgba(205,176,122,0.35); max-width: 46rem; }
+  .st-flow > p, .st-flow > aside { position: relative; margin: 0 0 1.15rem; color: rgba(244,242,238,0.84); }
+  .st-flow > p:first-child { font-size: 1.08rem; color: #F4F2EE; }
+  .st-flow > p::before { content: ""; position: absolute; left: calc(-1.5rem - 5.5px); top: 0.7em; width: 9px; height: 9px; border-radius: 50%; background: #E2C98F; transition: transform 250ms, box-shadow 250ms; }
+  .st-flow > p:hover::before { transform: scale(1.5); box-shadow: 0 0 0 4px rgba(226,201,143,0.2); }
+  .st-flow > :last-child { margin-bottom: 0; }
+  .st-flow > p.st-close { padding: 0.9rem 1.1rem; border-radius: 1rem; background: rgba(205,176,122,0.08); border: 1px solid rgba(205,176,122,0.3); color: #F4F2EE; font-weight: 600; }
+  .st-flow > p.st-close::before { top: 1.5em; }
+  .st-aside { padding: 1rem 1.1rem; border-radius: 1rem; border: 1px dashed rgba(205,176,122,0.55); background: rgba(205,176,122,0.06); transition: background-color 250ms, border-color 250ms; }
+  .st-aside:hover { background: rgba(205,176,122,0.12); border-color: rgba(226,201,143,0.85); }
+  .st-aside strong { display: block; margin-bottom: 0.35rem; font-size: 0.85rem; letter-spacing: 0.04em; text-transform: uppercase; color: #E2C98F; }
+  .st-aside strong::before { content: ""; display: inline-block; width: 0.5rem; height: 0.5rem; margin-right: 0.5rem; border-radius: 50%; background: #E2C98F; vertical-align: middle; }
+  .st-aside p { margin: 0 0 0.6rem; color: rgba(244,242,238,0.88); }
+  .st-aside p:last-child { margin-bottom: 0; }
+
+  @media (min-width: 52rem) {
+    .st-card { grid-template-columns: 13rem 1fr; gap: 2.5rem; padding: 2.25rem; align-items: start; }
+    .st-card.flip { grid-template-columns: 1fr 13rem; }
+    .st-card.flip .st-side { order: 2; }
+    .st-side { position: sticky; top: 6rem; }
+    .st-side-head { display: block; }
+    .st-photo { width: 100%; height: auto; aspect-ratio: 4 / 5; border-radius: 1rem; margin-bottom: 1rem; }
+    .st-side h3 { font-size: 2rem; }
+    .st-body { --st-collapsed: 14rem; }
+  }
+</style>
+
 <!-- ===================== HOW WE GOT INTO MEDICAL SCHOOL ===================== -->
 <section class="py-12 md:py-[clamp(4rem,9vw,6.5rem)] bg-char bg-[radial-gradient(ellipse_at_85%_0%,rgba(205,176,122,0.12),transparent_55%)] text-onchar" id="stories" aria-labelledby="stories-h">
   <div class="w-[calc(100%_-_2.5rem)] md:w-[min(70rem,100%_-_3rem)] mx-auto">
     <h2 id="stories-h" class="font-serif font-medium text-[clamp(2.2rem,4.4vw,3rem)] leading-[1.1] mb-8 md:mb-10 text-onchar after:block after:mt-4 after:h-0.5 after:w-12 after:rounded-full after:bg-gradient-to-r after:from-goldonchar after:to-transparent">How We Got Into Medical School</h2>
 
-    <!-- Shared introduction -->
     <div class="st-intro">
-      <p>Medical school interviews can seem daunting, but <span class="hl">congratulations, you are at the last step</span>. Like your predicted grades, the UCAT and your personal statement, medical interviews take time to prepare for. You may muddle your words at first, feel unsure about what to say, or not know how to structure your answers to pick up marks on the mark scheme. Rest assured, <span class="hl">with time and intentional practice, your marks will improve</span>.</p>
-      <p>There are three main things to work on:</p>
+      <p>Over our experience, we learned three main things:</p>
     </div>
 
-    <ol class="st-three" role="list">
-      <li class="reveal">
-        <h4>Build your knowledge base</h4>
-        <p>A general knowledge base worth learning: <span class="hl">key topics</span> that may come up in the interview and are worth being clued up on, plus <span class="hl">standard questions</span> you need examples ready for, drawn from your own experiences.</p>
-      </li>
-      <li class="reveal">
-        <h4>Learn to think and structure</h4>
-        <p>Learning how to think through questions and structure your answers for the different question types, with an understanding of <span class="hl">what the examiners are looking for</span>.</p>
-      </li>
-      <li class="reveal">
-        <h4>Be ready on the day</h4>
-        <p>Practical advice on how to feel ready:</p>
-        <ul>
-          <li>What to do the night before and the morning of</li>
-          <li>What to say if you want to take a second before answering</li>
-          <li>Techniques to stay relaxed under pressure</li>
-          <li>Having a tidy room</li>
-          <li>Looking after your health (sleep, exercise etc.) so you feel 100% on the day</li>
+<ol class="areas" role="list">
+
+  <li class="area reveal">
+    <p class="area-tag">Knowledge</p>
+    <h4>Know deeper and broader than other candidates</h4>
+    <ul class="area-beats">
+      <li>Medicine is very deep.</li>
+      <li>The more you know about its diverse intricacies, the more you learn to <span class="hl">appreciate this vocation</span>, and the more <span class="hl">motivation you will have to study deeper</span>.</li>
+      <li><span class="hl">Interviewers can see if you have this spark. You will stand out.</span></li>
+      <li>Building your knowledge base will only feel like drudgery if you&#8217;re doing it in the wrong way.</li>
+    </ul>
+  </li>
+
+  <li class="area reveal">
+    <p class="area-tag">Thinking</p>
+    <h4>Learn to think deeply on the spot</h4>
+    <ul class="area-beats">
+      <li>All the great speakers had to learn to articulate their thoughts at some point.</li>
+      <li>More practice helps, but <span class="hl">being smart about how you practise</span> your thinking and speaking skills will make it faster.</li>
+      <li>If you have a habit of <span class="hl">reasoning step by step out loud</span>, you&#8217;ll be surprised with how well you can answer complex and unexpected questions.</li>
+      <li>No question in any interview can be answered from memory.</li>
+    </ul>
+  </li>
+
+  <li class="area reveal">
+    <p class="area-tag">Habits</p>
+    <h4>Build healthy habits in advance of the day</h4>
+    <ul class="area-beats">
+      <li><span class="hl">Meaningful social contact</span> and regular sleep and exercise make a perceivable difference.</li>
+      <li>Getting into the habit of <span class="hl">preparing consistently</span> can help you ingrain the soft skills you are practising.</li>
+      <li>Habits in conversational technique need time to become automatic:
+        <ul class="area-chips">
+          <li>Pausing before answering</li>
+          <li>Speaking slower</li>
+          <li>Keeping composure</li>
         </ul>
       </li>
-    </ol>
+    </ul>
+  </li>
+
+</ol>
 
     <div class="st-grid">
 
       <!-- Mete -->
-      <article class="st-card reveal" id="mete-story" aria-labelledby="mete-story-h">
-        <div class="st-head">
-          <img src="img/mete1.png" alt="" width="56" height="56">
-          <h3 id="mete-story-h">Mete</h3>
+      <article class="st-card reveal" id="mete-story" data-collapsible aria-labelledby="mete-story-h">
+        <div class="st-side">
+          <div class="st-side-head">
+            <img class="st-photo" src="img/mete1.png" alt="" width="208" height="260">
+            <h3 id="mete-story-h">Mete</h3>
+          </div>
         </div>
-        <div class="st-flow">
-          <p>So what was it like for me? I knew very little to begin with. I started watching YouTube videos and reading online articles to familiarise myself with the medical interview process.</p>
+        <div class="st-main">
+          <blockquote class="st-pull">Mock MMIs and panel interviews are like sitting a past paper under exam conditions, and the highest-quality form of revision you can get.</blockquote>
 
-          <p>I set up a Word document and wrote <span class="hl">short summaries of what I thought was valuable to know</span>, as well as examples from my personal experiences geared towards the more behavioural questions I might be asked. I also wrote down key phrases and a few relaxation and delay techniques I could use to gather my thoughts and smooth out my speech.</p>
+          <div class="st-body" id="mete-body">
+            <div class="st-flow">
+              <p>So what was it like for me? I started from the basics, watching YouTube videos and reading online articles to familiarise myself with the medical interview process.</p>
 
-          <p>Once the basic knowledge was there, I began practising interview questions with family and friends to get better at structuring my answers out loud.</p>
+              <p>I set up a Word document and wrote <span class="hl">short summaries of what I thought was valuable to know</span>, as well as examples from my personal experiences geared towards the more behavioural questions I might be asked. I also wrote down key phrases and a few relaxation and delay techniques I could use to gather my thoughts and smooth out my speech.</p>
 
-          <p>This was the hardest part: turning notes into coherent, structured speech whilst ticking off the examiners&#8217; mark scheme. Alchemists spent centuries trying to turn lead into gold. I spent weeks trying to turn written bullet points into spoken sentences, with similar early results. Fortunately, unlike the Alchemists, I <span class="hl">eventually struck gold and received my offers</span>. You may not feel the most confident at this stage, but over time your answers will improve.</p>
+              <p>Once the basic knowledge was there, I began practising interview questions with family and friends to get better at structuring my answers out loud.</p>
 
-          <p>Once my answers were respectable, I began <span class="hl">practising with medical students from the universities I was applying to</span>, since they could provide insight that students from other schools may not be able to. This is where <span class="hl">repetitions and tailored feedback</span> matter for confidence, fluidity of speech and the quality of your answers.</p>
+              <p>This was the hardest part: turning notes into coherent, structured speech whilst ticking off the examiners&#8217; mark scheme. Alchemists spent centuries trying to turn lead into gold. I spent weeks turning written bullet points into spoken sentences. Fortunately, unlike the Alchemists, I <span class="hl">eventually struck gold and received my offers</span>. You may not feel the most confident at this stage, but over time your answers will improve.</p>
 
-          <p>It is also the stage where we&#8217;d recommend coming to us, so you get the most out of your money and our time together. Before then, we can provide guidance and study materials, and recommend resources to help you get there. <span class="hl">Examiners can tell very quickly which students have put in the time</span>. With good practice, it will be obvious to them that you have.</p>
+              <p>Once my answers were respectable, I began <span class="hl">practising with medical students from the universities I was applying to</span>, since they could provide insight that students from other schools may not be able to. This is where <span class="hl">repetitions and tailored feedback</span> matter for confidence, fluidity of speech and the quality of your answers.</p>
 
-          <p>It also helps to simulate the interview format of the schools you are interviewing at and the types of questions they may ask by doing <span class="hl">mock MMIs and panel interviews</span>. This is like <span class="hl">sitting a past paper under exam conditions</span>, and is the highest-quality form of revision you can get.</p>
+              <p>It is also the stage where we&#8217;d recommend coming to us, so you get the most out of your money and our time together. Before then, we can provide guidance and study materials, and recommend resources to help you get there. <span class="hl">Examiners can tell very quickly which students have put in the time</span>. With good practice, it will be obvious to them that you have.</p>
 
-          <p>When it came to the interviews themselves, mine at Bristol, Liverpool and Leicester were online, and Sheffield was in person. The in-person one was a lot scarier. You can see the competition and everyone is on edge, a bit like the staredown before a boxing fight.</p>
+              <p>It also helps to simulate the interview format of the schools you are interviewing at and the types of questions they may ask by doing <span class="hl">mock MMIs and panel interviews</span>. This is like <span class="hl">sitting a past paper under exam conditions</span>, and is the highest-quality form of revision you can get.</p>
 
-          <aside class="st-aside">
-            <strong>An anecdote</strong>
-            <p>Not every answer will go well, and that&#8217;s fine. At Sheffield I was asked what I was looking forward to about living in Sheffield as a student. I blanked and said visiting the steel factories. As student pastimes go, it is not a common one. In an MMI, each station is usually marked separately, so <span class="hl">one weak answer doesn&#8217;t decide the whole interview</span>. Leave it behind and move on to the next station.</p>
-          </aside>
+              <p>When it came to the interviews themselves, mine at Bristol, Liverpool and Leicester were online, and Sheffield was in person. The in-person one was a lot scarier. You can see the competition and everyone is on edge, a bit like the staredown before a boxing fight.</p>
 
-          <p class="st-close">Get as much experience as possible, and study for it in the same way you study for your exams. Don&#8217;t be demoralised if you&#8217;re shaky to begin with. It takes time, and we are here to support you every step of the way.</p>
+              <aside class="st-aside">
+                <strong>An anecdote</strong>
+                <p>Not every answer will go well, and that&#8217;s fine. At Sheffield, one of my answers did not go to plan. In an MMI, each station is usually marked separately, so <span class="hl">one weak answer doesn&#8217;t decide the whole interview</span>. I left it behind and moved on to the next station.</p>
+              </aside>
+
+              <p class="st-close">Get as much experience as possible, and study for it in the same way you study for your exams. Don&#8217;t be demoralised if you&#8217;re shaky to begin with. It takes time, and we are here to support you every step of the way.</p>
+            </div>
+          </div>
+          <div class="st-toggle-wrap">
+            <button type="button" class="st-toggle" aria-expanded="false" aria-controls="mete-body" hidden>
+              <span class="st-toggle-label">Read more</span>
+              <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg>
+            </button>
+          </div>
         </div>
       </article>
 
       <!-- Ilkin -->
-      <article class="st-card reveal" id="ilkin-story" aria-labelledby="ilkin-story-h">
-        <div class="st-head">
-          <img src="img/kin1.png" alt="" width="56" height="56">
-          <h3 id="ilkin-story-h">Ilkin</h3>
+      <article class="st-card flip reveal" id="ilkin-story" data-collapsible aria-labelledby="ilkin-story-h">
+        <div class="st-side">
+          <div class="st-side-head">
+            <img class="st-photo" src="img/kin1.png" alt="" width="208" height="260">
+            <h3 id="ilkin-story-h">Ilkin</h3>
+          </div>
         </div>
-        <div class="st-flow">
-          <p>During my application, I found the medical interviews to be what needed the most out-of-the-box preparation. Back then, there was the BMAT exam (UCAT but harder) at the end of October, so I only found time to prepare much later. And yet, this was not an issue! With the proper guidance and organisation, <span class="hl">one can grow in confidence day by day</span> as they absorb the information and get fluent in their articulation.</p>
+        <div class="st-main">
+          <blockquote class="st-pull">It all happens automatically to the level of your preparation and confidence. You can cultivate both with the right guidance and consistency!</blockquote>
 
-          <p>I learned English later in life, so when I first started recording myself for interview practice, I could see I was a bit robotic and unnatural. It gets better, by the end I was totally relaxed and natural. To this I owe many hours of thinking out loud, practising with friends, and <span class="hl">receiving detailed feedback from a special teacher</span> who mentored me in my interview process.</p>
+          <div class="st-body" id="ilkin-body">
+            <div class="st-flow">
+              <p>During my application, I found the medical interviews to be what needed the most out-of-the-box preparation. Back then, there was the BMAT exam (UCAT but harder) at the end of October, so I only found time to prepare much later. And yet, this was not an issue! With the proper guidance and self-organisation, <span class="hl">one can grow in confidence each day</span> as they absorb the information and get fluent in their articulation.</p>
 
-          <p>However, what consumed more of my time was the knowledge. Given I was applying for Oxford, I wanted my knowledge to be <span class="hl">impressively deep and comprehensive</span>. I found some ethics textbooks online (e.g. <em>Medical Ethics: a Very Short Introduction</em>), visited my local university to read the British Medical Journal etc, searched up medical law and tribunal procedures, and read up further on key cases such as Gillick or Bolam.</p>
+              <p>When I first started recording myself for interview practice, it didn't feel quite right. Yet, by the end I was totally relaxed and natural. To this I owe many hours of thinking out loud, practising with friends, and <span class="hl">receiving detailed feedback from a special teacher</span> who mentored me in my interview process.</p>
 
-          <p>I also read lots of BBC/ Guardian health, watched loads of YouTube of doctors describing their daily work and how their team functions, and reflected thoroughly on my own work experience to find talking points.</p>
+              <p>However, what consumed more of my time was the knowledge. Given I was applying to top med schools, I wanted my knowledge to be <span class="hl">impressively deep and comprehensive</span>. I found some ethics textbooks online (e.g. <em>Medical Ethics: a Very Short Introduction</em>), visited my local university to read the British Medical Journal etc, searched up medical law cases, combed through tribunal proceedings against malpractising doctors, and read up further on key cases such as Gillick or Bolam.</p>
 
-          <p>There can&#8217;t be any cutting of corners, so during this period I had to be honest with myself that I was not slacking off. Yet, to be honest the main thing was <span class="hl">consistency rather than intensity</span>. A few hours every day spread out over months meant that with time I felt I had gone beyond expectations and was working at a level that would impress interviewers.</p>
+              <p>I also read lots of BBC/ Guardian health, watched loads of YouTube of doctors describing their daily work and how their team functions, and <span class="hl">reflected thoroughly</span> on my own work experience/ volunteering to <span class="hl">find talking points.</span>
+                
+              <p><span class="hl">Learning was made a lot easier when I was discovering things about medicine that really were interesting.</span></p>
 
-          <p>My hope is that you too can find the right strategies to move past mediocrity because, unfortunately, no matter how virtuous or compassionate you are, only those that can stand out are given a place. Thankfully, I know that <span class="hl">whichever student receives the right guidance and sticks to the right regimen</span> will be able to get to the same confidence.</p>
+              <p>There can&#8217;t be any cutting of corners, so during this period I held myself to a high standard. Yet, to be honest the main thing was <span class="hl">consistency rather than intensity</span>. A few hours every day spread out over months meant that, with time, I surpassed mediocrity.</p>
 
-          <p>I really thank my early Dec Oxford interview for this, because preparing at that level meant that my next interviews March onwards for UCL/ Southampton/ King&#8217;s <span class="hl">went like a breeze</span>.</p>
+              <p>My expectation is that you too can find the right strategies to stand out, because I know that <span class="hl">whichever student receives the right guidance and sticks to the right regimen</span> will be able to get to the same confidence.</p>
 
-          <aside class="st-aside">
-            <strong>An anecdote</strong>
-            <p>For my MMI UCL interview I had to stay in my friend&#8217;s student accommodation in London on the bare floor! I had less than 3 hours sleep, was immensely underdressed compared to the other candidates, and yet the sole reason why it went well was the undeniable comprehensiveness of my preparation. Rather than me putting on a special performance, <span class="hl">my preparation shone through naturally</span>.</p>
-            <p>The same with my group-interview at Southampton. I decided I would reapply rather than go to Southampton, so I preferred to just joke around unseriously, and yet when the interviewers asked me the serious questions, when I opened my mouth <span class="hl">the level of my preparation spoke for me</span>. That was an accidental offer!</p>
-          </aside>
+              <aside class="st-aside">
+                <strong>An anecdote</strong>
+                <p>The night before my UCL MMI I stayed at a friend&#8217;s student accommodation, on the bare floor! Though I would have much preferred full night's sleep, it was next to none.   And yet the sole reason why it went well was the undeniable comprehensiveness of my preparation. Rather than me putting on a special performance, <span class="hl">my knowledge and practice shone through naturally</span>.</p>
+                <p>When the UCL interview went well <small style="color: #868686;">(offer)</small>, I stopped preparing for my later interviews at Southampton <small style="color: #868686;">(in-person group + panel; offer)</small> and King's <small style="color: #868686;">(online panel; I rejected King's before their offer came)</small>. In these interviews I was still asked serious questions. <span class="hl">When I opened my mouth, my prior preparation spoke for me.</span>
+      
+              </aside>
 
-          <p>All this to say you need not worry about how you will perform in an interview, as it all happens automatically to the level of your preparation and confidence.</p>
+              <p>All this to say you need not worry about how you will perform in an interview, as <span class="hl">it all happens automatically to the level of your preparation and confidence. You can cultivate both with the right guidance and consistency!</span></p>
 
-          <p class="st-close">I know that this is probably the most unpredictable time of your application. It may feel like you are left to your own devices, trying to meet a standard and yet retain your originality. No need to be crushed by the burden, as long as you enjoy the process of exploration and deepening. I&#8217;m here to make that process easier and give the essential feedback that assures you that you&#8217;re on the right track.</p>
+              <p class="st-close">I know that this is probably the most unpredictable time of your application. It may feel like you are left to your own devices, trying to meet a standard and yet retain your originality. No need to be crushed by the burden, as long as you enjoy the process of exploration and deepening. I&#8217;m here to make that process easier and give the essential feedback that assures you that you&#8217;re on the right track.</p>
+            </div>
+          </div>
+          <div class="st-toggle-wrap">
+            <button type="button" class="st-toggle" aria-expanded="false" aria-controls="ilkin-body" hidden>
+              <span class="st-toggle-label">Read more</span>
+              <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg>
+            </button>
+          </div>
         </div>
       </article>
 
     </div>
   </div>
 </section>
+
+<script>
+  (function () {
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var openers = {};
+
+    Array.prototype.forEach.call(document.querySelectorAll('.st-card[data-collapsible]'), function (card) {
+      var body = card.querySelector('.st-body');
+      var btn = card.querySelector('.st-toggle');
+      if (!body || !btn) return;
+      var label = btn.querySelector('.st-toggle-label');
+      var timer;
+
+      // If the story is short enough, leave it open and keep the button hidden
+      var rem = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
+      var limit = (parseFloat(getComputedStyle(body).getPropertyValue('--st-collapsed')) || 15) * rem;
+      if (body.scrollHeight < limit + 80) return;
+
+      body.classList.add('is-enhanced', 'is-collapsed');
+      btn.hidden = false;
+
+      function open() {
+        clearTimeout(timer);
+        body.style.maxHeight = body.scrollHeight + 'px';
+        body.classList.remove('is-collapsed');
+        btn.setAttribute('aria-expanded', 'true');
+        label.textContent = 'Show less';
+        if (reduce) { body.style.maxHeight = 'none'; }
+        else { timer = setTimeout(function () { body.style.maxHeight = 'none'; }, 550); }
+      }
+
+      function close() {
+        clearTimeout(timer);
+        body.style.maxHeight = body.scrollHeight + 'px';
+        void body.offsetHeight; // force reflow so the height animates
+        body.style.maxHeight = '';
+        body.classList.add('is-collapsed');
+        btn.setAttribute('aria-expanded', 'false');
+        label.textContent = 'Read more';
+        if (card.getBoundingClientRect().top < 0) {
+          card.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+        }
+      }
+
+      btn.addEventListener('click', function () {
+        if (btn.getAttribute('aria-expanded') === 'true') close(); else open();
+      });
+
+      openers[card.id] = function () { if (body.classList.contains('is-collapsed')) open(); };
+    });
+
+    // Links such as "Read my story" open the matching story
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href^="#"]');
+      if (!a) return;
+      var id = a.getAttribute('href').slice(1);
+      if (openers[id]) openers[id]();
+    });
+    if (location.hash && openers[location.hash.slice(1)]) openers[location.hash.slice(1)]();
+  })();
+</script>
   
 <!-- <section class="py-[clamp(4rem,9vw,6.5rem)] max-[52rem]:py-12 bg-char bg-[radial-gradient(ellipse_at_15%_0%,rgba(205,176,122,0.14),transparent_55%)] text-onchar" id="pricing">
   <div class="w-[min(70rem,100%_-_3rem)] max-[52rem]:w-[calc(100%_-_2.5rem)] mx-auto">
@@ -808,20 +1021,44 @@
   .pr-free h3 { font-size: 1.6rem; line-height: 1.2; margin: 0 0 0.25rem; }
   .pr-free p { margin: 0; }
 
-  /* Small "free first 15 min" pill inside Tier 1 */
-  .pr-pill {
-    display: inline-block; margin-top: 0.9rem; border-radius: 9999px; padding: 0.2rem 0.8rem;
-    font-size: 0.85rem; font-weight: 700; color: #E2C98F;
-    background: rgba(205,176,122,0.12); border: 1px solid rgba(226,201,143,0.6);
+  /* ---------- Rate ladder: concession, standard, gratitude ---------- */
+  .pr-rates {
+    position: relative; list-style: none; margin: 1.5rem 0 0; padding: 0 0 0 2rem;
+    display: grid; gap: 0.7rem;
   }
+  .pr-rates::before {
+    content: ""; position: absolute; left: 0.5rem; top: 1.6rem; bottom: 1.6rem; width: 2px; border-radius: 9999px;
+    background: linear-gradient(to bottom, rgba(150,150,146,0.5), rgba(205,176,122,0.95));
+  }
+  .pr-rate {
+    position: relative; display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    padding: 0.85rem 1.1rem; border-radius: 1rem;
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(205,176,122,0.22);
+    transition: border-color 250ms, background-color 250ms, transform 250ms;
+  }
+  .pr-rate::before {
+    content: ""; position: absolute; left: calc(-1.5rem - 5px); top: 50%; width: 12px; height: 12px;
+    transform: translateY(-50%); border-radius: 50%;
+    background: #232529; border: 2px solid #CDB07A;
+    transition: background-color 250ms;
+  }
+  .pr-rate:hover { border-color: rgba(226,201,143,0.65); background: rgba(205,176,122,0.07); }
+  .pr-rate:hover::before { background: #CDB07A; }
+  @media (prefers-reduced-motion: no-preference) { .pr-rate:hover { transform: translateX(4px); } }
 
-  /* Price ladder: lower rate, base rate, higher rate */
-  .pr-ladder { margin-top: 1.25rem; display: grid; gap: 0.3rem; }
-  .pr-lo, .pr-hi { margin: 0; font-size: 0.92rem; line-height: 1.45; color: rgba(244,242,238,0.62); }
-  .pr-lo b, .pr-hi b { font-weight: 700; color: rgba(244,242,238,0.85); }
-  .pr-base { display: flex; align-items: baseline; gap: 0.5rem; margin: 0.15rem 0; }
-  .pr-base-amt { font-size: 2.4rem; font-weight: 800; line-height: 1; color: #E2C98F; }
-  .pr-base-unit { font-size: 1rem; font-weight: 600; color: rgba(244,242,238,0.7); }
+  .pr-rate-name { display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem; font-weight: 700; font-size: 1rem; line-height: 1.3; color: #F4F2EE; }
+  .pr-rate-note { display: block; margin-top: 0.15rem; font-size: 0.88rem; line-height: 1.4; color: rgba(244,242,238,0.65); }
+  .pr-rate-amt { flex-shrink: 0; text-align: right; font-weight: 800; font-size: 1.7rem; line-height: 1; color: #CDB07A; }
+  .pr-rate-amt small { display: block; margin-top: 0.25rem; font-size: 0.75rem; font-weight: 600; color: rgba(244,242,238,0.55); }
+
+  /* The standard rate: tinted row, filled node, tag */
+  .pr-rate.is-standard { padding: 1.1rem 1.1rem; background: rgba(205,176,122,0.1); border-color: rgba(205,176,122,0.6); }
+  .pr-rate.is-standard::before { width: 16px; height: 16px; left: calc(-1.5rem - 7px); background: #E2C98F; border-color: #E2C98F; }
+  .pr-rate.is-standard .pr-rate-amt { font-size: 2.2rem; color: #E2C98F; }
+  .pr-rate-tag {
+    border-radius: 9999px; padding: 0.1rem 0.65rem; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.04em;
+    color: #232529; background: #E2C98F;
+  }
 
   /* A-Level subjects (aside) */
   .pr-alevel {
@@ -842,7 +1079,13 @@
 
   @media (max-width: 52rem) {
     .pr-free { flex-direction: column; align-items: flex-start; gap: 0.75rem; padding: 1.25rem; }
-    .pr-base-amt { font-size: 2.2rem; }
+    .pr-rates { padding-left: 1.75rem; }
+    .pr-rates::before { left: 0.4rem; }
+    .pr-rate { padding: 0.75rem 0.9rem; }
+    .pr-rate::before { left: calc(-1.35rem - 5px); }
+    .pr-rate.is-standard::before { left: calc(-1.35rem - 7px); }
+    .pr-rate-amt { font-size: 1.45rem; }
+    .pr-rate.is-standard .pr-rate-amt { font-size: 1.9rem; }
     .pr-alevel { margin-top: 2rem; }
     .pr-alevel-dot { display: none; }
   }
@@ -868,23 +1111,31 @@
       <!-- Tier 1 -->
       <div class="flex flex-col rounded-3xl bg-[rgba(255,255,255,0.05)] ring-1 ring-[rgba(205,176,122,0.4)] shadow-dark hover:ring-[rgba(205,176,122,0.7)] p-8 max-[52rem]:p-6 transition duration-300 motion-safe:hover:-translate-y-1">
         <span class="self-start rounded-full ring-1 ring-[rgba(205,176,122,0.5)] text-goldonchar text-[0.85rem] font-bold px-3.5 py-0.5">Tier 1</span>
-        <p class="pr-italic mt-4 font-serif font-bold text-[1.45rem] leading-[1.25] text-onchar">General consultation</p>
+        <p class="pr-italic mt-4 font-serif font-bold text-[1.45rem] leading-[1.25] text-onchar">Productive Discussions</p>
         <p class="mt-2 text-oncharmuted">Come once, or come back as often as you like.</p>
 
-        <div class="pr-ladder">
-          <p class="pr-lo"><b>£15</b> for concession. Just let us know.</p>
-          <div class="pr-base"><span class="pr-base-amt">£20</span><span class="pr-base-unit">/ hr &middot; our standard.</span></div>
-          <p class="pr-hi"><b>£25</b> if you&#8217;d like to say thank you.</p>
-        </div>
+        <ul class="pr-rates" role="list">
+          <li class="pr-rate">
+            <div class="pr-rate-name">Concession<span class="pr-rate-note">Just let us know.</span></div>
+            <div class="pr-rate-amt">£15<small>per hour</small></div>
+          </li>
+          <li class="pr-rate is-standard">
+            <div class="pr-rate-name">Standard <span classs="pr-rate-tag"></span><span class="pr-rate-note" style="flex-basis:100%">Our everyday rate.</span></div>
+            <div class="pr-rate-amt">£20<small>per hour</small></div>
+          </li>
+          <li class="pr-rate">
+            <div class="pr-rate-name">Gratitude<span class="pr-rate-note">If you&#8217;d like to say thank you.</span></div>
+            <div class="pr-rate-amt">£25<small>per hour</small></div>
+          </li>
+        </ul>
 
         <div class="mt-8 max-[52rem]:mt-6 grow rounded-2xl bg-[rgba(255,255,255,0.05)] ring-1 ring-[rgba(205,176,122,0.25)] shadow-dark p-6 max-[52rem]:p-5">
           <div class="text-base font-bold text-goldonchar mb-4">What&#8217;s included</div>
           <ul class="space-y-3 leading-snug max-[52rem]:text-[0.98rem]">
-            <li class="flex items-start gap-3"><span class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[rgba(205,176,122,0.15)] text-goldonchar ring-1 ring-[rgba(205,176,122,0.5)]"><svg class="h-3 w-3" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg></span><span class="text-oncharmuted"><strong class="font-bold text-onchar">A relaxed chat</strong></span></li>
-            <li class="flex items-start gap-3"><span class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[rgba(205,176,122,0.15)] text-goldonchar ring-1 ring-[rgba(205,176,122,0.5)]"><svg class="h-3 w-3" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg></span><span class="text-oncharmuted">General consultation and advice</span></li>
+            <li class="flex items-start gap-3"><span class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[rgba(205,176,122,0.15)] text-goldonchar ring-1 ring-[rgba(205,176,122,0.5)]"><svg class="h-3 w-3" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg></span><span class="text-oncharmuted"><strong class="font-bold text-onchar">For productive back-and-forth discussions </strong></span></li>
+            <li class="flex items-start gap-3"><span class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[rgba(205,176,122,0.15)] text-goldonchar ring-1 ring-[rgba(205,176,122,0.5)]"><svg class="h-3 w-3" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg></span><span class="text-oncharmuted">Insider knowledge and resource transfer</span></li>
             <li class="flex items-start gap-3"><span class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[rgba(205,176,122,0.15)] text-goldonchar ring-1 ring-[rgba(205,176,122,0.5)]"><svg class="h-3 w-3" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg></span><span class="text-oncharmuted">Slow interview practice</span></li>
             <li class="flex items-start gap-3"><span class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[rgba(205,176,122,0.15)] text-goldonchar ring-1 ring-[rgba(205,176,122,0.5)]"><svg class="h-3 w-3" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg></span><span class="text-oncharmuted">Mentoring for general skills and confidence</span></li>
-            <li class="flex items-start gap-3"><span class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[rgba(205,176,122,0.15)] text-goldonchar ring-1 ring-[rgba(205,176,122,0.5)]"><svg class="h-3 w-3" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg></span><span class="text-oncharmuted">Insider knowledge and resources</span></li>
           </ul>
         </div>
       </div>
@@ -895,20 +1146,28 @@
         <p class="pr-italic mt-4 font-serif font-bold text-[1.45rem] leading-[1.25] text-onchar">Full interview practice</p>
         <p class="mt-2 text-oncharmuted">When you&#8217;re ready to practise the real thing.</p>
 
-        <div class="pr-ladder">
-          <p class="pr-lo"><b>£35</b> for concession. Just let us know.</p>
-          <div class="pr-base"><span class="pr-base-amt">£40</span><span class="pr-base-unit">/ hr &middot; our standard.</span></div>
-          <p class="pr-hi"><b>£45</b> if you&#8217;d like to say thank you.</p>
-        </div>
+        <ul class="pr-rates" role="list">
+          <li class="pr-rate">
+            <div class="pr-rate-name">Concession<span class="pr-rate-note">Just let us know.</span></div>
+            <div class="pr-rate-amt">£35<small>per hour</small></div>
+          </li>
+          <li class="pr-rate is-standard">
+            <div class="pr-rate-name">Standard <span classs="pr-rate-tag"></span><span class="pr-rate-note" style="flex-basis:100%">Our everyday rate.</span></div>
+            <div class="pr-rate-amt">£40<small>per hour</small></div>
+          </li>
+          <li class="pr-rate">
+            <div class="pr-rate-name">Gratitude<span class="pr-rate-note">If you&#8217;d like to say thank you.</span></div>
+            <div class="pr-rate-amt">£45<small>per hour</small></div>
+          </li>
+        </ul>
 
         <div class="mt-8 max-[52rem]:mt-6 grow rounded-2xl bg-[rgba(255,255,255,0.05)] ring-1 ring-[rgba(205,176,122,0.25)] shadow-dark p-6 max-[52rem]:p-5">
           <div class="text-base font-bold text-goldonchar mb-4">What&#8217;s included</div>
           <ul class="space-y-3 leading-snug max-[52rem]:text-[0.98rem]">
-            <li class="flex items-start gap-3"><span class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[rgba(205,176,122,0.15)] text-goldonchar ring-1 ring-[rgba(205,176,122,0.5)]"><svg class="h-3 w-3" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg></span><span class="text-oncharmuted"><strong class="font-bold text-onchar">High-yield and focused</strong></span></li>
+            <li class="flex items-start gap-3"><span class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[rgba(205,176,122,0.15)] text-goldonchar ring-1 ring-[rgba(205,176,122,0.5)]"><svg class="h-3 w-3" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg></span><span class="text-oncharmuted"><strong class="font-bold text-onchar">For high-yield and focused practice</strong></span></li>
             <li class="flex items-start gap-3"><span class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[rgba(205,176,122,0.15)] text-goldonchar ring-1 ring-[rgba(205,176,122,0.5)]"><svg class="h-3 w-3" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg></span><span class="text-oncharmuted"><strong class="font-bold text-onchar">Full</strong> MMI / Panel timed mock interview</span></li>
             <li class="flex items-start gap-3"><span class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[rgba(205,176,122,0.15)] text-goldonchar ring-1 ring-[rgba(205,176,122,0.5)]"><svg class="h-3 w-3" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg></span><span class="text-oncharmuted"><strong class="font-bold text-onchar">Full</strong> breakdown and feedback of answers</span></li>
             <li class="flex items-start gap-3"><span class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[rgba(205,176,122,0.15)] text-goldonchar ring-1 ring-[rgba(205,176,122,0.5)]"><svg class="h-3 w-3" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg></span><span class="text-oncharmuted"><strong class="font-bold text-onchar">Full</strong> strategy + unique answer prep</span></li>
-            <li class="flex items-start gap-3"><span class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[rgba(205,176,122,0.15)] text-goldonchar ring-1 ring-[rgba(205,176,122,0.5)]"><svg class="h-3 w-3" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg></span><span class="text-oncharmuted"><strong class="font-bold text-onchar">Full</strong> text / call support until A-Levels finish</span></li>
           </ul>
         </div>
       </div>
@@ -937,7 +1196,6 @@
     </div>
   </div>
 </section>
-
 </main>
  
 <footer class="bg-chardeep text-oncharmuted text-[0.9rem] py-7 max-[52rem]:pb-[calc(7rem_+_env(safe-area-inset-bottom))]">
