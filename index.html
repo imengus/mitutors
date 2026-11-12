@@ -7,7 +7,7 @@
 <title>Mete &middot; Ilkin | Medical school interview tutoring</title>
 <meta name="description" content="One-to-one UK medical school interview preparation from two third-year medical students at UCL and the University of Bristol. MMI and panel practice, detailed feedback, from £25/hr.">
 <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
-<link rel="stylesheet" href="dist/assets/index-Cf46ZiAX.css">
+<link rel="stylesheet" href="dist/assets/index-Da8xBvbJ.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -237,10 +237,13 @@
   })();
 </script>
 
- 
 <style>
+  #top { --sh: 0 12px 26px -12px rgba(0,0,0,0.7), 0 3px 8px -2px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.06); --sh-up: 0 22px 38px -14px rgba(0,0,0,0.85), 0 8px 14px -4px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.08); }
   #statement, #tutors { scroll-margin-top: 4rem; }
-  .hl { background: linear-gradient(transparent 62%, rgba(205,176,122,0.3) 0); color: #F4F2EE; font-weight: 700; }
+
+  /* Highlights: lighter weight, warm off-white, a fine underline */
+  .hl { color: #E9E3D3; font-weight: 500; background: linear-gradient(transparent calc(100% - 1.5px), rgba(205,176,122,0.5) 0); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+
   @keyframes rise { from { opacity: 0; transform: translateY(1rem); } to { opacity: 1; transform: none; } }
   @media (prefers-reduced-motion: no-preference) {
     @supports (animation-timeline: view()) {
@@ -250,30 +253,31 @@
 
   /* ---------- Hero ---------- */
   .hero-photos { display: none; }
-  .ms-kick { display: flex; align-items: center; gap: 0.75rem; margin: 0 0 1.4rem; font-size: 0.8rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #E2C98F; }
-  .ms-kick::before { content: ""; width: 2.2rem; height: 2px; border-radius: 9999px; background: #E2C98F; }
-  .ms-from { margin: 0 0 1.6rem; font-size: 1.3rem; font-weight: 600; color: #E2C98F; }
-  .ms-fit { margin: 0 0 1.1rem; font-size: 1.05rem; color: rgba(244,242,238,0.7); }
+  .ms-from { margin: 0 0 1.1rem; max-width: 34rem; font-size: 1.3rem; line-height: 1.4; font-weight: 600; color: #E2C98F; }
+  .ms-fit { margin: 0 0 0.8rem; font-size: 1.05rem; color: rgba(244,242,238,0.7); }
   .ms-links { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; }
   .ms-chat { font-size: 0.98rem; font-weight: 600; color: rgba(244,242,238,0.75); text-decoration: none; border-bottom: 1px dotted rgba(205,176,122,0.55); transition: color 250ms, border-color 250ms; }
   .ms-chat:hover, .ms-chat:focus-visible { color: #E2C98F; border-bottom-color: #E2C98F; }
 
-  /* Key points, shown just after the headline */
-  .ms-pts { display: grid; grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr)); gap: 0.9rem; margin: 0 0 2rem; padding: 0; list-style: none; }
-  .ms-pn { padding: 1.1rem 1.25rem 1.2rem; border-radius: 1.1rem; background: rgba(205,176,122,0.08); border: 1px solid rgba(205,176,122,0.3); border-top: 2px solid #E2C98F; transition: border-color 250ms, background-color 250ms; }
-  .ms-pn:hover { border-color: rgba(226,201,143,0.7); border-top-color: #E2C98F; background: rgba(205,176,122,0.14); }
-  .ms-pn b { display: block; margin-bottom: 0.35rem; font-size: 1.4rem; line-height: 1.15; color: #E2C98F; }
-  .ms-pn span { display: block; font-size: 1rem; line-height: 1.5; color: rgba(244,242,238,0.8); }
+  /* Key points: compact 2x2 grid, gold-edged cards with a faint numeral */
+  .ms-pts { counter-reset: pn; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; margin: 0 0 1.5rem; padding: 0; list-style: none; }
+  .ms-pn { counter-increment: pn; position: relative; overflow: hidden; padding: 0.85rem 1rem 0.95rem 1.1rem; border-radius: 0.9rem; background: linear-gradient(135deg, rgba(226,201,143,0.2), rgba(205,176,122,0.07)); border: 1px solid rgba(205,176,122,0.35); border-left: 3px solid #E2C98F; box-shadow: var(--sh); transition: transform 250ms, box-shadow 250ms, border-color 250ms; }
+  /* .ms-pn::after { contsent: "0" counster(pn); position: absolute; right: 0.7rem; bottom: -0.3rem; font-family: Georgia, "Times New Roman", serif; font-size: 3rem; font-weight: 700; line-height: 1; color: rgba(226,201,143,0.13); pointer-events: none; } */
+  .ms-pn:hover { border-color: rgba(226,201,143,0.7); box-shadow: var(--sh-up); }
+  @media (prefers-reduced-motion: no-preference) { .ms-pn:hover, .ms-st:hover, .ms-sch li:hover { transform: translateY(-3px); } }
+  .ms-pn b, .ms-pn span { position: relative; z-index: 1; display: block; }
+  .ms-pn b { margin-bottom: 0.2rem; font-size: 1.15rem; line-height: 1.2; color: #EBD39A; }
+  .ms-pn span { font-size: 0.92rem; line-height: 1.45; color: rgba(244,242,238,0.82); }
 
   @media (min-width: 52rem) {
-    .hero-grid { display: grid; grid-template-columns: minmax(0, 27rem) minmax(0, 1fr); gap: clamp(3rem, 6vw, 5.5rem); align-items: center; }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, clamp(17rem, 36vw, 27rem)) minmax(0, 1fr); gap: clamp(2.5rem, 6vw, 5.5rem); align-items: start; }
     .hero-grid h1 { font-size: clamp(2.4rem, 4.2vw, 3.8rem); }
     .hero-photos { display: block; position: relative; width: 100%; aspect-ratio: 1 / 1.05; }
     .hero-glow { position: absolute; inset: 8%; border-radius: 9999px; background: radial-gradient(circle, rgba(205,176,122,0.22), transparent 70%); filter: blur(40px); }
-    .hero-photos figure { position: absolute; width: 56%; margin: 0; overflow: hidden; border-radius: 1rem; border: 1px solid rgba(205,176,122,0.5); box-shadow: 0 24px 48px -20px rgba(0,0,0,0.7); }
-    /* Mete: bottom left, at the back. Ilkin: top right, in front. */
-    .hero-photos .p1 { left: 0; bottom: 0; z-index: 1; }
-    .hero-photos .p2 { right: 0; top: 0; z-index: 2; }
+    .hero-photos figure { position: absolute; width: 56%; margin: 0; overflow: hidden; border-radius: 1rem; border: 1px solid rgba(205,176,122,0.5); box-shadow: 0 28px 52px -20px rgba(0,0,0,0.8), 0 8px 16px -6px rgba(0,0,0,0.5); }
+    /* Diagonal: Mete top left, in front. Ilkin bottom right, at the back. */
+    .hero-photos .p1 { left: 0; top: 0; z-index: 2; }
+    .hero-photos .p2 { right: 0; bottom: 0; z-index: 1; }
     .hero-photos img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center top; transition: transform 700ms; }
     .hero-photos figure:hover img { transform: scale(1.05); }
     .hero-photos figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 2.8rem 1rem 0.85rem; text-align: left; background: linear-gradient(to top, rgba(20,21,23,0.88), transparent); }
@@ -285,77 +289,82 @@
     .hero-photos figure:hover img { transform: none; }
   }
 
-  /* ---------- Shared (used by the sections below the hero) ---------- */
+  /* ---------- Meet us: open profiles ---------- */
   .ms-block { margin-top: clamp(4.5rem, 9vw, 7rem); }
   .ms-block:first-child { margin-top: 0; }
-  .ms-h { margin: 0 0 0.9rem; font-size: clamp(1.9rem, 3.4vw, 2.5rem); line-height: 1.15; color: #F4F2EE; }
-  .ms-h::after { content: ""; display: block; width: 3rem; height: 2px; margin-top: 0.85rem; border-radius: 9999px; background: linear-gradient(90deg, #E2C98F, transparent); }
-  .ms-intro { margin: 0 0 2.25rem; max-width: 40rem; font-size: 1.1rem; line-height: 1.65; color: rgba(244,242,238,0.78); }
   .ms-link { font-size: 0.95rem; font-weight: 600; color: rgba(244,242,238,0.7); text-decoration: none; border-bottom: 1px dotted rgba(205,176,122,0.5); transition: color 250ms, border-color 250ms; }
   .ms-link:hover, .ms-link:focus-visible { color: #E2C98F; border-bottom-color: #E2C98F; }
 
-  /* ---------- Between us + profiles ---------- */
-  .ms-facts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.75rem 1rem; margin: 0 0 2.5rem; padding: 1.75rem 0; border-top: 1px solid rgba(205,176,122,0.3); border-bottom: 1px solid rgba(205,176,122,0.3); }
-  .ms-f { text-align: center; padding: 0 0.5rem; }
-  .ms-f b { display: block; font-size: clamp(2rem, 4.4vw, 2.9rem); line-height: 1.05; color: #E2C98F; }
-  .ms-f span { display: block; margin-top: 0.4rem; font-size: 0.95rem; line-height: 1.4; color: rgba(244,242,238,0.75); }
+  .ms-pf { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+  .ms-pf + .ms-pf { margin-top: clamp(4rem, 8vw, 6rem); padding-top: clamp(4rem, 8vw, 6rem); border-top: 1px solid rgba(205,176,122,0.22); }
+  .ms-fig { margin: 0 auto; width: min(15rem, 70%); }
+  .ms-fig img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center top; border-radius: 1.25rem; border: 1px solid rgba(205,176,122,0.6); box-shadow: 0 28px 52px -20px rgba(0,0,0,0.8), 0 8px 16px -6px rgba(0,0,0,0.5); }
+  .ms-fig figcaption { margin-top: 0.9rem; text-align: center; font-size: 0.88rem; font-weight: 600; color: #E2C98F; }
+  .ms-pc { min-width: 0; }
+  .ms-top { margin: 0 0 1.1rem; }
+  .ms-name { margin: 0 0 0.75rem; font-size: clamp(2.4rem, 4.4vw, 3.2rem); font-weight: 700; line-height: 1.05; color: #F4F2EE; }
+  .ms-lead { margin: 0; font-size: 1.2rem; line-height: 1.6; color: rgba(244,242,238,0.86); }
 
-  .ms-prof { display: grid; gap: 1.75rem; }
-  .ms-card { position: relative; display: flex; flex-direction: column; padding: 1.75rem; border-radius: 1.5rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(205,176,122,0.3); box-shadow: 0 12px 28px -12px rgba(0,0,0,0.55); transition: border-color 300ms; }
-  .ms-card::before { content: ""; position: absolute; top: -1px; left: 2rem; width: 5rem; height: 3px; border-radius: 0 0 9999px 9999px; background: linear-gradient(90deg, #E2C98F, transparent); }
-  .ms-card:hover { border-color: rgba(205,176,122,0.6); }
-  .ms-top { margin: 0 0 1.25rem; }
-  .ms-head { display: flex; align-items: center; gap: 1.25rem; margin-bottom: 1.75rem; }
-  .ms-av { flex: none; width: 5.6rem; height: 7rem; border-radius: 0.9rem; object-fit: cover; object-position: center top; border: 1px solid rgba(205,176,122,0.6); }
-  .ms-name { margin: 0 0 0.4rem; font-size: 2.1rem; font-weight: 800; line-height: 1.1; color: #F4F2EE; }
-  .ms-lead { margin: 0; font-size: 1.05rem; line-height: 1.55; color: rgba(244,242,238,0.85); }
-  .ms-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin: 0 0 1.75rem; }
-  .ms-st { display: flex; flex-direction: column-reverse; justify-content: flex-end; padding: 0.9rem 1rem; border-radius: 1rem; background: rgba(205,176,122,0.08); border: 1px solid rgba(205,176,122,0.25); transition: background-color 250ms, border-color 250ms; }
-  .ms-st:hover { background: rgba(205,176,122,0.16); border-color: rgba(226,201,143,0.75); }
+  /* Achievement tiles: separate, raised, equal height per row */
+  .ms-led { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.85rem; margin: 2rem 0 2.5rem; }
+  .ms-st { display: flex; flex-direction: column-reverse; justify-content: flex-end; min-width: 0; padding: 1.1rem 1.2rem; border-radius: 1rem; background: linear-gradient(160deg, rgba(226,201,143,0.28), rgba(205,176,122,0.13)); border: 1px solid rgba(226,201,143,0.6); box-shadow: 0 12px 26px -12px rgba(0,0,0,0.7), 0 3px 8px -2px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,225,160,0.22); transition: transform 250ms, box-shadow 250ms, border-color 250ms, background-color 250ms; }
+  .ms-st:hover { border-color: #E2C98F; background: linear-gradient(160deg, rgba(226,201,143,0.38), rgba(205,176,122,0.18)); box-shadow: 0 22px 38px -14px rgba(0,0,0,0.85), 0 8px 14px -4px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,225,160,0.28); }
   .ms-st:last-child:nth-child(odd) { grid-column: span 2; }
-  .ms-st dd { margin: 0; font-size: 1.35rem; font-weight: 800; line-height: 1.1; color: #E2C98F; }
-  .ms-st dt { margin-top: 0.35rem; font-size: 0.85rem; line-height: 1.35; color: rgba(244,242,238,0.78); }
-  .ms-blurb { margin: 0 0 1.1rem; font-size: 1.02rem; line-height: 1.65; color: rgba(244,242,238,0.8); }
-  .ms-close { margin: auto 0 0; padding-top: 1.4rem; border-top: 1px solid rgba(205,176,122,0.25); font-size: 1.25rem; font-weight: 600; line-height: 1.45; color: #E2C98F; }
-  .ms-blurb + .ms-close { margin-top: 0.75rem; }
+  .ms-st dd { margin: 0; font-size: clamp(1.15rem, 4.8vw, 1.4rem); font-weight: 800; line-height: 1.15; color: #F2DBA3; overflow-wrap: anywhere; }
+  .ms-st dt { margin-top: 0.4rem; font-size: 0.88rem; line-height: 1.4; color: rgba(250,242,222,0.88); overflow-wrap: anywhere; }
+
+  .ms-sec + .ms-sec { margin-top: 1.9rem; }
+  .ms-lab { display: flex; align-items: center; gap: 0.7rem; margin: 0 0 0.6rem; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #E2C98F; }
+  .ms-lab::before { content: ""; width: 1.6rem; height: 2px; border-radius: 9999px; background: #E2C98F; }
+  .ms-sec p:not(.ms-lab) { margin: 0; font-size: 1.1rem; line-height: 1.75; color: rgba(244,242,238,0.82); }
+  .ms-quote { position: relative; isolation: isolate; margin: 2.5rem 0 0; padding-top: 1.5rem; border-top: 1px solid rgba(205,176,122,0.25); font-size: clamp(1.35rem, 2.4vw, 1.75rem); line-height: 1.4; color: #E2C98F; }
+  .ms-quote::before { content: "\201C"; position: absolute; z-index: -1; right: 0; top: 0.4rem; font-family: Georgia, "Times New Roman", serif; font-size: 5rem; line-height: 1; color: rgba(226,201,143,0.14); }
+
+  @media (min-width: 40rem) {
+    .ms-led { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .ms-st:last-child:nth-child(odd) { grid-column: auto; }
+    .ms-st:last-child:nth-child(3n+1) { grid-column: span 3; }
+    .ms-st:last-child:nth-child(3n+2) { grid-column: span 2; }
+  }
+  /* Photo and text sit on the container's outer edges; both profiles share one content width */
+  @media (min-width: 56rem) {
+    .ms-pf { grid-template-columns: 17rem minmax(0, 42rem); column-gap: 3rem; justify-content: space-between; align-items: start; }
+    .ms-pf.flip { grid-template-columns: minmax(0, 42rem) 17rem; }
+    .ms-pf.flip .ms-fig { order: 2; }
+    .ms-fig { width: auto; margin: 0; position: sticky; top: 6rem; }
+  }
 
   /* ---------- Where we interviewed ---------- */
-  .ms-iv-row + .ms-iv-row { margin-top: 2rem; }
-  .ms-who { display: flex; align-items: center; gap: 0.75rem; margin: 0 0 0.9rem; font-size: 1.1rem; font-weight: 700; color: #E2C98F; }
-  .ms-who img { width: 2.4rem; height: 2.4rem; border-radius: 50%; object-fit: cover; object-position: center top; border: 1px solid rgba(205,176,122,0.6); }
-  .ms-sch { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.9rem; margin: 0; padding: 0; list-style: none; }
-  .ms-sch li { display: flex; flex-direction: column; align-items: flex-start; gap: 0.5rem; padding: 1.1rem 1.2rem; border-radius: 1.1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(205,176,122,0.22); transition: border-color 250ms; }
-  .ms-sch li:hover { border-color: rgba(226,201,143,0.7); }
+  .ms-iv-row + .ms-iv-row { margin-top: 2.25rem; }
+  .ms-who { display: flex; align-items: center; gap: 0.75rem; margin: 0 0 1rem; font-size: 1.1rem; font-weight: 700; color: #E2C98F; }
+  .ms-who img { width: 2.4rem; height: 2.4rem; border-radius: 50%; object-fit: cover; object-position: center top; border: 1px solid rgba(205,176,122,0.6); box-shadow: 0 6px 12px -4px rgba(0,0,0,0.6); }
+  .ms-sch { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin: 0; padding: 0; list-style: none; }
+  .ms-sch li { display: flex; flex-direction: column; align-items: flex-start; gap: 0.55rem; padding: 1.2rem 1.3rem; border-radius: 1.1rem; background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03)); border: 1px solid rgba(205,176,122,0.22); box-shadow: 0 16px 30px -12px rgba(0,0,0,0.8), 0 4px 10px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.07); transition: transform 250ms, box-shadow 250ms, border-color 250ms; }
+  .ms-sch li:hover { border-color: rgba(226,201,143,0.7); box-shadow: 0 26px 44px -14px rgba(0,0,0,0.9), 0 10px 16px -4px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.1); }
   .ms-sch b { font-size: 1.4rem; line-height: 1.15; color: #F4F2EE; }
   .ms-tag { padding: 0.1rem 0.7rem; border-radius: 9999px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: rgba(244,242,238,0.55); }
-  .ms-sch li.o { border-color: rgba(226,201,143,0.55); background: rgba(205,176,122,0.12); }
+  .ms-sch li.o { border-color: rgba(226,201,143,0.55); background: linear-gradient(180deg, rgba(205,176,122,0.17), rgba(205,176,122,0.08)); }
   .ms-sch li.o .ms-tag { color: #232529; background: #E2C98F; }
-  /* offer declined: half colour, half faded */
-  .ms-sch li.d { border: 1px dashed rgba(226,201,143,0.55); background: linear-gradient(90deg, rgba(205,176,122,0.16) 0%, rgba(205,176,122,0.16) 45%, rgba(205,176,122,0.03) 100%); }
-  .ms-sch li.d b { color: rgba(244,242,238,0.85); }
-  .ms-sch li.d .ms-tag { color: #E2C98F; border: 1px solid rgba(226,201,143,0.6); }
+  /* uncertain: a smooth, truly half-and-half blend from the offer tint to the plain tint */
+  .ms-sch li.d { border: 1px dashed rgba(205,176,122,0.4); background: linear-gradient(90deg, rgba(205,176,122,0.13) 0%, rgba(255,255,255,0.05) 100%); }
+  .ms-sch li.d .ms-tag { color: #E2C98F; border: 1px solid rgba(226,201,143,0.55); }
   .ms-sch small { font-size: 0.85rem; line-height: 1.4; font-style: italic; color: rgba(244,242,238,0.6); }
   .ms-key { display: flex; flex-wrap: wrap; gap: 0.6rem 1.5rem; margin: 2rem 0 0; font-size: 0.9rem; color: rgba(244,242,238,0.65); }
   .ms-key span { display: inline-flex; align-items: center; gap: 0.5rem; }
   .ms-key i { display: inline-block; width: 0.9rem; height: 0.9rem; border-radius: 0.3rem; background: #E2C98F; }
-  .ms-key i.d { background: linear-gradient(90deg, rgba(205,176,122,0.7) 50%, rgba(205,176,122,0.12) 50%); border: 1px dashed rgba(226,201,143,0.7); }
+  .ms-key i.d { background: linear-gradient(90deg, rgba(205,176,122,0.55), rgba(255,255,255,0.12)); border: 1px dashed rgba(205,176,122,0.55); }
   .ms-key i.n { background: rgba(255,255,255,0.08); border: 1px solid rgba(205,176,122,0.3); }
-
-  @media (min-width: 40rem) { .ms-sch { grid-template-columns: repeat(4, 1fr); } .ms-facts { grid-template-columns: repeat(4, 1fr); } }
-  @media (min-width: 56rem) {
-    .ms-prof { grid-template-columns: 1fr 1fr; gap: 2rem; align-items: stretch; }
-    .ms-card { padding: 2.25rem; }
-  }
+  @media (min-width: 40rem) { .ms-sch { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 </style>
 
 <!-- Opens <main>, as your hero did. Close it where your page closes it. -->
 <main id="top">
 
   <!-- ===================== HERO ===================== -->
-  <section class="bg-char bg-[radial-gradient(ellipse_at_85%_0%,rgba(205,176,122,0.2),transparent_55%)] text-onchar pt-[clamp(4rem,10vw,7.5rem)] pb-[clamp(3.5rem,8vw,6rem)] max-[52rem]:pt-10 max-[52rem]:pb-24 max-[52rem]:min-h-[calc(100svh-3.5rem)] max-[52rem]:flex max-[52rem]:items-center">
+  <section class="bg-char bg-[radial-gradient(ellipse_at_85%_0%,rgba(205,176,122,0.2),transparent_55%)] text-onchar pt-[clamp(2.5rem,5vw,4.5rem)] pb-[clamp(3rem,6vw,5rem)] max-[52rem]:pt-10 max-[52rem]:pb-24 max-[52rem]:min-h-[calc(100svh-3.5rem)] max-[52rem]:flex max-[52rem]:items-center">
     <div class="hero-grid w-[min(70rem,100%_-_3rem)] max-[52rem]:w-[calc(100%_-_2.5rem)] mx-auto">
 
-      <!-- Portrait collage (desktop only): Mete bottom left (back), Ilkin top right (front) -->
+      <!-- Portrait collage (desktop only): Mete top left (front), Ilkin bottom right (back) -->
       <div class="hero-photos">
         <div class="hero-glow" aria-hidden="true"></div>
         <figure class="p1">
@@ -370,9 +379,9 @@
 
       <!-- Text -->
       <div>
-        <h1 class="font-serif font-medium text-[clamp(2.6rem,6vw,4.6rem)] leading-[1.05] tracking-[-0.01em] max-w-[16ch] mb-6">Specialist interview preparation</span></h1>
-        <p class="ms-from font-serif">by two medical students at the University of Bristol and UCL.</p>
-        <hr class="w-[4.5rem] h-0.5 rounded-full border-0 bg-gradient-to-r from-goldonchar to-transparent mb-7">
+        <h1 class="font-serif font-medium text-[clamp(2.6rem,6vw,4.6rem)] leading-[1.05] tracking-[-0.01em] max-w-[16ch] mb-4">Specialist interview preparation</h1>
+        <p class="ms-from font-serif">by two top medical students.</p>
+        <hr class="w-[4.5rem] h-0.5 rounded-full border-0 bg-gradient-to-r from-goldonchar to-transparent mb-5">
 
         <ul class="ms-pts">
           <li class="ms-pn"><b class="font-serif">450+ hours</b><span>of teaching between us, and much wisdom to share.</span></li>
@@ -392,28 +401,26 @@
     </div>
   </section>
 
-  <!-- ===================== OUR STATEMENT + MEET US ===================== -->
+  <!-- ===================== MEET US + WHERE WE INTERVIEWED ===================== -->
   <section class="py-12 md:py-[clamp(4.5rem,9vw,7rem)] bg-chardeep bg-[radial-gradient(ellipse_at_85%_0%,rgba(205,176,122,0.14),transparent_55%),radial-gradient(ellipse_at_0%_100%,rgba(205,176,122,0.08),transparent_50%)] text-onchar border-t border-[rgba(205,176,122,0.2)]" id="statement">
     <div class="w-[calc(100%_-_2.5rem)] md:w-[min(70rem,100%_-_3rem)] mx-auto">
 
-    
-
       <!-- Meet us -->
       <div class="ms-block" id="tutors">
-        <h2 class="ms-h font-serif font-semibold">Meet us</h2>
+        <h2 class="font-serif font-medium text-[clamp(2.2rem,4.4vw,3rem)] leading-[1.1] mb-8 md:mb-12 text-onchar after:block after:mt-4 after:h-0.5 after:w-12 after:rounded-full after:bg-gradient-to-r after:from-goldonchar after:to-transparent">Meet us</h2>
 
-        <div class="ms-prof">
-
-          <article class="ms-card reveal" aria-labelledby="mete-name">
+        <!-- Mete -->
+        <article class="ms-pf reveal" aria-labelledby="mete-name">
+          <figure class="ms-fig">
+            <img src="img/mete1.png" alt="Mete" width="440" height="550">
+            <figcaption>University of Bristol &middot; 3rd year</figcaption>
+          </figure>
+          <div class="ms-pc">
             <p class="ms-top"><a class="ms-link" href="#mete-story">Want to read my top strategies? &darr;</a></p>
-            <div class="ms-head">
-              <img class="ms-av" src="img/mete1.png" alt="" width="112" height="140">
-              <div>
-                <h3 class="ms-name font-serif" id="mete-name">Mete</h3>
-                <p class="ms-lead">3rd-year medical student at the <span class="hl">University of Bristol</span>, with an interest in <span class="hl">Anaesthetics and Critical Care</span>.</p>
-              </div>
-            </div>
-            <dl class="ms-stats">
+            <h3 class="ms-name font-serif" id="mete-name">Mete</h3>
+            <p class="ms-lead">3rd-year medical student at the <span class="hl">University of Bristol</span>, with an interest in <span class="hl">Anaesthetics and Critical Care</span>, particularly the neuropharmacology underlying anaesthetic agents. I aim to contribute to the development of novel drug therapies in this field.</p>
+
+            <dl class="ms-led">
               <div class="ms-st"><dt>UCAT, Band 1 (top 6%)</dt><dd>2960</dd></div>
               <div class="ms-st"><dt>A-Level</dt><dd>A*AAA</dd></div>
               <div class="ms-st"><dt>GCSE</dt><dd>10 &times; grade 9</dd></div>
@@ -422,21 +429,32 @@
               <div class="ms-st"><dt>Student Choice Essay, in my year group</dt><dd>Top prize</dd></div>
               <div class="ms-st"><dt>Tutoring delivered</dt><dd>300+ hrs</dd></div>
             </dl>
-            <p class="ms-blurb">Having tutored <span class="hl">GCSE and A-Level Maths</span>, I bring that teaching experience to interview preparation, together with my own interview experience and first-hand insight into medical school and clinical placements.</p>
-            <p class="ms-blurb">My sessions focus on <span class="hl">understanding over memorisation</span>: think out loud, build clear, structured reasoning, and arrive on the day <span class="hl">confident and well prepared</span>.</p>
-            <p class="ms-close font-serif">If you are looking for a tutor invested in your success, I would love to hear from you.</p>
-          </article>
 
-          <article class="ms-card reveal" aria-labelledby="ilkin-name">
-            <p class="ms-top"><a class="ms-link" href="#ilkin-story">Want to read my top strategies? &darr;</a></p>
-            <div class="ms-head">
-              <img class="ms-av" src="img/kin1.png" alt="" width="112" height="140">
-              <div>
-                <h3 class="ms-name font-serif" id="ilkin-name">Ilkin</h3>
-                <p class="ms-lead">3rd-year medical student at <span class="hl">UCL</span>. A <span class="hl">future psychiatrist</span>, interested in medicine beyond ontological borders.</p>
-              </div>
+            <div class="ms-sec">
+              <p class="ms-lab">Experience</p>
+              <p>Drawing on my experience tutoring <span class="hl">Medical Interviews and Maths</span>, along with my own interviews and first-hand insight into medical school and clinical placements, I offer students the <span class="hl">committed, personal support</span> every applicant deserves.</p>
             </div>
-            <dl class="ms-stats">
+            <div class="ms-sec">
+              <p class="ms-lab">How I teach</p>
+              <p>My sessions focus on <span class="hl">understanding over memorisation</span>, encouraging students to <span class="hl">think out loud</span> and build clear, structured reasoning. Above all, I make sure every student feels <span class="hl">confident and well prepared</span>, so they can perform at their very best on interview day.</p>
+            </div>
+
+            <p class="ms-quote font-serif">If you are looking for a tutor invested in your success, I would love to hear from you.</p>
+          </div>
+        </article>
+
+        <!-- Ilkin -->
+        <article class="ms-pf flip reveal" aria-labelledby="ilkin-name">
+          <figure class="ms-fig">
+            <img src="img/kin1.png" alt="Ilkin" width="440" height="550">
+            <figcaption>UCL &middot; 3rd year</figcaption>
+          </figure>
+          <div class="ms-pc">
+            <p class="ms-top"><a class="ms-link" href="#ilkin-story">Want to read my top strategies? &darr;</a></p>
+            <h3 class="ms-name font-serif" id="ilkin-name">Ilkin</h3>
+            <p class="ms-lead">3rd-year medical student at <span class="hl">UCL</span>. A <span class="hl">future psychiatrist</span>, interested in medicine beyond ontological borders.</p>
+
+            <dl class="ms-led">
               <div class="ms-st"><dt>UCAT (top 5%)</dt><dd>3000</dd></div>
               <div class="ms-st"><dt>A-Level</dt><dd>A*A*A*A*A*</dd></div>
               <div class="ms-st"><dt>GCSE</dt><dd>11 &times; grade 9</dd></div>
@@ -446,17 +464,24 @@
               <div class="ms-st"><dt>Fluent: EN, TR, ES, DE. Inter: HI, MR. Beg: ZH</dt><dd>7 languages</dd></div>
               <div class="ms-st"><dt>Teaching hours</dt><dd>150+ hrs</dd></div>
             </dl>
-            <p class="ms-blurb">Teaching experience: One-on-one in <span class="hl">A-Level Maths and Chemistry</span>, small group teaching, and many students I mentored.</p>
-            <p class="ms-blurb">Over 15 months of fieldwork and touring in the Middle East and South Asia, I <span class="hl">communicated with thousands of people</span>, from tribesman to politician. Thanks to my varied life experience, I am best at giving <span class="hl">honest, bullseye feedback</span> (that teachers and friends may miss), and mentoring your <span class="hl">deep reasoning skills</span>.</p>
-            <p class="ms-close font-serif">Are you up for it?</p>
-          </article>
 
-        </div>
+            <div class="ms-sec">
+              <p class="ms-lab">Teaching experience</p>
+              <p>One-on-one in <span class="hl">A-Level Maths and Chemistry</span>, small group teaching, and many students I mentored. Realising how alive I felt while teaching, I expanded into tutoring Medical School Interviews, and have since helped students gain confidence.</p>
+            </div>
+            <div class="ms-sec">
+              <p class="ms-lab">Beyond the classroom</p>
+              <p>Over 15 months of fieldwork and touring in the Middle East and South Asia, I <span class="hl">communicated with thousands of people</span>, from tribesman to politician. Thanks to these varied life experiences, I got quite good at giving <span class="hl">honest, bullseye feedback</span> (that teachers and friends may miss), and mentoring <span class="hl">reasoning and communication skills</span>.</p>
+            </div>
+
+            <p class="ms-quote font-serif">Granted it's difficult to learn new depths and habits. If you're willing to step up to the challenge, do write to me.</p>
+          </div>
+        </article>
       </div>
 
       <!-- Where we interviewed -->
       <div class="ms-block reveal">
-        <h2 class="ms-h font-serif font-semibold">Where we interviewed</h2>
+        <h2 class="font-serif font-medium text-[clamp(2.2rem,4.4vw,3rem)] leading-[1.1] mb-8 md:mb-12 text-onchar after:block after:mt-4 after:h-0.5 after:w-12 after:rounded-full after:bg-gradient-to-r after:from-goldonchar after:to-transparent">Where we interviewed</h2>
 
         <div class="ms-iv-row">
           <p class="ms-who"><img src="img/mete1.png" alt="" width="38" height="38">Mete</p>
@@ -657,7 +682,7 @@
               <li><strong>Doctors</strong> narrating their daily plan and incidents</li>
               <li>Doctors&#8217; views on the <strong>shortcomings of medicine</strong> and the NHS</li>
               <li><strong>Patients</strong>: what are their biggest <strong>(dis)satisfactions?</strong></li>
-              <li><strong>Lived-experience</strong> of patients that touches you, so your reasons for medicine are <strong>emotionally grounded</strong></li>
+              <li><strong>Lived-experiences</strong> of patients that really touch you, so your reasons for medicine are <strong>emotionally grounded</strong></li>
               <li>Recorded <strong>ward rounds</strong> and consultations to get a <strong>feel</strong> for it.</li>
             </ul>
           </div>
@@ -1008,7 +1033,7 @@
 
         <div class="mt-6 border-t border-[rgba(205,176,122,0.25)] pt-5">
           <div class="flex items-baseline gap-2">
-            <span class="font-serif font-bold text-[2.75rem] leading-none text-goldonchar">£20</span>
+            <span class="font-serif font-bold text-[2.75rem] leading-none text-goldonchar">£25</span>
             <span class="text-oncharmuted">per hour</span>
           </div>
           <p class="mt-2 text-[0.95rem] text-oncharmuted">Concessions available. If cost is a barrier, just let us know.</p>
