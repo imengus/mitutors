@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en-GB" class="scroll-smooth scroll-pt-[4.5rem] max-[52rem]:scroll-pt-4 motion-reduce:scroll-auto overscroll-y-none overflow-x-hidden bg-chardeep">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#232529">
+<title>Mete &middot; Ilkin | Medical School Interview tutoring</title>
+<meta name="description" content="One-to-one UK Medical School Interview preparation from two third-year medical students at UCL and the University of Bristol. MMI and panel practice, detailed feedback, from £25/hr.">
+<link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
+<link rel="stylesheet" href="dist/assets/index-losEfi6R.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="style.css" rel="stylesheet">
+</head>
+<body class="m-0 bg-paper text-ink font-sans font-light text-[1.0625rem] leading-[1.7] antialiased [&_a:focus-visible]:outline [&_a:focus-visible]:outline-2 [&_a:focus-visible]:outline-gold [&_a:focus-visible]:outline-offset-[3px] [&_a:focus-visible]:rounded-sm">
+<!-- Friendlier font: put this in your <head> (falls back to system fonts if it doesn't load) -->
+
+<style>
+  /* Friendlier font across the whole site (needs the Nunito <link> tags in <head>) */
+  body, .font-serif {
+    font-family: 'Nunito', ui-rounded, 'SF Pro Rounded', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  }
+
+  /* Logo keeps Cormorant */
+  .logo, .logo .font-serif {
+    font-family: 'Cormorant Garamond', 'Cormorant', Georgia, serif;
+  }
+
+  /* Inline "mi tutors" wordmark, matching the header logo */
+  .mi-word { font-family: 'Cormorant Garamond', 'Cormorant', Georgia, serif; font-weight: 600; font-size: 1.3em; line-height: 1; white-space: nowrap; }
+  .mi-word .mi-word-mi { font-style: italic; letter-spacing: -0.03em; }
+  .mi-word .mi-word-tutors { margin-left: 0.3em; letter-spacing: 0.02em; }
+  #pricing .pr-italic { font-style: normal; }
+
+/* Free consultation banner */
+/* Free consultation banner */
+.pr-free {
+  position: relative; display: flex; align-items: center; gap: 1.25rem;
+  border-radius: 1.5rem; padding: 1.5rem 1.75rem; margin-bottom: 2rem;
+  background: rgba(205,176,122,0.08);
+  border: 1px solid rgba(205,176,122,0.7);
+  box-shadow:
+    0 12px 28px -10px rgba(0,0,0,0.55),
+    0 0 24px rgba(205,176,122,0.2);
+}
+.pr-free-badge {
+  flex-shrink: 0; border-radius: 9999px; padding: 0.45rem 1.15rem;
+  background: #E2C98F; color: #232529;
+  font-weight: 800; font-size: 1.1rem;
+}
+.pr-free h3 { font-size: 1.55rem; line-height: 1.2; margin: 0 0 0.25rem; }
+.pr-free p { margin: 0; }
+
+  /* Sliding scale */
+  .pr-scale-wrap { margin-top: 1.5rem; }
+  .pr-scale-cap { font-size: 0.95rem; font-weight: 600; color: rgba(244,242,238,0.6); margin-bottom: 1rem; }
+  .pr-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.5rem; }
+  .pr-track { position: relative; align-items: center; justify-items: center; margin-bottom: 0.9rem; }
+  .pr-track::before {
+    content: ""; position: absolute; left: 8%; right: 8%; top: 50%; height: 3px;
+    transform: translateY(-50%); border-radius: 9999px;
+    background: linear-gradient(to right, rgba(150,150,146,0.45), rgba(205,176,122,0.95));
+  }
+  .pr-dot { position: relative; border-radius: 9999px; }
+  .pr-dot.d1 { width: 10px; height: 10px; background: #8d8d89; }
+  .pr-dot.d2 { width: 10px; height: 10px; background: #A8946A; }
+  .pr-dot.d3 { width: 10px; height: 10px; background: #E2C98F; box-shadow: 0 0 12px rgba(205,176,122,0.6); }
+
+  .pr-step { display: flex; flex-direction: column; align-items: center; text-align: center; justify-content: flex-end; }
+  .pr-amt { font-weight: 800; line-height: 1; font-size: 2rem; }
+  .pr-s1 .pr-amt { color: #8d8d89; }
+  .pr-s2 .pr-amt { color: #A8946A; }
+  .pr-s3 .pr-amt { color: #E2C98F; text-shadow: 0 0 18px rgba(205,176,122,0.45); }
+  .pr-lbl { margin-top: 0.5rem; font-size: 0.95rem; font-weight: 700; }
+  .pr-s1 .pr-lbl { color: rgba(244,242,238,0.5); }
+  .pr-s2 .pr-lbl { color: rgba(244,242,238,0.7); }
+  .pr-s3 .pr-lbl { color: #E2C98F; }
+  .pr-sub { margin-top: 0.1rem; font-size: 0.8rem; color: rgba(244,242,238,0.45); }
+  .pr-s3 .pr-sub { color: rgba(244,242,238,0.75); }
+  .pr-s3 {
+        border-radius: 1.25rem; padding: 0.9rem 0.25rem 0.8rem;
+        background: rgba(205,176,122,0.08);
+        border: 1px solid rgba(205,176,122,0.55);
+      }
+  .pr-suggest {
+    display: inline-block; margin-bottom: 0.5rem; border-radius: 9999px; padding: 0.1rem 0.7rem;
+    background: #CDB07A; color: #232529; font-size: 0.75rem; font-weight: 700;
+  }
+  .pr-note { margin-top: 1rem; font-size: 0.92rem; color: rgba(244,242,238,0.6); }
+
+  @media (max-width: 52rem) {
+    .pr-free { flex-direction: column; align-items: flex-start; gap: 0.75rem; padding: 1.25rem; }
+    .pr-amt { font-size: 1.7rem; }
+    .pr-sub { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .pr-free { animation: none; }
+  }
+
+  /* A-Level subjects (aside) */
+.pr-alevel {
+  margin-top: 2.5rem; padding-top: 1.1rem;
+  border-top: 1px solid rgba(205,176,122,0.25);
+  display: flex; align-items: center; flex-wrap: wrap; gap: 0.6rem 1.1rem;
+  font-size: 0.95rem; color: rgba(244,242,238,0.7);
+}
+.pr-alevel-title { font-weight: 700; color: rgba(244,242,238,0.85); }
+.pr-alevel-person { display: inline-flex; align-items: center; gap: 0.45rem; }
+.pr-alevel-name { font-weight: 700; color: #E2C98F; }
+.pr-chip {
+  border-radius: 9999px; padding: 0.1rem 0.65rem;
+  font-weight: 600; font-size: 0.82rem; color: rgba(244,242,238,0.8);
+  border: 1px solid rgba(205,176,122,0.35);
+}
+.pr-alevel-dot { color: rgba(205,176,122,0.5); }
+
+@media (max-width: 52rem) {
+  .pr-alevel { margin-top: 2rem; }
+  .pr-alevel-dot { display: none; }
+}
+</style>
+<!-- Mobile overrides: plain CSS, so they work with any Tailwind version, config or build -->
+<style>
+  .hdr-short { display: none; }
+
+  /* ---------- Nav links: gold underline that sweeps in, plus an active-section state ---------- */
+  .hdr-link { position: relative; }
+  .hdr-link::after {
+    content: ""; position: absolute; left: 1rem; right: 1rem; bottom: 0.22rem; height: 2px; border-radius: 9999px;
+    background: #E2C98F; transform: scaleX(0); transform-origin: center; transition: transform 300ms ease;
+  }
+  .hdr-link:hover::after, .hdr-link[aria-current="true"]::after { transform: scaleX(1); }
+  .hdr-link[aria-current="true"] { color: #F4F2EE; }
+  .hdr-cta[aria-current="true"] { background: rgba(205,176,122,0.16); }
+  .hdr-link:focus-visible, .hdr-cta:focus-visible, .logo:focus-visible { outline: 2px solid #E2C98F; outline-offset: 3px; }
+
+  /* ---------- Logo: small hover response ---------- */
+  .logo-mi, .logo-tutors { display: inline-block; transition: transform 300ms ease, letter-spacing 300ms ease, color 300ms ease; }
+  .logo:hover .logo-tutors, .logo:focus-visible .logo-tutors { letter-spacing: 0.06em; color: #E2C98F; }
+  @media (prefers-reduced-motion: no-preference) {
+    .logo:hover .logo-mi { transform: translateY(-2px) skewX(-4deg); }
+    .hdr-link:hover, .hdr-cta:hover { transform: translateY(-1px); }
+    .hdr-link, .hdr-cta { transition-property: background-color, color, box-shadow, transform; }
+    html { scroll-behavior: smooth; }
+  }
+
+  /* ---------- Desktop only: header tightens on scroll, with a thin reading-progress line ---------- */
+  @media (min-width: 52.01rem) {
+    .site-header { transition: box-shadow 300ms ease; }
+    .hdr-inner { transition: min-height 300ms ease; }
+    .logo { transform-origin: left center; transition: transform 300ms ease; }
+    .site-header.is-scrolled .hdr-inner { min-height: 3.25rem; }
+    .site-header.is-scrolled .logo { transform: scale(0.9); }
+    .site-header.is-scrolled { box-shadow: 0 14px 30px -14px rgba(0,0,0,0.75); }
+  }
+  @supports (animation-timeline: scroll()) {
+    @media (min-width: 52.01rem) and (prefers-reduced-motion: no-preference) {
+      .site-header::after {
+        content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px;
+        background: linear-gradient(90deg, rgba(226,201,143,0.25), #E2C98F);
+        transform: scaleX(0); transform-origin: left;
+        animation: hdrProgress linear both; animation-timeline: scroll(root);
+      }
+    }
+  }
+  @keyframes hdrProgress { to { transform: scaleX(1); } }
+
+  /* ---------- Mobile ---------- */
+  @media (max-width: 52rem) {
+    .site-header { position: static !important; box-shadow: none !important; }
+    .hdr-inner {
+      width: calc(100% - 2.5rem) !important;
+      min-height: 0 !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      align-items: center !important;
+      gap: 0.25rem !important;
+      padding-block: 0.75rem !important;
+    }
+    .hdr-nav { display: flex !important; width: 100%; justify-content: space-between; gap: 0.2rem !important; font-size: 0.86rem !important; }
+    .hdr-nav a { flex: 1 1 0; min-width: 0; text-align: center; white-space: nowrap; padding-inline: 0.35rem !important; }
+    .hdr-link::after { left: 0.35rem; right: 0.35rem; bottom: 0.1rem; }
+    .hdr-long { display: none; }
+    .hdr-short { display: inline; }
+  }
+  @media (max-width: 24rem) {
+    .hdr-nav { font-size: 0.8rem !important; gap: 0.1rem !important; }
+    .hdr-nav a { padding-inline: 0.2rem !important; }
+  }
+</style>
+
+<header class="site-header sticky top-0 z-10 bg-chardeep text-onchar border-b border-[rgba(205,176,122,0.25)] shadow-[0_10px_28px_-14px_rgba(0,0,0,0.6)] pt-[env(safe-area-inset-top)]">
+  <div class="hdr-inner w-[min(70rem,100%_-_3rem)] mx-auto flex items-center justify-between gap-4 min-h-[4rem]">
+    <a class="logo flex flex-col no-underline shrink-0 py-1.5" href="#top" aria-label="Mete &amp; Ilkin Tutors">
+      <span class="flex items-baseline gap-[0.3em] font-serif font-semibold leading-none text-[2rem]" aria-hidden="true">
+        <span class="logo-mi italic tracking-[-0.03em]"><span class="text-onchar">m</span><span class="text-goldonchar">i</span></span>
+        <span class="logo-tutors text-onchar tracking-[0.02em]">tutors</span>
+      </span>
+      <span class="hidden sm:block mt-1.5 text-[0.58rem] font-medium uppercase tracking-[0.34em] text-oncharmuted" aria-hidden="true">Mete <span class="text-goldonchar">&middot;</span> Ilkin</span>
+    </a>
+    <nav class="hdr-nav flex gap-1 text-[0.92rem] font-medium" aria-label="Main">
+      <a class="hdr-link no-underline text-oncharmuted rounded-full px-4 py-1.5 transition duration-300 hover:bg-[rgba(244,242,238,0.08)] hover:text-onchar" href="#statement"><span class="hdr-long">Our statement</span><span class="hdr-short">Statement</span></a>
+      <a class="hdr-link no-underline text-oncharmuted rounded-full px-4 py-1.5 transition duration-300 hover:bg-[rgba(244,242,238,0.08)] hover:text-onchar" href="#tutors">Meet us</a>
+      <a class="hdr-link no-underline text-oncharmuted rounded-full px-4 py-1.5 transition duration-300 hover:bg-[rgba(244,242,238,0.08)] hover:text-onchar" href="#advice"><span class="hdr-long">Our advice</span><span class="hdr-short">Advice</span></a>
+      <a class="hdr-link no-underline text-oncharmuted rounded-full px-4 py-1.5 transition duration-300 hover:bg-[rgba(244,242,238,0.08)] hover:text-onchar" href="#pricing"><span class="hdr-long">Pricing &amp; contact</span><span class="hdr-short">Pricing</span></a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  (function () {
+    var header = document.querySelector('.site-header');
+    if (!header) return;
+
+    // Tighten the header once the page is scrolled
+    function onScroll() { header.classList.toggle('is-scrolled', window.scrollY > 24); }
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // Highlight the nav link for the section currently in view
+    var links = Array.prototype.slice.call(header.querySelectorAll('.hdr-link, .hdr-cta'));
+    var map = {};
+    links.forEach(function (a) { map[a.getAttribute('href')] = a; });
+    if (!('IntersectionObserver' in window)) return;
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        links.forEach(function (a) { a.removeAttribute('aria-current'); });
+        var active = map['#' + e.target.id];
+        if (active) active.setAttribute('aria-current', 'true');
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+
+    ['statement', 'tutors', 'stories', 'pricing'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) io.observe(el);
+    });
+  })();
+</script>
+
+<style>
+  .hero-photos { display: none; }
+  @media (min-width: 52rem) {
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 27rem) minmax(0, 1fr);
+      gap: clamp(3rem, 6vw, 5.5rem);
+      align-items: center;
+    }
+    .hero-grid h1 { font-size: clamp(2.4rem, 4.2vw, 3.8rem); }
+    .hero-photos { display: block; position: relative; width: 100%; aspect-ratio: 1 / 1.05; }
+    .hero-glow {
+      position: absolute; inset: 8%; border-radius: 9999px;
+      background: radial-gradient(circle, rgba(205,176,122,0.22), transparent 70%);
+      filter: blur(40px);
+    }
+    /* .hero-frame {
+      position: absolute; left: 4%; top: 4%; width: 56%; aspect-ratio: 4 / 5;
+      border-radius: 1rem; border: 1px solid rgba(205,176,122,0.35);
+    } */
+    .hero-photos figure {
+      position: absolute; width: 56%; margin: 0; overflow: hidden;
+      border-radius: 1rem; border: 1px solid rgba(205,176,122,0.5);
+      box-shadow: 0 24px 48px -20px rgba(0,0,0,0.7);
+    }
+    .hero-photos .p1 { left: 0; top: 0; z-index: 1; }
+    .hero-photos .p2 { right: 0; bottom: 0; z-index: 2; }
+    .hero-photos img {
+      display: block; width: 100%; aspect-ratio: 4 / 5;
+      object-fit: cover; object-position: center top;
+      transition: transform 700ms;
+    }
+    .hero-photos figure:hover img { transform: scale(1.05); }
+    .hero-photos figcaption {
+      position: absolute; left: 0; right: 0; bottom: 0;
+      padding: 2.5rem 1rem 0.75rem;
+      background: linear-gradient(to top, rgba(20,21,23,0.85), transparent);
+      font-weight: 600; font-size: 1.05rem; letter-spacing: 0.02em;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-photos img { transition: none; }
+    .hero-photos figure:hover img { transform: none; }
+  }
+</style>
+
+
+
+
+<main id="top">
+  <section class="bg-char bg-[radial-gradient(ellipse_at_85%_0%,rgba(205,176,122,0.2),transparent_55%)] text-onchar pt-[clamp(4rem,10vw,7.5rem)] pb-[clamp(3.5rem,8vw,6rem)] max-[52rem]:pt-10 max-[52rem]:pb-24 max-[52rem]:min-h-[calc(100svh-3.5rem)] max-[52rem]:flex max-[52rem]:items-center">
+    <div class="hero-grid w-[min(70rem,100%_-_3rem)] max-[52rem]:w-[calc(100%_-_2.5rem)] mx-auto">
+
+      <!-- Portrait collage (desktop only) -->
+      <div class="hero-photos">
+        <div class="hero-glow" aria-hidden="true"></div>
+        <!-- <div class="hero-frame" aria-hidden="true"></div> -->
+        <figure class="p1">
+          <img src="img/mete1.png" alt="Mete" width="440" height="550" fetchpriority="high">
+          <figcaption class="font-serif">Mete</figcaption>
+        </figure>
+        <figure class="p2">
+          <img src="img/kin1.png" alt="Ilkin" width="440" height="550" fetchpriority="high">
+          <figcaption class="font-serif">Ilkin</figcaption>
+        </figure>
+      </div>
+
+      <!-- Text -->
+      <div>
+        <h1 class="font-serif font-medium text-[clamp(2.6rem,6vw,4.6rem)] leading-[1.05] tracking-[-0.01em] max-w-[16ch] mb-7">Specialist Medical School Interview tutoring</h1>
+        <hr class="w-[4.5rem] h-0.5 rounded-full border-0 bg-gradient-to-r from-goldonchar to-transparent mb-7">
+        <p class="max-w-[34rem] text-oncharmuted text-[1.15rem] mb-10 max-[52rem]:text-[1.05rem] max-[52rem]:mb-8">One-to-one MMI and panel interview preparation from medical students at the University of Bristol and UCL.</p>
+        <div class="flex flex-wrap gap-4 max-[52rem]:flex-col max-[52rem]:gap-3">
+          <a class="inline-block no-underline font-semibold py-[0.8rem] px-6 rounded-full text-[0.95rem] max-[52rem]:py-4 max-[52rem]:text-center bg-goldonchar text-[#232529] shadow-dark transition duration-300 motion-safe:hover:-translate-y-0.5 hover:bg-[#D9BF8D] hover:shadow-gold" href="#pricing">Get in touch</a>
+          <a class="inline-block no-underline font-semibold py-[0.8rem] px-6 rounded-full text-[0.95rem] max-[52rem]:py-4 max-[52rem]:text-center ring-1 ring-goldonchar text-onchar transition duration-300 motion-safe:hover:-translate-y-0.5 hover:bg-[rgba(205,176,122,0.14)] hover:shadow-gold" href="#tutors">Meet your tutors</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+ 
+<section class="py-[clamp(4rem,9vw,6.5rem)] max-[52rem]:py-12 bg-chardeep bg-[radial-gradient(ellipse_at_85%_100%,rgba(205,176,122,0.14),transparent_55%),radial-gradient(ellipse_at_10%_0%,rgba(205,176,122,0.08),transparent_50%)] text-onchar border-t border-[rgba(205,176,122,0.2)]" id="statement">
+    <div class="w-[min(70rem,100%_-_3rem)] max-[52rem]:w-[calc(100%_-_2.5rem)] mx-auto">
+      <h2 class="font-serif font-medium text-[clamp(2.2rem,4.4vw,3rem)] leading-[1.1] mb-10 max-[52rem]:mb-6 text-onchar after:block after:mt-4 after:h-0.5 after:w-12 after:rounded-full after:bg-gradient-to-r after:from-goldonchar after:to-transparent">Our statement</h2>
+ 
+      <div class="rounded-2xl bg-[rgba(255,255,255,0.06)] ring-2 ring-[rgba(205,176,122,0.6)] shadow-gold border-l-2 border-goldonchar p-6 md:p-10 mb-5 md:mb-8 transition duration-300 hover:ring-goldonchar">
+        <p class="font-serif text-[clamp(1.4rem,2.4vw,1.75rem)] leading-[1.4] max-w-[44rem] text-onchar">We are two <strong class="font-light text-onchar box-decoration-clone [box-shadow:inset_0_-0.2em_0_rgba(205,176,122,0.3)]">medical students</strong>, from the University of Bristol and UCL, offering <strong class="font-light text-onchar box-decoration-clone [box-shadow:inset_0_-0.2em_0_rgba(205,176,122,0.3)]">personalised, specialist preparation</strong> for UK Medical School Interviews.</p>
+      </div>
+ 
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-8">
+        <div class="rounded-2xl bg-[rgba(255,255,255,0.05)] ring-1 ring-[rgba(205,176,122,0.3)] shadow-dark p-6 md:p-8 transition duration-300 motion-safe:hover:-translate-y-1 hover:ring-[rgba(205,176,122,0.6)] border-t-2 border-goldonchar">
+          <h3 class="font-serif font-semibold text-[1.6rem] leading-[1.2] mb-3 text-onchar">Why we set this up</h3>
+          <p class="mb-4 last:mb-0 text-oncharmuted">Generic online material and tutoring can only take a candidate so far, and rarely help them stand out. Tutors at larger agencies often work with many students at once, usually over a short period.</p>
+          <p class="mb-4 last:mb-0 text-oncharmuted">We set up <span class="mi-word"><span class="mi-word-mi"><span class="text-onchar">m</span><span class="text-goldonchar">i</span></span><span class="mi-word-tutors text-onchar">tutors</span></span> to offer something more specialist. <strong class="font-light text-onchar box-decoration-clone [box-shadow:inset_0_-0.2em_0_rgba(205,176,122,0.3)]">We take on fewer students and give each one our time</strong>. Our single focus: helping them <strong class="font-light text-onchar box-decoration-clone [box-shadow:inset_0_-0.2em_0_rgba(205,176,122,0.3)]">perform as well as they possibly can</strong>, at interview and beyond.</p>
+        </div>
+        <div class="rounded-2xl bg-[rgba(255,255,255,0.05)] ring-1 ring-[rgba(205,176,122,0.3)] shadow-dark p-6 md:p-8 transition duration-300 motion-safe:hover:-translate-y-1 hover:ring-[rgba(205,176,122,0.6)] border-l-2 border-goldonchar">
+          <h3 class="font-serif font-semibold text-[1.6rem] leading-[1.2] mb-3 text-onchar">How we teach</h3>
+          <p class="mb-4 last:mb-0 text-oncharmuted">Each student receives tailored sessions that go <strong class="font-light text-onchar box-decoration-clone [box-shadow:inset_0_-0.2em_0_rgba(205,176,122,0.3)]">beyond what general guides can offer</strong>. We explore interview topics in real depth, from medical ethics and the NHS to communication skills and motivation for medicine.</p>
+          <p class="mb-4 last:mb-0 text-oncharmuted">Our aim is for students to walk confidently into their interviews <strong class="font-light text-onchar box-decoration-clone [box-shadow:inset_0_-0.2em_0_rgba(205,176,122,0.3)]">understanding the material, rather than reciting it</strong>, so they can reason clearly through any question they are asked.</p>
+        </div>
+        <div class="rounded-2xl bg-[rgba(255,255,255,0.05)] ring-1 ring-[rgba(205,176,122,0.3)] shadow-dark p-6 md:p-8 transition duration-300 motion-safe:hover:-translate-y-1 hover:ring-[rgba(205,176,122,0.6)] border-b-2 border-goldonchar">
+          <h3 class="font-serif font-semibold text-[1.6rem] leading-[1.2] mb-3 text-onchar">Why us</h3>
+          <p class="mb-4 last:mb-0 text-oncharmuted">Between us, we have <strong class="font-light text-onchar box-decoration-clone [box-shadow:inset_0_-0.2em_0_rgba(205,176,122,0.3)]">interviewed at 8 medical schools</strong>, both scored in the <strong class="font-light text-onchar box-decoration-clone [box-shadow:inset_0_-0.2em_0_rgba(205,176,122,0.3)]">top 6% of the UCAT</strong>, and bring <strong class="font-light text-onchar box-decoration-clone [box-shadow:inset_0_-0.2em_0_rgba(205,176,122,0.3)]">over 500 hours of teaching experience</strong>, from Medical School Interview tutoring and A-Level tuition to mentoring medical presenters.</p>
+          <p class="mb-4 last:mb-0 text-oncharmuted">We value the relationships we build with our students. As we progress through our own training, we hope to stay in touch, offering <strong class="font-light text-onchar box-decoration-clone [box-shadow:inset_0_-0.2em_0_rgba(205,176,122,0.3)]">mentorship</strong>, guidance through medical school, and advice on <strong class="font-light text-onchar box-decoration-clone [box-shadow:inset_0_-0.2em_0_rgba(205,176,122,0.3)]">specialty portfolios and research publications</strong>.</p>
+        </div>
+      </div>
+ 
+      <div class="mt-10 md:mt-14">
+        <p class="text-[0.98rem] text-oncharmuted mb-3 md:mb-5">We interviewed at</p>
+        <ul class="grid grid-cols-2 gap-3 md:gap-5 md:grid-cols-[repeat(auto-fit,minmax(9rem,1fr))]">
+          <li class="flex flex-col rounded-xl bg-[rgba(255,255,255,0.05)] ring-1 ring-[rgba(205,176,122,0.25)] shadow-dark px-4 py-3 md:px-5 md:py-4 transition duration-300 motion-safe:hover:-translate-y-1 hover:ring-goldonchar hover:shadow-gold"><span class="font-serif font-semibold text-[1.35rem] md:text-[1.55rem] leading-[1.2] text-onchar">Bristol</span><span class="text-[0.88rem] font-medium text-goldonchar">Mete</span></li>
+          <li class="flex flex-col rounded-xl bg-[rgba(255,255,255,0.05)] ring-1 ring-[rgba(205,176,122,0.25)] shadow-dark px-4 py-3 md:px-5 md:py-4 transition duration-300 motion-safe:hover:-translate-y-1 hover:ring-goldonchar hover:shadow-gold"><span class="font-serif font-semibold text-[1.35rem] md:text-[1.55rem] leading-[1.2] text-onchar">Sheffield</span><span class="text-[0.88rem] font-medium text-goldonchar">Mete</span></li>
+          <li class="flex flex-col rounded-xl bg-[rgba(255,255,255,0.05)] ring-1 ring-[rgba(205,176,122,0.25)] shadow-dark px-4 py-3 md:px-5 md:py-4 transition duration-300 motion-safe:hover:-translate-y-1 hover:ring-goldonchar hover:shadow-gold"><span class="font-serif font-semibold text-[1.35rem] md:text-[1.55rem] leading-[1.2] text-onchar">Liverpool</span><span class="text-[0.88rem] font-medium text-goldonchar">Mete</span></li>
+          <li class="flex flex-col rounded-xl bg-[rgba(255,255,255,0.05)] ring-1 ring-[rgba(205,176,122,0.25)] shadow-dark px-4 py-3 md:px-5 md:py-4 transition duration-300 motion-safe:hover:-translate-y-1 hover:ring-goldonchar hover:shadow-gold"><span class="font-serif font-semibold text-[1.35rem] md:text-[1.55rem] leading-[1.2] text-onchar">Leicester</span><span class="text-[0.88rem] font-medium text-goldonchar">Mete</span></li>
+        </ul>
+        <p class="pb-6 md:pb-10"></p>
+        <ul class="grid grid-cols-2 gap-3 md:gap-5 md:grid-cols-[repeat(auto-fit,minmax(9rem,1fr))]">
+          <li class="flex flex-col rounded-xl bg-[rgba(255,255,255,0.05)] ring-1 ring-[rgba(205,176,122,0.25)] shadow-dark px-4 py-3 md:px-5 md:py-4 transition duration-300 motion-safe:hover:-translate-y-1 hover:ring-goldonchar hover:shadow-gold"><span class="font-serif font-semibold text-[1.35rem] md:text-[1.55rem] leading-[1.2] text-onchar">Oxford</span><span class="text-[0.88rem] font-medium text-goldonchar">Ilkin</span></li>
+          <li class="flex flex-col rounded-xl bg-[rgba(255,255,255,0.05)] ring-1 ring-[rgba(205,176,122,0.25)] shadow-dark px-4 py-3 md:px-5 md:py-4 transition duration-300 motion-safe:hover:-translate-y-1 hover:ring-goldonchar hover:shadow-gold"><span class="font-serif font-semibold text-[1.35rem] md:text-[1.55rem] leading-[1.2] text-onchar">UCL</span><span class="text-[0.88rem] font-medium text-goldonchar">Ilkin</span></li>
+          <li class="flex flex-col rounded-xl bg-[rgba(255,255,255,0.05)] ring-1 ring-[rgba(205,176,122,0.25)] shadow-dark px-4 py-3 md:px-5 md:py-4 transition duration-300 motion-safe:hover:-translate-y-1 hover:ring-goldonchar hover:shadow-gold"><span class="font-serif font-semibold text-[1.35rem] md:text-[1.55rem] leading-[1.2] text-onchar">KCL</span><span class="text-[0.88rem] font-medium text-goldonchar">Ilkin</span></li>
+          <li class="flex flex-col rounded-xl bg-[rgba(255,255,255,0.05)] ring-1 ring-[rgba(205,176,122,0.25)] shadow-dark px-4 py-3 md:px-5 md:py-4 transition duration-300 motion-safe:hover:-translate-y-1 hover:ring-goldonchar hover:shadow-gold"><span class="font-serif font-semibold text-[1.35rem] md:text-[1.55rem] leading-[1.2] text-onchar">Southampton</span><span class="text-[0.88rem] font-medium text-goldonchar">Ilkin</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+ 
+ 
+
+  
+<style>
+  #tutors { scroll-margin-top: 4rem; }
+  .hl { background: linear-gradient(transparent 62%, rgba(205,176,122,0.3) 0); color: #F4F2EE; font-weight: 700; }
+
+  @keyframes rise { from { opacity: 0; transform: translateY(1rem); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      .reveal { animation: rise linear both; animation-timeline: view(); animation-range: entry 0% entry 45%; }
+    }
+  }
+
+  .mu-card {
+    position: relative; display: grid; gap: 1.75rem; padding: 1.25rem; border-radius: 1.5rem;
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(205,176,122,0.3);
+    box-shadow: 0 12px 28px -12px rgba(0,0,0,0.55);
+    transition: border-color 300ms;
+  }
+  .mu-card::before {
+    content: ""; position: absolute; top: -1px; left: 2rem; width: 5rem; height: 3px;
+    border-radius: 0 0 9999px 9999px; background: linear-gradient(90deg, #E2C98F, rgba(226,201,143,0));
+  }
+  .mu-card:hover { border-color: rgba(205,176,122,0.6); }
+  .mu-card + .mu-card { margin-top: 1.5rem; }
+  .mu-photo { margin: 0 auto; width: 74%; max-width: 18rem; overflow: hidden; border-radius: 1rem; border: 1px solid rgba(205,176,122,0.6); }
+  .mu-photo img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center top; }
+
+  .mu-jump-wrap { margin: 0 0 0.6rem; text-align: center; }
+  .mu-jump {
+    display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.85rem; font-weight: 600;
+    color: rgba(244,242,238,0.55); text-decoration: none;
+    border-bottom: 1px dotted rgba(205,176,122,0.45); padding-bottom: 1px;
+    transition: color 250ms, border-color 250ms;
+  }
+  .mu-jump span { transition: transform 250ms; }
+  .mu-jump:hover, .mu-jump:focus-visible { color: #E2C98F; border-bottom-color: #E2C98F; }
+  @media (prefers-reduced-motion: no-preference) { .mu-jump:hover span { transform: translateY(2px); } }
+
+  .mu-name { font-size: clamp(2.1rem, 3.8vw, 2.7rem); font-weight: 800; line-height: 1.1; margin: 0 0 1rem; text-align: center; }
+  .mu-lead { border-left: 3px solid #CDB07A; padding-left: 1rem; margin: 0 0 1.5rem; font-size: 1.2rem; line-height: 1.5; font-weight: 600; max-width: 40rem; }
+  .mu-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr)); gap: 0.75rem; margin: 0 0 1.75rem; }
+  .mu-stat {
+    display: flex; flex-direction: column-reverse; justify-content: flex-end; border-radius: 1rem; padding: 0.8rem 0.9rem;
+    background: rgba(205,176,122,0.08); border: 1px solid rgba(205,176,122,0.25);
+    transition: background-color 250ms, border-color 250ms, transform 250ms, box-shadow 250ms;
+  }
+  .mu-stat:hover { background: rgba(205,176,122,0.16); border-color: rgba(226,201,143,0.75); box-shadow: 0 10px 20px -12px rgba(0,0,0,0.7); }
+  .mu-stat dd { margin: 0; font-size: 1.45rem; font-weight: 800; line-height: 1.1; color: #E2C98F; transition: transform 250ms; transform-origin: left center; }
+  .mu-stat dt { margin-top: 0.3rem; font-size: 0.82rem; line-height: 1.35; color: rgba(244,242,238,0.8); }
+  @media (prefers-reduced-motion: no-preference) {
+    .mu-stat:hover { transform: translateY(-3px); }
+    .mu-stat:hover dd { transform: scale(1.06); }
+  }
+  .mu-text p { margin: 0 0 1rem; max-width: 40rem; color: rgba(244,242,238,0.82); }
+  .mu-close { margin: 1.5rem 0 0; padding-top: 1.1rem; max-width: 40rem; border-top: 1px solid rgba(205,176,122,0.25); font-size: 1.3rem; font-weight: 700; line-height: 1.3; color: #E2C98F; }
+  @media (min-width: 52rem) {
+    .mu-card { grid-template-columns: minmax(13rem, 19rem) 1fr; gap: 2.5rem; padding: 2.25rem; align-items: start; }
+    .mu-card.flip { grid-template-columns: 1fr minmax(13rem, 19rem); }
+    .mu-card.flip .mu-photo { order: 2; }
+    .mu-photo { margin: 0; width: auto; max-width: none; position: sticky; top: 6rem; }
+    .mu-name, .mu-jump-wrap { text-align: left; }
+  }
+</style>
+
+<!-- ===================== MEET US ===================== -->
+<section class="py-12 md:py-[clamp(4rem,9vw,6.5rem)] bg-char bg-[radial-gradient(ellipse_at_50%_0%,rgba(205,176,122,0.12),transparent_55%),radial-gradient(ellipse_at_100%_100%,rgba(205,176,122,0.08),transparent_50%)] text-onchar border-y border-[rgba(205,176,122,0.2)]" id="tutors" aria-labelledby="tutors-h">
+  <div class="w-[calc(100%_-_2.5rem)] md:w-[min(70rem,100%_-_3rem)] mx-auto">
+    <h2 id="tutors-h" class="font-serif font-medium text-[clamp(2.2rem,4.4vw,3rem)] leading-[1.1] mb-6 md:mb-10 text-onchar after:block after:mt-4 after:h-0.5 after:w-12 after:rounded-full after:bg-gradient-to-r after:from-goldonchar after:to-transparent">Meet us</h2>
+
+    <!-- Mete -->
+    <article class="mu-card reveal" aria-labelledby="mete-name">
+      <figure class="mu-photo">
+        <img src="img/mete1.png" alt="Mete" width="440" height="550">
+      </figure>
+      <div>
+        <p class="mu-jump-wrap"><a class="mu-jump" href="#mete-story">Curious how I got in? Read my story <span aria-hidden="true">&darr;</span></a></p>
+        <h3 class="mu-name" id="mete-name">Mete</h3>
+
+        <p class="mu-lead">I&#8217;m Mete, a <span class="hl">3rd year medical student at the University of Bristol</span> with a strong interest in <span class="hl">anaesthesia and critical care</span>, particularly the neuropharmacology underlying anaesthetic agents. I aim to contribute to the development of novel drug therapies in this field.</p>
+
+        <dl class="mu-stats">
+          <div class="mu-stat"><dt>UCAT, Band 1 (top 6%)</dt><dd>2960</dd></div>
+          <div class="mu-stat"><dt>A-Level</dt><dd>A*AAA</dd></div>
+          <div class="mu-stat"><dt>GCSE</dt><dd>10 &times; grade 9</dd></div>
+          <div class="mu-stat"><dt>Offers from Bristol, Sheffield and Liverpool</dt><dd>3 offers</dd></div>
+          <div class="mu-stat"><dt>Bristol end-of-year exams, among the top performers in my cohort, with a commendation of achievement</dt><dd>89/100</dd></div>
+          <div class="mu-stat"><dt>In my year group, for my Student Choice Essay</dt><dd>Top prize</dd></div>
+          <div class="mu-stat"><dt>Tutoring delivered</dt><dd>300+ hrs</dd></div>
+        </dl>
+
+        <div class="mu-text">
+          <p>Drawing on my experience tutoring <span class="hl">Medical Interviews and Maths</span>, along with my own interviews and first-hand insight into medical school and clinical placements, I offer students the <span class="hl">committed, personal support</span> every applicant deserves.</p>
+
+          <p>My sessions focus on <span class="hl">understanding over memorisation</span>, encouraging students to <span class="hl">think out loud</span> and build clear, structured reasoning. Above all, I make sure every student feels <span class="hl">confident and well prepared</span>, so they can perform at their very best on interview day.</p>
+        </div>
+
+        <p class="mu-close">If you are looking for a tutor invested in your success, I would love to hear from you.</p>
+      </div>
+    </article>
+
+    <!-- Ilkin -->
+    <article class="mu-card flip reveal" aria-labelledby="ilkin-name">
+      <figure class="mu-photo">
+        <img src="img/kin1.png" alt="Ilkin" width="440" height="550">
+      </figure>
+      <div>
+        <p class="mu-jump-wrap"><a class="mu-jump" href="#ilkin-story">Curious how I got in? Read my story <span aria-hidden="true">&darr;</span></a></p>
+        <h3 class="mu-name" id="ilkin-name">Ilkin</h3>
+
+        <p class="mu-lead">I&#8217;m Ilkin, a <span class="hl">3rd year medical student at UCL</span>, currently completing an intercalated BSc in Medical Anthropology. As a <span class="hl">future psychiatrist</span>, I plan to pioneer culturally adapted therapies and international knowledge exchange.</p>
+
+        <dl class="mu-stats">
+          <div class="mu-stat"><dt>UCAT (top 5%)</dt><dd>3000</dd></div>
+          <div class="mu-stat"><dt>A-Level</dt><dd>A*A*A*A*A*</dd></div>
+          <div class="mu-stat"><dt>GCSE</dt><dd>11 &times; grade 9</dd></div>
+          <div class="mu-stat"><dt>Offers from UCL and Southampton</dt><dd>2 offers</dd></div>
+          <div class="mu-stat"><dt>National Biology Olympiad</dt><dd>Top 16</dd></div>
+          <div class="mu-stat"><dt>Teaching hours</dt><dd>150+ hrs</dd></div>
+        </dl>
+
+        <div class="mu-text">
+          <p>Alongside teaching <span class="hl">A-Level Maths and Chemistry</span>, I spent many hours mentoring presenters at the Medical Discussion Group I founded at my college. Realising how alive I felt while teaching, I expanded into tutoring Medical School Interviews, and have since helped students prepare with confidence.</p>
+
+          <p>Over 15 months of travel and fieldwork in the Middle East and South Asia, I <span class="hl">communicated with thousands of people</span>, from tribesmen to politicians. The experience and intuition I gained help me understand how answers come across to others, allowing me to give <span class="hl">honest, specific feedback</span> that teachers and friends may have missed. Together, we will build <span class="hl">tailored resources and plans</span> for every area of your interview preparation.</p>
+        </div>
+
+        <p class="mu-close">If you would like honest feedback and preparation built around you, I look forward to working with you.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+
+<style>
+  #advice { scroll-margin-top: 4rem; }
+  .hl { background: linear-gradient(transparent 62%, rgba(205,176,122,0.3) 0); color: #F4F2EE; font-weight: 700; }
+
+  @keyframes rise { from { opacity: 0; transform: translateY(1rem); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      .reveal { animation: rise linear both; animation-timeline: view(); animation-range: entry 0% entry 45%; }
+    }
+  }
+
+  /* ---------- Our advice ---------- */
+  .ad-intro { max-width: 44rem; margin: 0 0 1.25rem; }
+  .ad-intro p { margin: 0 0 1rem; font-size: 1.08rem; line-height: 1.65; color: rgba(244,242,238,0.84); }
+  .ad-intro p:last-child { margin-bottom: 0; }
+
+  .ad-jump { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; margin: 0 0 2.5rem; padding: 0; list-style: none; }
+  .ad-jump a {
+    display: inline-flex; align-items: center; gap: 0.45rem; font-size: 0.95rem; font-weight: 600;
+    color: rgba(244,242,238,0.7); text-decoration: none; border-bottom: 1px dotted rgba(205,176,122,0.45); padding-bottom: 1px;
+    transition: color 250ms, border-color 250ms;
+  }
+  .ad-jump a b { display: grid; place-items: center; width: 1.35rem; height: 1.35rem; border-radius: 50%; font-size: 0.75rem; color: #232529; background: #E2C98F; }
+  .ad-jump a:hover, .ad-jump a:focus-visible { color: #E2C98F; border-bottom-color: #E2C98F; }
+
+  /* The four stages, joined by a gold line */
+  .ad-steps { margin: 0; padding: 0; list-style: none; }
+  .ad-step { position: relative; display: grid; grid-template-columns: 2.5rem minmax(0, 1fr); gap: 0 1rem; padding-bottom: 3rem; scroll-margin-top: 5rem; }
+  .ad-step:last-child { padding-bottom: 0; }
+  .ad-step::before {
+    content: ""; position: absolute; left: calc(1.25rem - 1px); top: 3.25rem; bottom: 0.75rem; width: 2px; border-radius: 2px;
+    background: linear-gradient(180deg, rgba(205,176,122,0.6), rgba(205,176,122,0.08));
+  }
+  .ad-step:last-child::before { display: none; }
+  .ad-num {
+    display: grid; place-items: center; width: 2.5rem; height: 2.5rem; border-radius: 50%;
+    font-size: 1rem; font-weight: 800; color: #232529; background: #E2C98F; box-shadow: 0 0 0 6px rgba(205,176,122,0.12);
+  }
+  .ad-title { margin: 0.25rem 0 0.85rem; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; line-height: 1.15; color: #F4F2EE; }
+  .ad-lead { border-left: 3px solid #CDB07A; padding-left: 1rem; margin: 0 0 1.5rem; max-width: 40rem; font-size: 1.12rem; line-height: 1.5; font-weight: 600; color: #E2C98F; }
+  .ad-cols { display: grid; gap: 1.25rem; }
+
+  .ad-points { margin: 0; padding: 0; list-style: none; }
+  .ad-points li { position: relative; margin: 0 0 0.9rem; padding-left: 1.25rem; line-height: 1.6; color: rgba(244,242,238,0.84); }
+  .ad-points li:last-child { margin-bottom: 0; }
+  .ad-points li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 0.45rem; height: 0.45rem; border-radius: 50%; background: #CDB07A; }
+  .ad-points strong { color: #F4F2EE; font-weight: 700; }
+
+  .ad-asides { display: grid; gap: 1rem; align-content: start; }
+  .ad-aside {
+    padding: 1.1rem 1.2rem; border-radius: 1rem; scroll-margin-top: 6rem;
+    border: 1px dashed rgba(205,176,122,0.55); background: rgba(205,176,122,0.06);
+    transition: background-color 400ms, border-color 400ms;
+  }
+  .ad-aside:target { border-style: solid; border-color: #E2C98F; background: rgba(205,176,122,0.13); }
+  .ad-by { display: flex; align-items: center; gap: 0.65rem; margin: 0 0 0.75rem; font-size: 0.95rem; font-weight: 700; color: #E2C98F; }
+  .ad-by img { flex: none; width: 2.25rem; height: 2.25rem; border-radius: 50%; object-fit: cover; object-position: center top; border: 1px solid rgba(205,176,122,0.6); }
+  .ad-aside p { margin: 0 0 0.7rem; line-height: 1.6; color: rgba(244,242,238,0.88); }
+  .ad-aside p:last-child { margin-bottom: 0; }
+
+  .ad-close { max-width: 44rem; margin: 3.5rem auto 0; padding-top: 2rem; border-top: 1px solid rgba(205,176,122,0.3); text-align: center; }
+  .ad-close p { margin: 0; font-size: 1.12rem; line-height: 1.65; color: rgba(244,242,238,0.88); }
+
+  @media (min-width: 52rem) {
+    .ad-step { grid-template-columns: 3rem minmax(0, 1fr); gap: 0 1.75rem; padding-bottom: 4rem; }
+    .ad-step::before { left: calc(1.5rem - 1px); top: 3.75rem; }
+    .ad-num { width: 3rem; height: 3rem; font-size: 1.15rem; }
+    .ad-cols { grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 2.25rem; align-items: start; }
+  }
+</style>
+
+<!-- ===================== OUR ADVICE ===================== -->
+<section class="py-12 md:py-[clamp(4rem,9vw,6.5rem)] bg-char bg-[radial-gradient(ellipse_at_85%_0%,rgba(205,176,122,0.12),transparent_55%)] text-onchar" id="advice" aria-labelledby="advice-h">
+  <div class="w-[calc(100%_-_2.5rem)] md:w-[min(70rem,100%_-_3rem)] mx-auto">
+    <h2 id="advice-h" class="font-serif font-medium text-[clamp(2.2rem,4.4vw,3rem)] leading-[1.1] mb-6 md:mb-10 text-onchar after:block after:mt-4 after:h-0.5 after:w-12 after:rounded-full after:bg-gradient-to-r after:from-goldonchar after:to-transparent">Our advice</h2>
+
+    <div class="ad-intro">
+      <p>Like your grades, the UCAT and your personal statement, Medical School Interviews take time to prepare for. Your answers may feel unstructured at first, but they will improve with practice. This is the approach we both took. What mattered most was <span class="hl">consistency rather than intensity</span>: a few hours a day, spread over several weeks.</p>
+    </div>
+
+    <ul class="ad-jump" aria-label="Jump to a stage">
+      <li><a href="#advice-knowledge"><b aria-hidden="true">1</b>Knowledge</a></li>
+      <li><a href="#advice-answers"><b aria-hidden="true">2</b>Answers</a></li>
+      <li><a href="#advice-feedback"><b aria-hidden="true">3</b>Feedback</a></li>
+      <li><a href="#advice-day"><b aria-hidden="true">4</b>On the day</a></li>
+    </ul>
+
+    <ol class="ad-steps">
+
+      <li class="ad-step reveal" id="advice-knowledge">
+        <span class="ad-num" aria-hidden="true">1</span>
+        <div>
+          <h3 class="ad-title">Build your knowledge</h3>
+          <p class="ad-lead">Start with the basics, then go deeper.</p>
+          <div class="ad-cols">
+            <ul class="ad-points">
+              <li><strong>Learn the basics.</strong> YouTube videos and online articles explain the interview process and the topics that come up.</li>
+              <li><strong>Read further.</strong> Medical ethics books (e.g. <em>Medical Ethics: A Very Short Introduction</em>), the BMJ, BBC and Guardian health news, and key cases such as Gillick and Bolam.</li>
+              <li><strong>Watch doctors and patients.</strong> Videos of doctors describing their work, and patients describing their care, give you second-hand experience.</li>
+              <li><strong>Reflect on your experience.</strong> Go back over your work experience and volunteering, and prepare examples for the standard questions.</li>
+              <li><strong>Research each university.</strong> Know the course and where it leads.</li>
+              <li><strong>Make notes.</strong> Group what you learn by topic and revise it as you would for an exam.</li>
+            </ul>
+            <div class="ad-asides">
+              <aside class="ad-aside" id="ilkin-story" aria-label="Ilkin’s experience">
+                <p class="ad-by"><img src="img/kin1.png" alt="" width="36" height="36">Ilkin</p>
+                <p>I was applying to Oxford, so I read ethics textbooks, the BMJ at my local university, and up on medical law and key cases. Preparing to that level meant my later interviews at UCL, Southampton and King’s went like a breeze.</p>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="ad-step reveal" id="advice-answers">
+        <span class="ad-num" aria-hidden="true">2</span>
+        <div>
+          <h3 class="ad-title">Practise your answers</h3>
+          <p class="ad-lead">Knowing the material is half of it. You also need to say it clearly.</p>
+          <div class="ad-cols">
+            <ul class="ad-points">
+              <li><strong>Learn the question types</strong> and how to structure an answer for each, based on what examiners are looking for.</li>
+              <li><strong>Practise out loud,</strong> on your own and with family and friends.</li>
+              <li><strong>Record yourself</strong> and listen back.</li>
+              <li><strong>Prepare a few phrases</strong> for taking a moment before you answer.</li>
+            </ul>
+            <div class="ad-asides">
+              <aside class="ad-aside" id="mete-story" aria-label="Mete’s experience">
+                <p class="ad-by"><img src="img/mete1.png" alt="" width="36" height="36">Mete</p>
+                <p>I kept a Word document of summaries, examples from my own experiences and key phrases. The hardest part was turning those notes into structured speech. It took a few weeks, but it came together and I received my offers.</p>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="ad-step reveal" id="advice-feedback">
+        <span class="ad-num" aria-hidden="true">3</span>
+        <div>
+          <h3 class="ad-title">Get feedback</h3>
+          <p class="ad-lead">Once your answers are reasonable, practise with people who can give you feedback.</p>
+          <div class="ad-cols">
+            <ul class="ad-points">
+              <li><strong>Practise with medical students,</strong> ideally from the universities you are applying to.</li>
+              <li><strong>Do mock interviews</strong> in each school’s format, MMI or panel. It is like doing a past paper under exam conditions.</li>
+              <li><strong>Come to us at this stage,</strong> so you get the most out of our sessions. Before then, we can offer guidance and recommend resources.</li>
+            </ul>
+            <div class="ad-asides">
+              <aside class="ad-aside" aria-label="Ilkin’s experience">
+                <p class="ad-by"><img src="img/kin1.png" alt="" width="36" height="36">Ilkin</p>
+                <p>I learned English later in life, and my first recordings sounded robotic. Thinking out loud, practising with friends and feedback from a teacher helped. By the end I was relaxed and natural.</p>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="ad-step reveal" id="advice-day">
+        <span class="ad-num" aria-hidden="true">4</span>
+        <div>
+          <h3 class="ad-title">On the day</h3>
+          <p class="ad-lead">If you’ve prepared well, it will show.</p>
+          <div class="ad-cols">
+            <ul class="ad-points">
+              <li><strong>Look after yourself.</strong> Sleep, exercise and a tidy room will help you feel ready.</li>
+              <li><strong>Stay calm.</strong> Plan the night before and the morning of, and have a relaxation technique ready for any nerves.</li>
+              <li><strong>Don’t dwell on a weak answer.</strong> In an MMI, each station is usually marked separately, so one answer won’t decide the outcome.</li>
+            </ul>
+            <div class="ad-asides">
+              <aside class="ad-aside" aria-label="Mete’s experience">
+                <p class="ad-by"><img src="img/mete1.png" alt="" width="36" height="36">Mete</p>
+                <p>At Sheffield, I was asked what I was looking forward to about living there as a student. I blanked and said visiting the steel factories. As student pastimes go, it is not a common one. I left it behind and moved on to the next station.</p>
+              </aside>
+              <aside class="ad-aside" aria-label="Ilkin’s experience">
+                <p class="ad-by"><img src="img/kin1.png" alt="" width="36" height="36">Ilkin</p>
+                <p>The night before my UCL MMI, I slept on a friend’s floor and got less than three hours’ sleep. It still went well, because I had prepared thoroughly.</p>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </li>
+
+    </ol>
+
+    <div class="ad-close">
+      <p>Don’t be discouraged if you are shaky at first. It takes time, and we are here to support you every step of the way.</p>
+    </div>
+  </div>
+</section>
+
+
+<style>
+  /* Pricing section */
+  #pricing .pr-italic { font-style: normal; }
+
+  /* Free 15 minutes banner (flat inside, soft shadow, faint glow) */
+  .pr-free {
+    display: flex; align-items: center; gap: 1.25rem;
+    border-radius: 1.5rem; padding: 1.5rem 1.75rem; margin-bottom: 2rem;
+    background: rgba(205,176,122,0.08);
+    border: 1px solid rgba(205,176,122,0.7);
+    box-shadow: 0 12px 28px -10px rgba(0,0,0,0.55), 0 0 14px rgba(205,176,122,0.08);
+  }
+  .pr-free-badge {
+    flex-shrink: 0; border-radius: 9999px; padding: 0.45rem 1.15rem;
+    background: #E2C98F; color: #232529; font-weight: 800; font-size: 1.1rem;
+  }
+  .pr-free h3 { font-size: 1.6rem; line-height: 1.2; margin: 0 0 0.25rem; }
+  .pr-free p { margin: 0; }
+
+  /* ---------- Rate ladder: concession, standard, gratitude ---------- */
+  .pr-rates {
+    position: relative; list-style: none; margin: 1.5rem 0 0; padding: 0 0 0 2rem;
+    display: grid; gap: 0.7rem;
+  }
+  .pr-rates::before {
+    content: ""; position: absolute; left: 0.5rem; top: 1.6rem; bottom: 1.6rem; width: 2px; border-radius: 9999px;
+    background: linear-gradient(to bottom, rgba(150,150,146,0.5), rgba(205,176,122,0.95));
+  }
+  .pr-rate {
+    position: relative; display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    padding: 0.85rem 1.1rem; border-radius: 1rem;
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(205,176,122,0.22);
+    transition: border-color 250ms, background-color 250ms, transform 250ms;
+  }
+  .pr-rate::before {
+    content: ""; position: absolute; left: calc(-1.5rem - 5px); top: 50%; width: 12px; height: 12px;
+    transform: translateY(-50%); border-radius: 50%;
+    background: #232529; border: 2px solid #CDB07A;
+    transition: background-color 250ms;
+  }
+  .pr-rate:hover { border-color: rgba(226,201,143,0.65); background: rgba(205,176,122,0.07); }
+  .pr-rate:hover::before { background: #CDB07A; }
+  @media (prefers-reduced-motion: no-preference) { .pr-rate:hover { transform: translateX(4px); } }
+
+  .pr-rate-name { display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem; font-weight: 700; font-size: 1rem; line-height: 1.3; color: #F4F2EE; }
+  .pr-rate-note { display: block; margin-top: 0.15rem; font-size: 0.88rem; line-height: 1.4; color: rgba(244,242,238,0.65); }
+  .pr-rate-amt { flex-shrink: 0; text-align: right; font-weight: 800; font-size: 1.7rem; line-height: 1; color: #CDB07A; }
+  .pr-rate-amt small { display: block; margin-top: 0.25rem; font-size: 0.75rem; font-weight: 600; color: rgba(244,242,238,0.55); }
+
+  /* The standard rate: tinted row, filled node, tag */
+  .pr-rate.is-standard { padding: 1.1rem 1.1rem; background: rgba(205,176,122,0.1); border-color: rgba(205,176,122,0.6); }
+  .pr-rate.is-standard::before { width: 16px; height: 16px; left: calc(-1.5rem - 7px); background: #E2C98F; border-color: #E2C98F; }
+  .pr-rate.is-standard .pr-rate-amt { font-size: 2.2rem; color: #E2C98F; }
+  .pr-rate-tag {
+    border-radius: 9999px; padding: 0.1rem 0.65rem; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.04em;
+    color: #232529; background: #E2C98F;
+  }
+
+  /* A-Level subjects (aside) */
+  .pr-alevel {
+    margin-top: 2.5rem; padding-top: 1.1rem;
+    border-top: 1px solid rgba(205,176,122,0.25);
+    display: flex; align-items: center; flex-wrap: wrap; gap: 0.6rem 1.1rem;
+    font-size: 0.95rem; color: rgba(244,242,238,0.7);
+  }
+  .pr-alevel-title { font-weight: 700; color: rgba(244,242,238,0.85); }
+  .pr-alevel-person { display: inline-flex; align-items: center; gap: 0.45rem; }
+  .pr-alevel-name { font-weight: 700; color: #E2C98F; }
+  .pr-chip {
+    border-radius: 9999px; padding: 0.1rem 0.65rem;
+    font-weight: 600; font-size: 0.82rem; color: rgba(244,242,238,0.8);
+    border: 1px solid rgba(205,176,122,0.35);
+  }
+  .pr-alevel-dot { color: rgba(205,176,122,0.5); }
+
+  @media (max-width: 52rem) {
+    .pr-free { flex-direction: column; align-items: flex-start; gap: 0.75rem; padding: 1.25rem; }
+    .pr-rates { padding-left: 1.75rem; }
+    .pr-rates::before { left: 0.4rem; }
+    .pr-rate { padding: 0.75rem 0.9rem; }
+    .pr-rate::before { left: calc(-1.35rem - 5px); }
+    .pr-rate.is-standard::before { left: calc(-1.35rem - 7px); }
+    .pr-rate-amt { font-size: 1.45rem; }
+    .pr-rate.is-standard .pr-rate-amt { font-size: 1.9rem; }
+    .pr-alevel { margin-top: 2rem; }
+    .pr-alevel-dot { display: none; }
+  }
+</style>
+
+<section class="py-[clamp(4rem,9vw,6.5rem)] max-[52rem]:py-12 bg-char bg-[radial-gradient(ellipse_at_15%_0%,rgba(205,176,122,0.14),transparent_55%)] text-onchar" id="pricing">
+  <div class="w-[min(70rem,100%_-_3rem)] max-[52rem]:w-[calc(100%_-_2.5rem)] mx-auto">
+    <h2 class="font-serif font-semibold text-[clamp(2.2rem,4.4vw,3rem)] leading-[1.1] mb-6 text-onchar after:block after:mt-4 after:h-0.5 after:w-12 after:rounded-full after:bg-gradient-to-r after:from-goldonchar after:to-transparent">Pricing &amp; contact</h2>
+
+    <p class="text-oncharmuted max-w-[40rem] mb-8 max-[52rem]:mb-6">We offer two tiers, and we keep our rates flexible so that every family can find something that works.</p>
+
+    <!-- Free consultation -->
+    <div class="pr-free">
+      <span class="pr-free-badge">Free</span>
+      <div>
+        <h3 class="font-serif font-bold">Your first 15 minutes are on us!</h3>
+        <p class="text-oncharmuted">Start with a free Tier 1 chat. Tell us where you&#8217;re at, ask us anything, and see if we&#8217;re a good fit.</p>
+      </div>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-8 max-[52rem]:gap-5 items-stretch">
+
+      <!-- Tier 1 -->
+      <div class="flex flex-col rounded-3xl bg-[rgba(255,255,255,0.05)] ring-1 ring-[rgba(205,176,122,0.4)] shadow-dark hover:ring-[rgba(205,176,122,0.7)] p-8 max-[52rem]:p-6 transition duration-300 motion-safe:hover:-translate-y-1">
+        <span class="self-start rounded-full ring-1 ring-[rgba(205,176,122,0.5)] text-goldonchar text-[0.85rem] font-bold px-3.5 py-0.5">Tier 1</span>
+        <p class="pr-italic mt-4 font-serif font-bold text-[1.45rem] leading-[1.25] text-onchar">Untimed discussion</p>
+        <p class="mt-2 text-oncharmuted">Come once, or come back as often as you like.</p>
+
+        <div class="mt-6 border-t border-[rgba(205,176,122,0.25)] pt-5">
+          <div class="flex items-baseline gap-2">
+            <span class="font-serif font-bold text-[2.75rem] leading-none text-goldonchar">£20</span>
+            <span class="text-oncharmuted">per hour</span>
+          </div>
+          <p class="mt-2 text-[0.95rem] text-oncharmuted">Concession available. Just let us know.</p>
+        </div>
+
+        <div class="mt-8 max-[52rem]:mt-6 grow rounded-2xl bg-[rgba(255,255,255,0.05)] ring-1 ring-[rgba(205,176,122,0.25)] shadow-dark p-6 max-[52rem]:p-5">
+          <div class="text-base font-bold text-goldonchar mb-4">What&#8217;s included</div>
+          <ul class="space-y-3 leading-snug max-[52rem]:text-[0.98rem]">
+            <li class="flex items-start gap-3"><span class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[rgba(205,176,122,0.15)] text-goldonchar ring-1 ring-[rgba(205,176,122,0.5)]"><svg class="h-3 w-3" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg></span><span class="text-oncharmuted"><strong class="font-bold text-onchar">For productive back-and-forth discussions </strong></span></li>
+            <li class="flex items-start gap-3"><span class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[rgba(205,176,122,0.15)] text-goldonchar ring-1 ring-[rgba(205,176,122,0.5)]"><svg class="h-3 w-3" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg></span><span class="text-oncharmuted">Insider knowledge and resource transfer</span></li>
+            <li class="flex items-start gap-3"><span class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[rgba(205,176,122,0.15)] text-goldonchar ring-1 ring-[rgba(205,176,122,0.5)]"><svg class="h-3 w-3" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg></span><span class="text-oncharmuted">Slower and more relaxed interview practice</span></li>
+            <li class="flex items-start gap-3"><span class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[rgba(205,176,122,0.15)] text-goldonchar ring-1 ring-[rgba(205,176,122,0.5)]"><svg class="h-3 w-3" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg></span><span class="text-oncharmuted">Mentoring for general skills and confidence</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Tier 2 -->
+      <div class="flex flex-col rounded-3xl bg-[rgba(255,255,255,0.05)] ring-1 ring-[rgba(205,176,122,0.4)] shadow-dark hover:ring-[rgba(205,176,122,0.7)] p-8 max-[52rem]:p-6 transition duration-300 motion-safe:hover:-translate-y-1">
+        <span class="self-start rounded-full ring-1 ring-[rgba(205,176,122,0.5)] text-goldonchar text-[0.85rem] font-bold px-3.5 py-0.5">Tier 2</span>
+        <p class="pr-italic mt-4 font-serif font-bold text-[1.45rem] leading-[1.25] text-onchar">Timed Mock Interview Practice</p>
+        <p class="mt-2 text-oncharmuted">When you&#8217;re ready to practise the real thing.</p>
+
+        <div class="mt-6 border-t border-[rgba(205,176,122,0.25)] pt-5">
+          <div class="flex items-baseline gap-2">
+            <span class="font-serif font-bold text-[2.75rem] leading-none text-goldonchar">£40</span>
+            <span class="text-oncharmuted">per hour</span>
+          </div>
+          <p class="mt-2 text-[0.95rem] text-oncharmuted">Concession available. Just let us know.</p>
+        </div>
+
+        <div class="mt-8 max-[52rem]:mt-6 grow rounded-2xl bg-[rgba(255,255,255,0.05)] ring-1 ring-[rgba(205,176,122,0.25)] shadow-dark p-6 max-[52rem]:p-5">
+          <div class="text-base font-bold text-goldonchar mb-4">What&#8217;s included</div>
+          <ul class="space-y-3 leading-snug max-[52rem]:text-[0.98rem]">
+            <li class="flex items-start gap-3"><span class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[rgba(205,176,122,0.15)] text-goldonchar ring-1 ring-[rgba(205,176,122,0.5)]"><svg class="h-3 w-3" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg></span><span class="text-oncharmuted"><strong class="font-bold text-onchar">For high-yield and focused practice</strong></span></li>
+            <li class="flex items-start gap-3"><span class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[rgba(205,176,122,0.15)] text-goldonchar ring-1 ring-[rgba(205,176,122,0.5)]"><svg class="h-3 w-3" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg></span><span class="text-oncharmuted"><strong class="font-bold text-onchar">Full</strong> MMI / Panel timed mock interview</span></li>
+            <li class="flex items-start gap-3"><span class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[rgba(205,176,122,0.15)] text-goldonchar ring-1 ring-[rgba(205,176,122,0.5)]"><svg class="h-3 w-3" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg></span><span class="text-oncharmuted"><strong class="font-bold text-onchar">Full</strong> breakdown and feedback of answers</span></li>
+            <li class="flex items-start gap-3"><span class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[rgba(205,176,122,0.15)] text-goldonchar ring-1 ring-[rgba(205,176,122,0.5)]"><svg class="h-3 w-3" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg></span><span class="text-oncharmuted"><strong class="font-bold text-onchar">Full</strong> strategy + unique answer prep</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="pr-alevel">
+      <span class="pr-alevel-title font-serif">We also teach A-Level:</span>
+      <span class="pr-alevel-person"><span class="pr-alevel-name">Mete</span><span class="pr-chip">Maths</span></span>
+      <span class="pr-alevel-dot" aria-hidden="true">&middot;</span>
+      <span class="pr-alevel-person"><span class="pr-alevel-name">Ilkin</span><span class="pr-chip">Maths</span><span class="pr-chip">Chemistry</span></span>
+    </div>
+
+    <div class="mt-[clamp(3.5rem,7vw,5rem)] max-[52rem]:mt-12" id="contact">
+      <h3 class="font-serif font-bold text-[clamp(1.9rem,3.2vw,2.4rem)] mb-2">Get in touch</h3>
+      <p class="text-oncharmuted max-w-[36rem] mb-8 max-[52rem]:mb-6">Drop either of us an email to book your free 15-minute chat.</p>
+      <div class="grid gap-5 max-[52rem]:gap-3 grid-cols-[repeat(auto-fit,minmax(16rem,1fr))]">
+        <a class="block no-underline rounded-2xl bg-[rgba(255,255,255,0.05)] ring-1 ring-[rgba(205,176,122,0.4)] shadow-dark py-5 px-6 max-[52rem]:py-4 transition duration-300 motion-safe:hover:-translate-y-1 hover:ring-goldonchar hover:bg-[rgba(205,176,122,0.1)] hover:shadow-gold" href="mailto:metewatson8@gmail.com">
+          <span class="block font-serif font-bold text-[1.4rem]">Mete</span>
+          <span class="block text-goldonchar text-[0.95rem] [overflow-wrap:anywhere]">metetutor@gmail.com</span>
+        </a>
+        <a class="block no-underline rounded-2xl bg-[rgba(255,255,255,0.05)] ring-1 ring-[rgba(205,176,122,0.4)] shadow-dark py-5 px-6 max-[52rem]:py-4 transition duration-300 motion-safe:hover:-translate-y-1 hover:ring-goldonchar hover:bg-[rgba(205,176,122,0.1)] hover:shadow-gold" href="mailto:ilkin.mengusoglu.23@ucl.ac.uk">
+          <span class="block font-serif font-bold text-[1.4rem]">Ilkin</span>
+          <span class="block text-goldonchar text-[0.95rem] [overflow-wrap:anywhere]">ilkin.mengusoglu.23@ucl.ac.uk</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+ 
+<footer class="bg-chardeep text-oncharmuted text-[0.9rem] py-7 max-[52rem]:pb-[calc(7rem_+_env(safe-area-inset-bottom))]">
+  <div class="w-[min(70rem,100%_-_3rem)] max-[52rem]:w-[calc(100%_-_2.5rem)] mx-auto">MItutors, Medical School Interview tutoring</div>
+</footer>
+ 
+<nav class="hidden max-[52rem]:flex fixed z-20 inset-x-3 bottom-[max(0.75rem,env(safe-area-inset-bottom))] gap-1 p-1.5 rounded-2xl bg-[rgba(35,37,41,0.94)] backdrop-blur ring-1 ring-[rgba(205,176,122,0.3)] shadow-dark" aria-label="Quick navigation">
+  <a class="flex-1 flex flex-col items-center justify-center gap-0.5 min-h-[3rem] rounded-xl no-underline text-[0.68rem] font-medium text-oncharmuted transition duration-200 active:bg-[rgba(244,242,238,0.12)] active:text-goldonchar" href="#statement"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h14v16H5z"/><path d="M9 9h6M9 13h6"/></svg>Statement</a>
+  <a class="flex-1 flex flex-col items-center justify-center gap-0.5 min-h-[3rem] rounded-xl no-underline text-[0.68rem] font-medium text-oncharmuted transition duration-200 active:bg-[rgba(244,242,238,0.12)] active:text-goldonchar" href="#tutors"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.2"/><path d="M17 14c2.2 0 4 1.8 4 4"/></svg>Meet us</a>
+  <a class="flex-1 flex flex-col items-center justify-center gap-0.5 min-h-[3rem] rounded-xl no-underline text-[0.68rem] font-medium text-oncharmuted transition duration-200 active:bg-[rgba(244,242,238,0.12)] active:text-goldonchar" href="#pricing"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12V4h8l9 9-8 8z"/><circle cx="7.5" cy="8.5" r="1"/></svg>Pricing</a>
+  <a class="flex-1 flex flex-col items-center justify-center gap-0.5 min-h-[3rem] rounded-xl no-underline text-[0.68rem] font-medium text-oncharmuted transition duration-200 active:bg-[rgba(244,242,238,0.12)] active:text-goldonchar" href="#contact"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>Contact</a>
+</nav>
+ 
+</body>
+</html>
+ 
