@@ -7,13 +7,20 @@
 <title>Mete &middot; Ilkin | Medical school interview tutoring</title>
 <meta name="description" content="One-to-one UK medical school interview preparation from two third-year medical students at UCL and the University of Bristol. MMI and panel practice, detailed feedback, from £25/hr.">
 <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
+<script>
+  /* Fade-in-on-scroll is only switched on when it can actually run (no JS / reduced motion = everything simply visible) */
+  (function () {
+    try {
+      if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.classList.add('js');
+      }
+    } catch (e) {}
+  })();
+</script>
 <link rel="stylesheet" href="dist/assets/index-BS422kwH.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@300;400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link href="style.css" rel="stylesheet">
 </head>
 <body class="m-0 bg-paper text-ink font-sans font-light text-[1.0625rem] leading-[1.7] antialiased [&_a:focus-visible]:outline [&_a:focus-visible]:outline-2 [&_a:focus-visible]:outline-gold [&_a:focus-visible]:outline-offset-[3px] [&_a:focus-visible]:rounded-sm">
@@ -40,23 +47,21 @@
   /* Highlights: lighter weight, warm off-white, a fine underline */
   .hl { color: #E9E3D3; font-weight: 500; background: linear-gradient(transparent calc(100% - 1.5px), rgba(205,176,122,0.5) 0); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
 
-  @keyframes rise { from { opacity: 0; transform: translateY(1rem); } to { opacity: 1; transform: none; } }
-  @media (prefers-reduced-motion: no-preference) {
-    @supports (animation-timeline: view()) {
-      .reveal { animation: rise linear both; animation-timeline: view(); animation-range: entry 0% entry 45%; }
-    }
-  }
+  /* Fade in on scroll. Applied to small blocks (not whole tall cards) and triggered once by a light IntersectionObserver.
+     The .rv class is removed again after the fade, so it never interferes with hover effects. */
+  .js .rv { opacity: 0; transform: translateY(0.875rem); transition: opacity 600ms ease, transform 600ms cubic-bezier(.2,.7,.2,1); }
+  .js .rv.in { opacity: 1; transform: none; }
+  .js .rv.rv-now { transition: none; }
+  @media print { .js .rv { opacity: 1; transform: none; } }
 
   /* Shared layout */
   .wrap { width: min(70rem, 100% - 3rem); margin-inline: auto; }
   .sec { position: relative; padding-block: clamp(3rem, 8vw, 6.5rem); border-top: 1px solid rgba(205,176,122,0.14); }
   @media (max-width: 52rem) { .wrap { width: calc(100% - 2.5rem); } }
 
-  /* Frosted glass: every top-level box blurs the golden-gray background behind it */
-  .ms-st, .ms-sch li, .st-card, .pr-card, .pr-free, .pr-mail {
-    -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur);
-  }
-  nav.qnav { background: rgba(27,28,32,0.62); -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur); }
+  /* Frosted glass stays on the two navigation bars only. Live-blurring ~40 boxes while scrolling is what made mobile lag and flash,
+     and behind the boxes there is only a soft gradient, so the look is unchanged without it. */
+  nav.qnav { background: rgba(27,28,32,0.62); -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur); transform: translateZ(0); }
 
   /* Section titles: one treatment everywhere. A long, fine gold streak with a faint icy edge beneath it. No glow. */
   .sec-title, .hero-head { position: relative; padding-bottom: 1.15rem; }
@@ -138,11 +143,9 @@
     html { scroll-behavior: smooth; }
   }
 
-  /* Desktop: header tightens on scroll, with a thin reading-progress line */
+  /* Desktop: logo tightens on scroll (transform only, so no page reflow), with a thin reading-progress line */
   @media (min-width: 52.01rem) {
-    .hdr-inner { transition: min-height 300ms ease; }
     .logo { transform-origin: left center; transition: transform 300ms ease; }
-    .site-header.is-scrolled .hdr-inner { min-height: 3.25rem; }
     .site-header.is-scrolled .logo { transform: scale(0.9); }
   }
   @supports (animation-timeline: scroll()) {
@@ -159,7 +162,7 @@
 
   /* Mobile */
   @media (max-width: 52rem) {
-    .site-header { position: static !important; box-shadow: none !important; }
+    .site-header { position: static !important; box-shadow: none !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
     .hdr-inner {
       width: calc(100% - 2.5rem) !important; min-height: 0 !important;
       flex-direction: column !important; justify-content: center !important; align-items: center !important;
@@ -204,8 +207,14 @@
     if (!header) return;
 
     // Tighten the header once the page is scrolled
-    function onScroll() { header.classList.toggle('is-scrolled', window.scrollY > 24); }
-    onScroll();
+    var scrolled = false, ticking = false;
+    function update() {
+      ticking = false;
+      var now = window.scrollY > (scrolled ? 8 : 40); /* small dead-zone stops flicker around the threshold */
+      if (now !== scrolled) { scrolled = now; header.classList.toggle('is-scrolled', now); }
+    }
+    function onScroll() { if (!ticking) { ticking = true; window.requestAnimationFrame(update); } }
+    update();
     window.addEventListener('scroll', onScroll, { passive: true });
 
     // Highlight the nav link for the section currently in view
@@ -230,7 +239,7 @@
   })();
 </script>
 
-<main id="top">
+<main id="top" class="bg-chardeep">
 
 <!-- ===================== HERO ===================== -->
 <style>
@@ -262,7 +271,7 @@
     .hero-grid { display: grid; grid-template-columns: minmax(0, clamp(17rem, 36vw, 27rem)) minmax(0, 1fr); gap: clamp(2.5rem, 6vw, 5.5rem); align-items: start; }
     .hero-h1 { font-size: clamp(2.4rem, 4.2vw, 3.8rem); }
     .hero-photos { display: block; position: relative; width: 100%; aspect-ratio: 1 / 1.05; }
-    .hero-glow { position: absolute; inset: 8%; border-radius: 9999px; background: radial-gradient(circle, rgba(205,176,122,0.09), transparent 70%); filter: blur(40px); }
+    .hero-glow { position: absolute; inset: 8%; border-radius: 9999px; background: radial-gradient(circle, rgba(205,176,122,0.09), transparent 70%); }
     .hero-photos figure { position: absolute; width: 56%; margin: 0; border-radius: var(--r-panel); border: 1px solid var(--edge-gold); box-shadow: 0 28px 52px -20px rgba(0,0,0,0.8), 0 8px 16px -6px rgba(0,0,0,0.45); }
     /* Diagonal: Mete top left, in front. Ilkin bottom right, at the back. */
     .hero-photos .p1 { left: 0; top: 0; z-index: 2; }
@@ -386,20 +395,20 @@
 
 <section class="sec sec-meet bg-chardeep text-onchar" id="statement">
   <div class="wrap" id="tutors">
-    <h2 class="sec-title font-serif">Meet us</h2>
+    <h2 class="sec-title font-serif rv">Meet us</h2>
 
     <!-- Mete -->
-    <article class="ms-pf reveal" aria-labelledby="mete-name">
-      <figure class="ms-fig">
-        <div class="ms-ph glass"><img src="img/mete1.png" alt="Mete" width="440" height="550"></div>
+    <article class="ms-pf" aria-labelledby="mete-name">
+      <figure class="ms-fig rv">
+        <div class="ms-ph glass"><img loading="lazy" decoding="async" src="img/mete1.png" alt="Mete" width="440" height="550"></div>
         <figcaption>University of Bristol &middot; 3rd year</figcaption>
       </figure>
       <div class="ms-pc">
-        <p class="ms-top"><a class="ms-link" href="#strategies">Want to read my top strategies? &darr;</a></p>
-        <h3 class="ms-name font-serif" id="mete-name">Mete</h3>
-        <p class="ms-lead">Hi, I'm a 3rd-year medical student at the <span class="hl">University of Bristol</span>, with an interest in <span class="hl">Anaesthetics and Critical Care</span>, particularly the neuropharmacology underlying anaesthetic agents. I aim to contribute to the development of novel drug therapies in this field.</p>
+        <p class="ms-top rv"><a class="ms-link" href="#strategies">Want to read my top strategies? &darr;</a></p>
+        <h3 class="ms-name font-serif rv" id="mete-name">Mete</h3>
+        <p class="ms-lead rv">Hi, I'm a 3rd-year medical student at the <span class="hl">University of Bristol</span>, with an interest in <span class="hl">Anaesthetics and Critical Care</span>, particularly the neuropharmacology underlying anaesthetic agents. I aim to contribute to the development of novel drug therapies in this field.</p>
 
-        <dl class="ms-led">
+        <dl class="ms-led rv">
           <div class="ms-st glass"><dt>UCAT, Band 1 (top 6%)</dt><dd>2960</dd></div>
           <div class="ms-st glass"><dt>A-Level</dt><dd>A*AAA</dd></div>
           <div class="ms-st glass"><dt>GCSE</dt><dd>10 &times; grade 9</dd></div>
@@ -409,31 +418,31 @@
           <div class="ms-st glass"><dt>Tutoring delivered</dt><dd>300+ hrs</dd></div>
         </dl>
 
-        <div class="ms-sec">
+        <div class="ms-sec rv">
           <p class="ms-lab">Experience</p>
           <p>Drawing on my experience tutoring <span class="hl">Medical Interviews and Maths</span>, along with my own interviews and first-hand insight into medical school and clinical placements, I offer students the <span class="hl">committed, personal support</span> every applicant deserves.</p>
         </div>
-        <div class="ms-sec">
+        <div class="ms-sec rv">
           <p class="ms-lab">How I teach</p>
           <p>My sessions focus on <span class="hl">understanding over memorisation</span>, encouraging students to <span class="hl">think out loud</span> and build clear, structured reasoning. Above all, I make sure every student feels <span class="hl">confident and well prepared</span>, so they can perform at their very best on interview day.</p>
         </div>
 
-        <p class="ms-quote font-serif">If you are looking for a tutor invested in your success, I would love to hear from you.</p>
+        <p class="ms-quote font-serif rv">If you are looking for a tutor invested in your success, I would love to hear from you.</p>
       </div>
     </article>
 
     <!-- Ilkin -->
-    <article class="ms-pf flip reveal" aria-labelledby="ilkin-name">
-      <figure class="ms-fig">
-        <div class="ms-ph glass"><img src="img/kin1.png" alt="Ilkin" width="440" height="550"></div>
+    <article class="ms-pf flip" aria-labelledby="ilkin-name">
+      <figure class="ms-fig rv">
+        <div class="ms-ph glass"><img loading="lazy" decoding="async" src="img/kin1.png" alt="Ilkin" width="440" height="550"></div>
         <figcaption>UCL &middot; 3rd year</figcaption>
       </figure>
       <div class="ms-pc">
-        <p class="ms-top"><a class="ms-link" href="#strategies">Want to read my top strategies? &darr;</a></p>
-        <h3 class="ms-name font-serif" id="ilkin-name">Ilkin</h3>
-        <p class="ms-lead">Heya, I'm a 3rd-year medical student at <span class="hl">UCL</span>. A <span class="hl">future psychiatrist</span>, interested in adapting mental-health medicine to clashing cultures and world-views.</p>
+        <p class="ms-top rv"><a class="ms-link" href="#strategies">Want to read my top strategies? &darr;</a></p>
+        <h3 class="ms-name font-serif rv" id="ilkin-name">Ilkin</h3>
+        <p class="ms-lead rv">Heya, I'm a 3rd-year medical student at <span class="hl">UCL</span>. A <span class="hl">future psychiatrist</span>, interested in adapting mental-health medicine to clashing cultures and world-views.</p>
 
-        <dl class="ms-led">
+        <dl class="ms-led rv">
           <div class="ms-st glass"><dt>UCAT (top 5%)</dt><dd>3000</dd></div>
           <div class="ms-st glass"><dt>A-Level</dt><dd>A*A*A*A*A*</dd></div>
           <div class="ms-st glass"><dt>GCSE</dt><dd>11 &times; grade 9</dd></div>
@@ -444,16 +453,16 @@
           <div class="ms-st glass"><dt>Teaching hours</dt><dd>200+ hrs</dd></div>
         </dl>
 
-        <div class="ms-sec">
+        <div class="ms-sec rv">
           <p class="ms-lab">Teaching experience</p>
           <p>I have a history of mentoring students in <span class="hl">Medical Interviews, Personal Statements, and Presentation Skills</span> (since I founded the Medical Discussion Group in my college, I have been mentoring fellow students). My teaching experience also includes <span class="hl">A-Level Maths/ Chemistry</span> and small group teaching. It is a source of deep satisfaction to see my students gain in confidence.</p>
         </div>
-        <div class="ms-sec">
+        <div class="ms-sec rv">
           <p class="ms-lab">Beyond the classroom</p>
-          <p>Over 15 months of fieldwork and touring in the Middle East and South Asia, I <span class="hl">communicated with thousands of people</span>, from tribesman to politician. Thanks to my varied life experiences, my strength are giving <span class="hl">honest, specific feedback</span> (that teachers and friends may miss), and mentoring <span class="hl">reasoning + communication skills</span>.</p>
+          <p>Over 15 months of fieldwork and touring in the Middle East and South Asia, I <span class="hl">communicated with thousands of people</span>, from tribesman to politician. Thanks to my varied life experiences, my strengths are giving <span class="hl">honest, specific feedback</span> (that teachers and friends may miss), and mentoring <span class="hl">reasoning + communication skills</span>.</p>
         </div>
 
-        <p class="ms-quote font-serif">If you appreciate honest feedback and a deepened understanding, please write to me.</p>
+        <p class="ms-quote font-serif rv">If you appreciate honest feedback and a deepened understanding, please write to me.</p>
       </div>
     </article>
   </div>
@@ -480,11 +489,11 @@
 </style>
 
 <section class="sec sec-iv bg-char text-onchar" id="interviews">
-  <div class="wrap reveal">
-    <h2 class="sec-title font-serif">Our first-hand interview experience covers:</h2>
+  <div class="wrap">
+    <h2 class="sec-title font-serif rv">Our first-hand interview experience covers:</h2>
 
-    <div class="ms-iv-row">
-      <p class="ms-who"><img src="img/mete1.png" alt="" width="38" height="38">Mete</p>
+    <div class="ms-iv-row rv">
+      <p class="ms-who"><img loading="lazy" decoding="async" src="img/mete1.png" alt="" width="38" height="38">Mete</p>
       <ul class="ms-sch">
         <li class="glass"><b>Bristol</b></li>
         <li class="glass"><b>Sheffield</b></li>
@@ -493,8 +502,8 @@
       </ul>
     </div>
 
-    <div class="ms-iv-row">
-      <p class="ms-who"><img src="img/kin1.png" alt="" width="38" height="38">Ilkin</p>
+    <div class="ms-iv-row rv">
+      <p class="ms-who"><img loading="lazy" decoding="async" src="img/kin1.png" alt="" width="38" height="38">Ilkin</p>
       <ul class="ms-sch">
         <li class="glass"><b>UCL</b></li>
         <li class="glass"><b>Southampton</b></li>
@@ -612,21 +621,21 @@
 
 <section class="sec sec-strat bg-chardeep text-onchar" id="strategies" aria-labelledby="stories-h">
   <div class="wrap">
-    <h2 id="stories-h" class="sec-title font-serif">Our strategies</h2>
+    <h2 id="stories-h" class="sec-title font-serif rv">Our strategies</h2>
 
-    <div class="st-intro">
+    <div class="st-intro rv">
       <p>We can roughly group our wisdom into three areas:</p>
     </div>
 
-    <ul class="st-jump" aria-label="Jump to a section">
+    <ul class="st-jump rv" aria-label="Jump to a section">
       <li><a href="#knowledge">1 &middot; Knowledge</a></li>
       <li><a href="#thinking">2 &middot; Articulation</a></li>
       <li><a href="#habits">3 &middot; Habits</a></li>
     </ul>
 
     <!-- ============ 1 · KNOWLEDGE ============ -->
-    <article class="st-card reveal" id="knowledge" aria-labelledby="knowledge-h">
-      <div class="st-head">
+    <article class="st-card" id="knowledge" aria-labelledby="knowledge-h">
+      <div class="st-head rv">
         <p class="st-tag"><b aria-hidden="true">1</b>Knowledge</p>
         <h3 class="st-title" id="knowledge-h">Know deeper and broader than other candidates</h3>
         <p class="st-lead">Dive into areas that feel profound to you. Interviewers will take notice.</p>
@@ -635,7 +644,7 @@
       <div class="tl-cols" aria-hidden="true"><h4 class="st-col-h">What to do</h4><h4 class="st-col-h">In our words</h4></div>
       <div class="tl">
 
-        <div class="tl-row">
+        <div class="tl-row rv">
           <div class="tl-main">
             <p class="tl-h">Start from the basics</p>
             <ul class="tl-sub">
@@ -650,7 +659,7 @@
           </div>
         </div>
 
-        <div class="tl-row">
+        <div class="tl-row rv">
           <div class="tl-main">
             <p class="tl-h">Read further and digest</p>
             <ul class="tl-sub">
@@ -663,12 +672,12 @@
             </ul>
           </div>
           <div class="tl-side">
-            <div class="say"><div class="say-by"><img src="img/kin1.png" alt="" width="37" height="37"><span>Ilkin</span></div><p class="say-t">Medicine is very deep. The more I got curious about its depth, the more satisfaction I felt in going deeper. Without stimulating my curiosity, my brain wouldn't have had the focus to think deeper.</p></div>
-            <!-- <div class="say"><div class="say-by"><img src="img/kin1.png" alt="" width="37" height="37"><span>Ilkin</span></div><p class="say-t">Building your knowledge base will only feel like drudgery if you&#8217;re doing it in the wrong way.</p></div> -->
+            <div class="say"><div class="say-by"><img loading="lazy" decoding="async" src="img/kin1.png" alt="" width="37" height="37"><span>Ilkin</span></div><p class="say-t">Medicine is very deep. The more I got curious about its depth, the more satisfaction I felt in going deeper. Without stimulating my curiosity, my brain wouldn't have had the focus to think deeper.</p></div>
+            <!-- <div class="say"><div class="say-by"><img loading="lazy" decoding="async" src="img/kin1.png" alt="" width="37" height="37"><span>Ilkin</span></div><p class="say-t">Building your knowledge base will only feel like drudgery if you&#8217;re doing it in the wrong way.</p></div> -->
           </div>
         </div>
 
-        <div class="tl-row">
+        <div class="tl-row rv">
           <div class="tl-main">
             <p class="tl-h">Reflect on your own experience</p>
             <ul class="tl-sub">
@@ -678,11 +687,11 @@
             </ul>
           </div>
           <div class="tl-side">
-            <div class="say"><div class="say-by"><img src="img/mete1.png" alt="" width="37" height="37"><span>Mete</span></div><p class="say-t">Keep a document with short summaries and examples from your own experience. A few strong examples can cover most behavioural questions.</p></div>
+            <div class="say"><div class="say-by"><img loading="lazy" decoding="async" src="img/mete1.png" alt="" width="37" height="37"><span>Mete</span></div><p class="say-t">Keep a document with short summaries and examples from your own experience. A few strong examples can cover most behavioural questions.</p></div>
           </div>
         </div>
 
-        <div class="tl-row">
+        <div class="tl-row rv">
           <div class="tl-main">
             <p class="tl-h">Know the university and the course</p>
             <ul class="tl-sub">
@@ -693,11 +702,11 @@
             </ul>
           </div>
           <div class="tl-side">
-            <div class="say"><div class="say-by"><img src="img/mete1.png" alt="" width="37" height="37"><span>Mete</span></div><p class="say-t">Examiners can tell very quickly which students have put in the time and which haven’t. With good practice, it will be obvious to them that you have.</p></div>
+            <div class="say"><div class="say-by"><img loading="lazy" decoding="async" src="img/mete1.png" alt="" width="37" height="37"><span>Mete</span></div><p class="say-t">Examiners can tell very quickly which students have put in the time and which haven’t. With good practice, it will be obvious to them that you have.</p></div>
           </div>
         </div>
 
-        <div class="tl-row">
+        <div class="tl-row rv">
           <div class="tl-main">
             <p class="tl-h">Use YouTube for second-hand experience</p>
             <ul class="tl-sub">
@@ -709,11 +718,11 @@
             </ul>
           </div>
           <div class="tl-side">
-            <div class="say"><div class="say-by"><img src="img/kin1.png" alt="" width="37" height="37"><span>Ilkin</span></div><p class="say-t">YouTube is good for placing yourself in doctors' or patients' shoes. Then, in an interview, your answers will have noticeable substance.</p></div>
+            <div class="say"><div class="say-by"><img loading="lazy" decoding="async" src="img/kin1.png" alt="" width="37" height="37"><span>Ilkin</span></div><p class="say-t">YouTube is good for placing yourself in doctors' or patients' shoes. Then, in an interview, your answers will have noticeable substance.</p></div>
           </div>
         </div>
 
-        <div class="tl-row">
+        <div class="tl-row rv">
           <div class="tl-main">
             <p class="tl-h">Make structured notes</p>
             <ul class="tl-sub">
@@ -729,8 +738,8 @@
     </article>
 
     <!-- ============ 2 · ARTICULATION ============ -->
-    <article class="st-card reveal" id="thinking" aria-labelledby="thinking-h">
-      <div class="st-head">
+    <article class="st-card" id="thinking" aria-labelledby="thinking-h">
+      <div class="st-head rv">
         <p class="st-tag"><b aria-hidden="true">2</b>Articulation</p>
         <h3 class="st-title" id="thinking-h">Learn to think deeply on the spot</h3>
         <p class="st-lead">A good interview answer is always reasoned from scratch.</p>
@@ -739,7 +748,7 @@
       <div class="tl-cols" aria-hidden="true"><h4 class="st-col-h">What to do</h4><h4 class="st-col-h">In our words</h4></div>
       <div class="tl">
 
-        <div class="tl-row">
+        <div class="tl-row rv">
           <div class="tl-main">
             <p class="tl-h">Learn the structure of an answer, not the answer</p>
             <ul class="tl-sub">
@@ -749,12 +758,12 @@
             </ul>
           </div>
           <div class="tl-side">
-            <!-- <div class="say"><div class="say-by"><img src="img/mete1.png" alt="" width="37" height="37"><span>Mete</span></div><p class="say-t">No question in any interview can be answered from memory.</p></div> -->
-            <div class="say"><div class="say-by"><img src="img/mete1.png" alt="" width="37" height="37"><span>Mete</span></div><p class="say-t">Practise your answers out loud. Notes that read well don&#8217;t always sound right when spoken.</p></div>
+            <!-- <div class="say"><div class="say-by"><img loading="lazy" decoding="async" src="img/mete1.png" alt="" width="37" height="37"><span>Mete</span></div><p class="say-t">No question in any interview can be answered from memory.</p></div> -->
+            <div class="say"><div class="say-by"><img loading="lazy" decoding="async" src="img/mete1.png" alt="" width="37" height="37"><span>Mete</span></div><p class="say-t">Practise your answers out loud. Notes that read well don&#8217;t always sound right when spoken.</p></div>
           </div>
         </div>
 
-        <div class="tl-row">
+        <div class="tl-row rv">
           <div class="tl-main">
             <p class="tl-h">Practise on your toes</p>
             <ul class="tl-sub">
@@ -765,12 +774,12 @@
             </ul>
           </div>
           <div class="tl-side">
-            <div class="say"><div class="say-by"><img src="img/kin1.png" alt="" width="37" height="37"><span>Ilkin</span></div><p class="say-t">Even if it is cringe-inducing, you must self-analyse with painstaking honesty. If you don't address your shortcomings, then who will?</p></div>
-            <!-- <div class="say"><div class="say-by"><img src="img/kin1.png" alt="" width="37" height="37"><span>Ilkin</span></div><p class="say-t">Initially you may need a lot of time to think and craft your responses, but over time you will become surprisingly good at answering without thinking. We want you to be a natural.</p></div> -->
+            <div class="say"><div class="say-by"><img loading="lazy" decoding="async" src="img/kin1.png" alt="" width="37" height="37"><span>Ilkin</span></div><p class="say-t">Even if it is cringe-inducing, you must self-analyse with painstaking honesty. If you don't address your shortcomings, then who will?</p></div>
+            <!-- <div class="say"><div class="say-by"><img loading="lazy" decoding="async" src="img/kin1.png" alt="" width="37" height="37"><span>Ilkin</span></div><p class="say-t">Initially you may need a lot of time to think and craft your responses, but over time you will become surprisingly good at answering without thinking. We want you to be a natural.</p></div> -->
           </div>
         </div>
 
-        <div class="tl-row">
+        <div class="tl-row rv">
           <div class="tl-main">
             <p class="tl-h">Practise with people that will give you real feedback</p>
             <ul class="tl-sub">
@@ -782,11 +791,11 @@
             </ul>
           </div>
           <div class="tl-side">
-            <div class="say"><div class="say-by"><img src="img/kin1.png" alt="" width="37" height="37"><span>Ilkin</span></div><p class="say-t">Unless you receive detailed feedback, you cannot know what level you are working at. Either you will be overconfident, or you will underestimate your strength. Both are a tragedy in an interview.</p></div>
+            <div class="say"><div class="say-by"><img loading="lazy" decoding="async" src="img/kin1.png" alt="" width="37" height="37"><span>Ilkin</span></div><p class="say-t">Unless you receive detailed feedback, you cannot know what level you are working at. Either you will be overconfident, or you will underestimate your strength. Both are a tragedy in an interview.</p></div>
           </div>
         </div>
 
-        <div class="tl-row">
+        <div class="tl-row rv">
           <div class="tl-main">
             <p class="tl-h">Simulate the real thing</p>
             <ul class="tl-sub">
@@ -796,8 +805,8 @@
             </ul>
           </div>
           <div class="tl-side">
-            <div class="say"><div class="say-by"><img src="img/kin1.png" alt="" width="37" height="37"><span>Ilkin</span></div><p class="say-t">By my fourth interview, I was a lot more relaxed and natural.</p></div>
-            <div class="say"><div class="say-by"><img src="img/mete1.png" alt="" width="37" height="37"><span>Mete</span></div><p class="say-t">Get as much experience as possible, and study for it in the same way you study for your exams.</p></div>
+            <div class="say"><div class="say-by"><img loading="lazy" decoding="async" src="img/kin1.png" alt="" width="37" height="37"><span>Ilkin</span></div><p class="say-t">By my fourth interview, I was a lot more relaxed and natural.</p></div>
+            <div class="say"><div class="say-by"><img loading="lazy" decoding="async" src="img/mete1.png" alt="" width="37" height="37"><span>Mete</span></div><p class="say-t">Get as much experience as possible, and study for it in the same way you study for your exams.</p></div>
 
           </div>
         </div>
@@ -806,8 +815,8 @@
     </article>
 
     <!-- ============ 3 · HABITS ============ -->
-    <article class="st-card reveal" id="habits" aria-labelledby="habits-h">
-      <div class="st-head">
+    <article class="st-card" id="habits" aria-labelledby="habits-h">
+      <div class="st-head rv">
         <p class="st-tag"><b aria-hidden="true">3</b>Habits</p>
         <h3 class="st-title" id="habits-h">Build practical and healthy habits in advance of the day</h3>
         <p class="st-lead">Confidence and soft-skills stabilise with long-term habits.</p>
@@ -816,7 +825,7 @@
       <div class="tl-cols" aria-hidden="true"><h4 class="st-col-h">What to do</h4><h4 class="st-col-h">In our words</h4></div>
       <div class="tl">
 
-        <div class="tl-row">
+        <div class="tl-row rv">
           <div class="tl-main">
             <p class="tl-h">Set your standard high and keep your rhythm constant</p>
             <ul class="tl-sub">
@@ -826,12 +835,12 @@
             </ul>
           </div>
           <div class="tl-side">
-            <div class="say"><div class="say-by"><img src="img/kin1.png" alt="" width="37" height="37"><span>Ilkin</span></div><p class="say-t">Maintaining a consistent few hours a day, you will end up working at a level that you couldn't have predicted.</p></div>
-            <div class="say"><div class="say-by"><img src="img/mete1.png" alt="" width="37" height="37"><span>Mete</span></div><p class="say-t">Don&#8217;t be demoralised if you&#8217;re shaky to begin with. It takes time, and we are here to support you every step of the way.</p></div>
+            <div class="say"><div class="say-by"><img loading="lazy" decoding="async" src="img/kin1.png" alt="" width="37" height="37"><span>Ilkin</span></div><p class="say-t">Maintaining a consistent few hours a day, you will end up working at a level that you couldn't have predicted.</p></div>
+            <div class="say"><div class="say-by"><img loading="lazy" decoding="async" src="img/mete1.png" alt="" width="37" height="37"><span>Mete</span></div><p class="say-t">Don&#8217;t be demoralised if you&#8217;re shaky to begin with. It takes time, and we are here to support you every step of the way.</p></div>
           </div>
         </div>
 
-        <div class="tl-row">
+        <div class="tl-row rv">
           <div class="tl-main">
             <p class="tl-h">Keep a healthy and balanced lifestyle</p>
             <ul class="tl-sub">
@@ -846,7 +855,7 @@
           </div>
         </div>
 
-        <div class="tl-row">
+        <div class="tl-row rv">
           <div class="tl-main">
             <p class="tl-h">Make looking through a wise mindset habitual</p>
             <ul class="tl-sub">
@@ -855,15 +864,15 @@
               <li>Have a <strong>realistic outlook</strong>: I am not guaranteed a place, but I will work humbly to do what I can</li>
               <li>It's not sustainable to be motivated by fear: of failure, of losing one's identity, or losing opportunities </li>
               <li>Remember you are fallible. It is better for your confidence to expose your hidden weaknesses than to run away from them. </li>
-              <li>View the interviewers as nobly upholding the quality of the medical profession, which is why you must rise to meet. Medicine will degrade if it reduced the standards of its doctors.</li>
+              <li>View the interviewers as nobly upholding the quality of the medical profession, which is why you must rise to meet them. Medicine would degrade if it reduced the standards of its doctors.</li>
             </ul>
           </div>
           <div class="tl-side">
-            <div class="say"><div class="say-by"><img src="img/kin1.png" alt="" width="37" height="37"><span>Ilkin</span></div><p class="say-t">Those with wise insights are calmer, more realistic in outlook, and better able to perform stably. </p></div>
+            <div class="say"><div class="say-by"><img loading="lazy" decoding="async" src="img/kin1.png" alt="" width="37" height="37"><span>Ilkin</span></div><p class="say-t">Those with wise insights are calmer, more realistic in outlook, and better able to perform stably. </p></div>
           </div>
         </div>
 
-        <div class="tl-row">
+        <div class="tl-row rv">
           <div class="tl-main">
             <p class="tl-h">Make your technique automatic</p>
             <ul class="tl-sub">
@@ -874,11 +883,11 @@
             </ul>
           </div>
           <div class="tl-side">
-            <div class="say"><div class="say-by"><img src="img/mete1.png" alt="" width="37" height="37"><span>Mete</span></div><p class="say-t">Keep a phrase ready to buy a second: <em>&#8220;That&#8217;s an interesting question, let me take a second to consider it.&#8221;</em></p></div>
+            <div class="say"><div class="say-by"><img loading="lazy" decoding="async" src="img/mete1.png" alt="" width="37" height="37"><span>Mete</span></div><p class="say-t">Keep a phrase ready to buy a second: <em>&#8220;That&#8217;s an interesting question, let me take a second to consider it.&#8221;</em></p></div>
           </div>
         </div>
 
-        <div class="tl-row">
+        <div class="tl-row rv">
           <div class="tl-main">
             <p class="tl-h">Plan the day itself</p>
             <ul class="tl-sub">
@@ -891,8 +900,8 @@
             </ul>
           </div>
           <div class="tl-side">
-            <div class="say"><div class="say-by"><img src="img/kin1.png" alt="" width="37" height="37"><span>Ilkin</span></div><p class="say-t">The night before my UCL MMI I had to sleep on my friend's floor so I got no sleep. What got me the offer were 2 things: my level of preparation that did the speaking for me, and the fact I was in a good space in the previous weeks.</p></div>
-            <div class="say"><div class="say-by"><img src="img/mete1.png" alt="" width="37" height="37"><span>Mete</span></div><p class="say-t">At Sheffield I was asked what I was looking forward to about living in Sheffield as a student. I blanked and said visiting the steel factories. Not to worry, interviewers give more weight to certain mistakes than a simple slip. I moved on and got my offer! </p></div>
+            <div class="say"><div class="say-by"><img loading="lazy" decoding="async" src="img/kin1.png" alt="" width="37" height="37"><span>Ilkin</span></div><p class="say-t">The night before my UCL MMI I had to sleep on my friend's floor so I got no sleep. What got me the offer were 2 things: my level of preparation that did the speaking for me, and the fact I was in a good space in the previous weeks.</p></div>
+            <div class="say"><div class="say-by"><img loading="lazy" decoding="async" src="img/mete1.png" alt="" width="37" height="37"><span>Mete</span></div><p class="say-t">At Sheffield I was asked what I was looking forward to about living in Sheffield as a student. I blanked and said visiting the steel factories. Not to worry, interviewers give more weight to certain mistakes than a simple slip. I moved on and got my offer! </p></div>
           </div>
         </div>
 
@@ -1021,30 +1030,30 @@
 
 <section class="sec sec-price bg-char text-onchar" id="pricing">
   <div class="wrap">
-    <h2 class="sec-title font-serif">Pricing &amp; contact</h2>
+    <h2 class="sec-title font-serif rv">Pricing &amp; contact</h2>
 
     <!-- Free first chat: read first -->
-    <div class="pr-free">
+    <div class="pr-free rv">
       <div class="pr-free-body">
         <h3 class="pr-free-h font-serif">Your first 15 minutes are free.</h3>
-        <p class="pr-free-t">A useful chat, with no obligation, to tell us where you are and see whether we are a good fit.</p>
+        <p class="pr-free-t">A useful chat for seeing what you need and doing a little practice.</p>
       </div>
       <a class="pr-free-btn" href="#contact">Arrange a chat</a>
     </div>
 
-    <p class="pr-intro">We are medical students who have been through this process ourselves. We tutor because we want to help the next group of applicants, and we keep our rates low so that cost is not what stands in the way.</p>
+    <!-- <p class="pr-intro rv">We are medical students who have been through this process ourselves. We tutor because we want to help the next group of applicants, and we keep our rates low so that cost is not what stands in the way.</p> -->
 
     <div class="pr-grid">
 
       <!-- Per hour -->
-      <div class="pr-card hour">
+      <div class="pr-card hour rv">
         <span class="pr-tag">Per hour</span>
         <p class="pr-name font-serif">Untimed communication practice</p>
         <p class="pr-desc">Come once, or come back as often as you like.</p>
 
         <div class="pr-price">
           <div class="pr-price-row">
-            <span class="pr-price-num font-serif">£25</span>
+            <span class="pr-price-num font-serif">£20</span>
             <span class="pr-price-unit">per hour</span>
           </div>
           <p class="pr-conc">Concessions available. If cost is a barrier, just let us know.</p>
@@ -1063,8 +1072,8 @@
       </div>
 
       <!-- Per interview -->
-      <div class="pr-card interview">
-        <span class="pr-tag">Per interview</span>
+      <div class="pr-card interview rv">
+        <span class="pr-tag">Per session</span>
         <p class="pr-name font-serif">Timed mock interview practice</p>
         <p class="pr-desc">When you&#8217;re ready to practise the real thing.</p>
 
@@ -1114,23 +1123,23 @@
       </div>
 
       <!-- Why our prices are lower: fills the space under the shorter left card on desktop -->
-      <div class="pr-why">
-        <h3 class="pr-why-h font-serif">Why our prices are lower</h3>
+      <div class="pr-why rv">
+        <h3 class="pr-why-h font-serif">Why we keep our prices as affordable as possible:</h3>
         <p>Tutors typically charge upwards of £40 an hour for medical school interview preparation. We both tutor independently, so there is no agency in the middle taking a cut. We have chosen to pass that saving on to you, because we think it is fairer.</p>
       </div>
     </div>
 
-    <div class="pr-alevel">
+    <div class="pr-alevel rv">
       <span class="pr-alevel-title font-serif">We also teach A-Level:</span>
       <span class="pr-alevel-person"><span class="pr-alevel-name">Mete</span><span class="pr-chip">Maths</span></span>
       <span class="pr-alevel-dot" aria-hidden="true">&middot;</span>
       <span class="pr-alevel-person"><span class="pr-alevel-name">Ilkin</span><span class="pr-chip">Maths</span><span class="pr-chip">Chemistry</span></span>
     </div>
 
-    <div class="pr-contact" id="contact">
+    <div class="pr-contact rv" id="contact">
       <h3 class="sec-title sub font-serif">Get in touch</h3>
       <p>Drop either of us an email to arrange your free 15-minute chat. Looking forward to meeting.</p>
-      <div class="pr-mails">
+      <div class="pr-mails rv">
         <a class="pr-mail" href="mailto:metetutoring@gmail.com">
           <span class="pr-mail-n font-serif">Mete</span>
           <span class="pr-mail-e">metetutoring@gmail.com</span>
@@ -1157,5 +1166,34 @@
   <a class="flex-1 flex flex-col items-center justify-center gap-0.5 min-h-[3rem] rounded-xl no-underline text-[0.68rem] font-medium text-oncharmuted transition duration-200 active:bg-[rgba(244,242,238,0.12)] active:text-goldonchar" href="#contact"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>Contact</a>
 </nav>
  
+<script>
+  /* Fade elements in as they scroll into view (runs once per element, then cleans up after itself) */
+  (function () {
+    var root = document.documentElement;
+    if (!root.classList.contains('js')) return;
+    try {
+      var els = Array.prototype.slice.call(document.querySelectorAll('.rv'));
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          var t = e.target;
+          if (e.isIntersecting) show(t, true);
+          else if (e.boundingClientRect.top < 0) show(t, false); /* already scrolled past (e.g. via a nav link): show instantly */
+        });
+      }, { rootMargin: '0px 0px -6% 0px', threshold: 0 });
+
+      function show(t, animate) {
+        io.unobserve(t);
+        if (!animate) t.classList.add('rv-now');
+        window.requestAnimationFrame(function () {
+          t.classList.add('in');
+          window.setTimeout(function () { t.classList.remove('rv', 'in', 'rv-now'); }, animate ? 800 : 100);
+        });
+      }
+      els.forEach(function (el) { io.observe(el); });
+    } catch (err) {
+      root.classList.remove('js'); /* if anything goes wrong, everything is simply visible */
+    }
+  })();
+</script>
 </body>
 </html>
