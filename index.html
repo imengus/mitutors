@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#232529">
 <title>Mete &middot; Ilkin | Medical school interview tutoring</title>
-<meta name="description" content="One-to-one UK medical school interview preparation from two third-year medical students at UCL and the University of Bristol. MMI and panel practice, detailed feedback, from £25/hr.">
+<meta name="description" content="One-to-one UK medical school interview preparation from two third-year medical students at UCL and the University of Bristol. MMI and panel practice, detailed feedback, from £20/hr.">
 <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
 <script>
   /* Fade-in-on-scroll is only switched on when it can actually run (no JS / reduced motion = everything simply visible) */
@@ -23,7 +23,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@300;400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link href="style.css" rel="stylesheet">
 </head>
-<body class="m-0 bg-paper text-ink font-sans font-light text-[1.0625rem] leading-[1.7] antialiased [&_a:focus-visible]:outline [&_a:focus-visible]:outline-2 [&_a:focus-visible]:outline-gold [&_a:focus-visible]:outline-offset-[3px] [&_a:focus-visible]:rounded-sm">
+<body class="m-0 bg-chardeep text-ink font-sans font-light text-[1.0625rem] leading-[1.7] antialiased [&_a:focus-visible]:outline [&_a:focus-visible]:outline-2 [&_a:focus-visible]:outline-gold [&_a:focus-visible]:outline-offset-[3px] [&_a:focus-visible]:rounded-sm">
 
 <!-- ===================== GLOBAL: design tokens, font, frosted-glass theme, shared pieces ===================== -->
 <style>
@@ -49,7 +49,7 @@
 
   /* Fade in on scroll. Applied to small blocks (not whole tall cards) and triggered once by a light IntersectionObserver.
      The .rv class is removed again after the fade, so it never interferes with hover effects. */
-  .js .rv { opacity: 0; transform: translateY(0.875rem); transition: opacity 600ms ease, transform 600ms cubic-bezier(.2,.7,.2,1); }
+  .js .rv { opacity: 0; transform: translateY(0.6rem); will-change: opacity, transform; transition: opacity 700ms cubic-bezier(.22,.8,.2,1), transform 700ms cubic-bezier(.22,.8,.2,1); }
   .js .rv.in { opacity: 1; transform: none; }
   .js .rv.rv-now { transition: none; }
   @media print { .js .rv { opacity: 1; transform: none; } }
@@ -61,7 +61,7 @@
 
   /* Frosted glass stays on the two navigation bars only. Live-blurring ~40 boxes while scrolling is what made mobile lag and flash,
      and behind the boxes there is only a soft gradient, so the look is unchanged without it. */
-  nav.qnav { background: rgba(27,28,32,0.62); -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur); transform: translateZ(0); }
+  nav.qnav { background: rgba(35,37,41,0.97); -webkit-backdrop-filter: none; backdrop-filter: none; }
 
   /* Section titles: one treatment everywhere. A long, fine gold streak with a faint icy edge beneath it. No glow. */
   .sec-title, .hero-head { position: relative; padding-bottom: 1.15rem; }
@@ -162,7 +162,7 @@
 
   /* Mobile */
   @media (max-width: 52rem) {
-    .site-header { position: static !important; box-shadow: none !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
+    .site-header { position: static !important; background: transparent !important; box-shadow: none !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
     .hdr-inner {
       width: calc(100% - 2.5rem) !important; min-height: 0 !important;
       flex-direction: column !important; justify-content: center !important; align-items: center !important;
@@ -318,11 +318,11 @@
       </div>
 
       <ul class="ms-bl">
-        <li><b>500+ hours</b>of teaching between us, with much accumulated wisdom.</li>
-        <li><b>Independent.</b>Without a middleman, we give you the lowest fares.</li>
-        <li><b>Fewer students.</b>Larger agencies juggle many students over short periods. We take on fewer students to have enough time to transfer our experience.</li>
-        <li><b>Real depth.</b>Tailored sessions that teach the fundamentals of the knowledge and theory. Understanding over reciting. </li>
-        <li><b>Beyond the interview.</b>Ongoing mentorship through medical school, with advice on specialty portfolios and research publications.</li>
+        <li>With <b>500+ hours</b>of teaching between us, we bring deep experience and a clear sense of what truly works</li>
+        <li>As <b>independent tutors with no middleman,</b> we pass savings directly to you, with some of the lowest rates around</li>
+        <li>We take on <b>fewer students</b> so we can focus on you, with tailored, dedicated support throughout your journey </li>
+        <li>We teach the <b>real depth</b> behind core knowledge, so our students can stand out as having genuine understanding</li>
+        <li>We offer <b>ongoing mentorship beyond the interview,</b> with advice on specialty portfolios and research publications.</li>
       </ul>
 
       <p class="ms-fit">See if we are the right fit for you:</p>
@@ -412,8 +412,8 @@
           <div class="ms-st glass"><dt>UCAT, Band 1 (top 6%)</dt><dd>2960</dd></div>
           <div class="ms-st glass"><dt>A-Level</dt><dd>A*AAA</dd></div>
           <div class="ms-st glass"><dt>GCSE</dt><dd>10 &times; grade 9</dd></div>
-          <div class="ms-st glass"><dt>Bristol, Sheffield, Liverpool</dt><dd>3 offers</dd></div>
-          <div class="ms-st glass"><dt>Bristol end-of-year exams, with a commendation of achievement</dt><dd>89/100</dd></div>
+          <div class="ms-st glass"><dt>Bristol, Sheffield, Liverpool</dt><dd>3/4 offers</dd></div>
+          <div class="ms-st glass"><dt>Bristol end-of-year exams, earning a Commendation of Achievement</dt><dd>89/100</dd></div>
           <div class="ms-st glass"><dt>Student Choice Essay, in my year group</dt><dd>Top prize</dd></div>
           <div class="ms-st glass"><dt>Tutoring delivered</dt><dd>300+ hrs</dd></div>
         </dl>
@@ -424,7 +424,7 @@
         </div>
         <div class="ms-sec rv">
           <p class="ms-lab">How I teach</p>
-          <p>My sessions focus on <span class="hl">understanding over memorisation</span>, encouraging students to <span class="hl">think out loud</span> and build clear, structured reasoning. Above all, I make sure every student feels <span class="hl">confident and well prepared</span>, so they can perform at their very best on interview day.</p>
+          <p>My sessions focus on <span class="hl">understanding over memorisation</span>, encouraging students to <span class="hl">think out loud</span> and build clear, structured reasoning. I create a relaxed, supportive environment adapted to each student's needs, while <span class="hl">pushing them with thought-provoking questions and constructive feedback</span>, so the real interview feels easier than practice.</p>
         </div>
 
         <p class="ms-quote font-serif rv">If you are looking for a tutor invested in your success, I would love to hear from you.</p>
@@ -455,11 +455,11 @@
 
         <div class="ms-sec rv">
           <p class="ms-lab">Teaching experience</p>
-          <p>I have a history of mentoring students in <span class="hl">Medical Interviews, Personal Statements, and Presentation Skills</span> (since I founded the Medical Discussion Group in my college, I have been mentoring fellow students). My teaching experience also includes <span class="hl">A-Level Maths/ Chemistry</span> and small group teaching. It is a source of deep satisfaction to see my students gain in confidence.</p>
+          <p>I have a history of mentoring students in <span class="hl">Medical Interviews, Personal Statements, and Presentation Skills</span> (I began mentoring students upon founding the Medical Discussion Group in my college). My teaching experience also includes <span class="hl">A-Level Maths/ Chemistry</span> and small group teaching. It is a source of deep satisfaction to see my students gain in confidence.</p>
         </div>
         <div class="ms-sec rv">
           <p class="ms-lab">Beyond the classroom</p>
-          <p>Over 15 months of fieldwork and touring in the Middle East and South Asia, I <span class="hl">communicated with thousands of people</span>, from tribesman to politician. Thanks to my varied life experiences, my strengths are giving <span class="hl">honest, specific feedback</span> (that teachers and friends may miss), and mentoring <span class="hl">reasoning + communication skills</span>.</p>
+          <p>Over 15 months of fieldwork and touring in the Middle East and South Asia, I <span class="hl">communicated with thousands of people</span>, from tribesman to politician. Thanks to my varied life experiences, my strengths are giving <span class="hl">honest, specific feedback</span> (that teachers and friends may miss), and mentoring <span class="hl">reasoning + communication skills</span>. By the end of each session, my students learn new ways of presenting themselves.</p>
         </div>
 
         <p class="ms-quote font-serif rv">If you appreciate honest feedback and a deepened understanding, please write to me.</p>
@@ -617,6 +617,50 @@
     .tl-side:empty { padding-bottom: 0; }
     .tl-row:last-child .tl-side { padding-bottom: 0; }
   }
+
+  /* ===== Expandable strategy cards ===== */
+  @property --m { syntax: '<percentage>'; inherits: false; initial-value: 100%; }
+
+  .st-x { --peek: 9.5rem; --ease: cubic-bezier(.22,.8,.2,1); transition: border-color 300ms ease, box-shadow 600ms ease; }
+  .st-x::after {
+    content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+    background-image: linear-gradient(rgba(226,201,143,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(226,201,143,.045) 1px, transparent 1px);
+    background-size: 2rem 2rem;
+    -webkit-mask-image: linear-gradient(to bottom, #000, transparent 55%); mask-image: linear-gradient(to bottom, #000, transparent 55%);
+  }
+  .st-x.open { border-color: var(--edge-hi); box-shadow: var(--sh-up), 0 30px 70px -40px rgba(226,201,143,.35); }
+
+  .st-x .st-body {
+    --m: 28%; position: relative; height: var(--peek); overflow: hidden;
+    margin-left: -0.75rem; padding-left: 0.75rem;
+    -webkit-mask-image: linear-gradient(to bottom, #000 var(--m), transparent 100%);
+            mask-image: linear-gradient(to bottom, #000 var(--m), transparent 100%);
+    transition: height 850ms var(--ease), --m 850ms var(--ease);
+  }
+  .st-x.open .st-body { --m: 100%; }
+
+  .st-x .st-toggle { position: relative; z-index: 2; display: flex; justify-content: center; margin-top: -3.1rem; transition: margin-top 850ms var(--ease); }
+  .st-x.open .st-toggle { margin-top: 1.1rem; }
+
+  .st-more {
+    position: relative; display: inline-flex; align-items: center; gap: .55rem; padding: .65rem 1.25rem .65rem 1.4rem; cursor: pointer;
+    font: 700 .82rem/1 ui-monospace, 'SF Mono', Menlo, Consolas, monospace; letter-spacing: .06em; color: #E2C98F;
+    background: rgba(35,37,41,.72); border: 1px solid rgba(226,201,143,.55); border-radius: 9999px;
+    box-shadow: 0 10px 24px -10px rgba(0,0,0,.8), inset 0 1px 0 rgba(255,255,255,.12);
+    transition: background-color 250ms, color 250ms, border-color 250ms;
+  }
+  .st-more:hover, .st-more:focus-visible { background: rgba(226,201,143,.16); color: #F4F2EE; border-color: #E2C98F; }
+  .st-more svg { width: .9rem; height: .9rem; transition: transform 700ms var(--ease); }
+  .st-x.open .st-more svg { transform: rotate(180deg); }
+  .st-more::before { content: ""; position: absolute; inset: -4px; border-radius: inherit; border: 1px solid rgba(226,201,143,.5); opacity: 0; pointer-events: none; }
+  @media (prefers-reduced-motion: no-preference) { .st-x:not(.open) .st-more::before { animation: stPulse 2.6s ease-out infinite; } }
+  @keyframes stPulse { 0% { opacity: .7; transform: scale(.96); } 100% { opacity: 0; transform: scale(1.18); } }
+
+  .st-x .st-tag { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; }
+  .st-count { margin-left: auto; font-size: .72rem; letter-spacing: .08em; color: #E2C98F; opacity: .8; }
+
+  @media (max-width: 52rem) { .st-x { --peek: 10.5rem; } }
+  @media (prefers-reduced-motion: reduce) { .st-x .st-body, .st-x .st-toggle, .st-more svg { transition: none; } }
 </style>
 
 <section class="sec sec-strat bg-chardeep text-onchar" id="strategies" aria-labelledby="stories-h">
@@ -666,7 +710,7 @@
               <li>Hot topics and key debates: e.g. <span class="chip">abortion</span><span class="chip">strikes</span><span class="chip">AI</span><span class="chip">ageing</span><span class="chip">prevention</span></li>
               <li>Knowledge of the NHS: e.g. <span class="chip">NHS structure + bodies</span><span class="chip">care division + MDT</span> </li>
               <li>Knowledge of the profession: e.g. <span class="chip">GMC</span><span class="chip">career progression</span> <span class="chip">specialties</span></li>
-              <li>Articles to get a sense of how the profession thinks: <span class="chip">BMJ</span><span class="chip">Guardian Health</span></li>
+              <li>Read articles every day to get a sense of how the profession thinks: <span class="chip">BMJ</span><span class="chip">King's Fund</span><span class="chip">Guardian Health</span></li>
               <li>Landmark cases to tie into your answers: e.g. <span class="chip">Gillick</span><span class="chip">Bolam</span><span class="chip">Re C</span></li>
               <li><strong>MPTS Tribunal proceedings</strong> against malpractising doctors. You can link examples of doctors getting struck off.</li>
             </ul>
@@ -684,10 +728,11 @@
               <li>So much depth and detail that can be uncovered from your <strong>major life experiences</strong></li>
               <li>There are more talking points to be found in your <strong>volunteering</strong> and <strong>work experience</strong></li>
               <li>What are your <strong>strengths and weaknesses/ shortcomings?</strong> </li>
+              <li>Have your own view on the key debates, because examiners want to hear your reasoning, not a summary of the news.</li>
             </ul>
           </div>
           <div class="tl-side">
-            <div class="say"><div class="say-by"><img loading="lazy" decoding="async" src="img/mete1.png" alt="" width="37" height="37"><span>Mete</span></div><p class="say-t">Keep a document with short summaries and examples from your own experience. A few strong examples can cover most behavioural questions.</p></div>
+            <div class="say"><div class="say-by"><img loading="lazy" decoding="async" src="img/mete1.png" alt="" width="37" height="37"><span>Mete</span></div><p class="say-t">Keep a document with short summaries, key topics, and examples from your own experience. A few strong examples can cover most behavioural questions.</p></div>
           </div>
         </div>
 
@@ -696,7 +741,7 @@
             <p class="tl-h">Know the university and the course</p>
             <ul class="tl-sub">
               <li>Are there <strong>inspiring lecturers or researchers?</strong></li>
-              <li>How is the <strong>course structured,</strong> and what are its strengths?</li>
+              <li>How is the <strong>course structured,</strong> and what are its strengths? Beyond the prospectus.</li>
               <li><strong>Student facilities and wellbeing</strong>, student societies</li>
               <li><strong>The city, surroundings, hospitals, local projects</strong></li>
             </ul>
@@ -741,7 +786,7 @@
     <article class="st-card" id="thinking" aria-labelledby="thinking-h">
       <div class="st-head rv">
         <p class="st-tag"><b aria-hidden="true">2</b>Articulation</p>
-        <h3 class="st-title" id="thinking-h">Learn to think deeply on the spot</h3>
+        <h3 class="st-title" id="thinking-h">Learn to think deeply and structure answers on the spot</h3>
         <p class="st-lead">A good interview answer is always reasoned from scratch.</p>
       </div>
 
@@ -752,7 +797,7 @@
           <div class="tl-main">
             <p class="tl-h">Learn the structure of an answer, not the answer</p>
             <ul class="tl-sub">
-              <li>Integrating when to use <strong>Point Evidence Explain</strong> and <strong>Situation Task Action Result Reflection</strong></li>
+              <li>Using <strong>Point Evidence Explain</strong> for opinion-based questions and <strong>Situation Task Action Result Reflection</strong> for experience-based ones</li>
               <li>What examiners look for: <strong>their marking criteria</strong></li>
               <li>Learning what makes a quality answer: <strong>Genuine On-point Logical Detailed</strong></li>
             </ul>
@@ -767,6 +812,7 @@
           <div class="tl-main">
             <p class="tl-h">Practise on your toes</p>
             <ul class="tl-sub">
+              <li>First answer without your notes, then incorporate them in a new answer</li>
               <li><strong>Record your answers</strong>, and give very honest feedback to yourself</li>
               <li>During your <strong>timed practice</strong>, ask family/ friends to put you in <strong>unfamiliar</strong> situations</li>
               <li>Use unpredictable questions, so you learn <strong>step by step reasoning</strong> on the spot</li>
@@ -832,6 +878,7 @@
               <li><strong>No cutting corners</strong>: hold yourself, and ask others to hold you, to a high standard</li>
               <li>A <strong>weekly schedule</strong> that demands regular output</li>
               <li><strong>A few hours every day</strong>, spread over months really adds up.</li>
+              <li>Read your notes and learn cumulatively. Don't cram into the last days.</li>
             </ul>
           </div>
           <div class="tl-side">
@@ -848,7 +895,7 @@
               <li><strong>Keeping stable and well</strong> absorbs the impact of things going wrong (before or during the interview)</li>
               <li>Anxiety can be good to motivate you to sacrifice your time, but your lifestyle needs to keep it in check</li>
               <li><strong>Regular sleep</strong> and <strong>exercise for grounded thinking and controlled anxiety</strong></li>
-              <li><strong>Interviewers don't appreciate a robot/ chatbot. Meaningful social contact helps keep your human side alive</strong></li>
+              <li><strong>Interviewers don't appreciate a robot/ chatbot. Meaningful time with friends and family helps keep your human side alive</strong></li>
             </ul>
           </div>
           <div class="tl-side">
@@ -1167,6 +1214,76 @@
 </nav>
  
 <script>
+  /* Expandable strategy cards: collapsed peek that fades out, smooth height animation on open */
+  (function () {
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var chevron = '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg>';
+
+    document.querySelectorAll('.st-card').forEach(function (card) {
+      var cols = card.querySelector('.tl-cols'), tl = card.querySelector('.tl');
+      if (!tl) return;
+
+      var rows = tl.querySelectorAll('.tl-row');
+      rows.forEach(function (r) { r.classList.remove('rv'); });
+
+      var body = document.createElement('div');
+      body.className = 'st-body';
+      body.id = card.id + '-body';
+      tl.parentNode.insertBefore(body, cols || tl);
+      if (cols) body.appendChild(cols);
+      body.appendChild(tl);
+
+      var tag = card.querySelector('.st-tag');
+      if (tag) {
+        var n = document.createElement('span');
+        n.className = 'st-count';
+        /* n.textContent = rows.length + ' steps'; */
+        tag.appendChild(n);
+      }
+
+      var wrap = document.createElement('div');
+      wrap.className = 'st-toggle';
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'st-more';
+      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-controls', body.id);
+      btn.innerHTML = '<span>Read more</span>' + chevron;
+      wrap.appendChild(btn);
+      card.appendChild(wrap);
+      card.classList.add('st-x');
+
+      var label = btn.querySelector('span');
+
+      body.addEventListener('transitionend', function (e) {
+        if (e.target === body && e.propertyName === 'height' && card.classList.contains('open')) body.style.height = 'auto';
+      });
+
+      btn.addEventListener('click', function () {
+        if (!card.classList.contains('open')) {
+          body.style.height = body.offsetHeight + 'px';
+          void body.offsetHeight;
+          card.classList.add('open');
+          body.style.height = body.scrollHeight + 'px';
+          if (reduce) body.style.height = 'auto';
+          btn.setAttribute('aria-expanded', 'true');
+          label.textContent = 'Show less';
+        } else {
+          body.style.height = body.offsetHeight + 'px';
+          void body.offsetHeight;
+          card.classList.remove('open');
+          body.style.height = '';
+          btn.setAttribute('aria-expanded', 'false');
+          label.textContent = 'Read more';
+          var top = card.getBoundingClientRect().top;
+          if (top < 0) window.scrollTo({ top: window.scrollY + top - 90, behavior: reduce ? 'auto' : 'smooth' });
+        }
+      });
+    });
+  })();
+</script>
+
+<script>
   /* Fade elements in as they scroll into view (runs once per element, then cleans up after itself) */
   (function () {
     var root = document.documentElement;
@@ -1179,7 +1296,7 @@
           if (e.isIntersecting) show(t, true);
           else if (e.boundingClientRect.top < 0) show(t, false); /* already scrolled past (e.g. via a nav link): show instantly */
         });
-      }, { rootMargin: '0px 0px -6% 0px', threshold: 0 });
+      }, { rootMargin: '0px 0px 20% 0px', threshold: 0 });
 
       function show(t, animate) {
         io.unobserve(t);
